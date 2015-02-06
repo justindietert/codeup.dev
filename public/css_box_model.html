@@ -3,28 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Box Model Exercise</title>
-    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:300,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400|Source+Code+Pro:300,600' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/box_model.css">
 </head>
 <body>
-    <h1><a href="http://en.wikipedia.org/wiki/Visible_spectrum">Visible Spectrum Wavelengths</a></h1>
-    <div class="red">
-        <p>620&ndash;750 nm</p>
+    <div class="container">
+        <div class="content">
+            <h1><a href="http://en.wikipedia.org/wiki/Visible_spectrum">Visible Spectrum Wavelengths</a></h1>
+
+            <div id="red" class="styled">
+                <p>620&ndash;750 nm</p>
+            </div>
+
+            <div class="push_first">
+                <div id="orange" class="styled">
+                    <p>590&ndash;620 nm</p>
+                </div>
+
+                <div class="push_after">
+                    <div id="yellow" class="styled">
+                        <p>570&ndash;590 nm</p>
+                    </div>
+                    
+                    <div class="push_after">
+                        <div id="green" class="styled">
+                            <p>495&ndash;570 nm</p>
+                        </div>
+                        
+                        <div class="push_after">
+                            <div id="blue" class="styled">
+                                <p>450&ndash;495 nm</p>
+                            </div>
+                            
+                            <div class="push_after">
+                                <div id="purple" class="styled">
+                                    <p>380&ndash;450 nm</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+        </div>
     </div>
-    <div class="orange">
-        <p>590&ndash;620 nm</p>
-    </div>
-    <div class="yellow">
-        <p>570&ndash;590 nm</p>
-    </div>
-    <div class="green">
-        <p>495&ndash;570 nm</p>
-    </div>
-    <div class="blue">
-        <p>450&ndash;495 nm</p>
-    </div>
-    <div class="purple">
-        <p>380&ndash;450 nm</p>
-    </div>   
+    
 </body>
 </html>

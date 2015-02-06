@@ -1,59 +1,94 @@
 
-/*html {
-    background-color: #f2f2f2;
-}*/
-
-body {
-    /*font-family: 'Source Code Pro', monospace;*/
-    font-family: serif;
+html {
+    background-color: #dddddd;
+    background-image: url(../img/pixel.png), url(../img/dew.jpg);
+    background-repeat: repeat, no-repeat;
+    background-size: 25px 25px, cover;
 }
 
-/*h1 {
-    font-weight: 300;
-}*/
+body {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 16px;
+    /*font-family: serif;*/
+}
+
+.container {
+    width: 450px;
+    margin: 40px auto;
+    padding: 25px 35px 25px 35px;
+    background-color: rgba(240,240,240,0.6);
+    border-radius: 15px;
+}
+
+h1 {
+    font-family: 'Source Sans Pro';
+    font-size: 34px;
+    font-weight: 400;
+    margin-top: 0px;
+}
+
+a, a:visited, a:active {
+    color: #555555;
+    text-decoration: none;
+    border-bottom: 1px #666666 dotted;
+    padding-bottom: 6px;
+}
+
+a:hover {
+    color: #85144b;
+    text-decoration: none;
+    border-bottom: none;
+}
 
 p {
     margin: 0px;
 }
 
-div {
+div.content {
+    width: 440px;
+    margin: 0 auto;
+}
+
+div.styled {
     width: 150px;
     height: 50px;
-    border: solid 1px black;
+    border: solid 1px #111111;
     padding: 10px;
     margin-bottom: 10px;
     color: white;
-    /*font-weight: 600;*/
-    font-weight: bold;
-
+    font-weight: 600;
+    /*font-weight: bold;*/
 }
 
-div.red {
-    background-color: #FF4136;
-}
-
-div.orange {
-    background-color: #FF851B;
+div.push_first {
     margin-left: 30px;
 }
 
-div.yellow {
+div.push_after {
+    margin-left: inherit;
+}
+
+div#red {
+    background-color: #FF4136;
+}
+
+div#orange {
+    background-color: #FF851B;
+}
+
+div#yellow {
     background-color: #FFDC00;
-    margin-left: 60px;
 }
 
-div.green {
+div#green {
     background-color: #2ECC40;
-    margin-left: 90px;
 }
 
-div.blue {
+div#blue {
     background-color: #0074D9;
-    margin-left: 120px;
 }
 
-div.purple {
+div#purple {
     background-color: #B10DC9;
-    margin-left: 150px;
 }
 

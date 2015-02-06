@@ -1,0 +1,16 @@
+
+p {
+    margin: 0px;
+}
+
+.container {
+    width: 500px;
+    height: 500px;
+}
+
+.box {
+    width: 72px;
+    height: 72px;
+    border: 1px solid black;
+    float: left;
+}
