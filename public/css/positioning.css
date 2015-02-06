@@ -3,10 +3,6 @@ html, body {
     padding: 0;
 }
 
-body {
-    position: relative;
-}
-
 #ribbon {
     position: absolute;
     top: 0;
@@ -42,10 +38,6 @@ h1 {
     float: left;
     font-weight: bold;
     color: white;
-}
-
-.nm_right {
-    float: right;
 }
 
 img.top_right {
