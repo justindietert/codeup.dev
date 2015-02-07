@@ -1,34 +1,106 @@
-body {
-    padding-top: 85px;
-}
 
-
-
-
-
-/* Sticky footer styles
--------------------------------------------------- */
 html {
     position: relative;
     min-height: 100%;
 }
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #f5f5f5;
+    /* Margin bottom by footer height */
+    margin-bottom: 210px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 400;
+    font-size: 15px;
+    background-color: #e7e7eb;
 }
 
-/* Custom page CSS
+
+
+/* Sticky footer styles
 -------------------------------------------------- */
-/* Not required for template or sticky footer method. */
 
-.text-muted {
-  margin: 20px 0;
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 210px;
+    background-color: #fff;
 }
+
+.social-block {
+    padding-top: 40px;
+}
+
+.social-block ul li a {
+    font-size: 34px;
+    color: #96969a;
+    margin: 0;
+}
+
+ul#social {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+ul#social li {
+    display: inline;
+}
+
+.footer-text {
+    margin: 0;
+    padding-top: 20px;
+    color: #96969a;
+    text-align: center;
+    line-height: 25px;
+}
+
+.sub-footer {
+    height: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.sub-footer > .container-fluid {
+    padding: 0;
+}
+
+#indigo-brand, #blue-brand, #purple-brand, 
+#fuchsia-brand, #red-brand, #maroon-brand {
+    height: 10px;
+}
+
+#indigo-brand {
+    background-color: #221c35;
+}
+
+#blue-brand {
+    background-color: #333399;
+}
+
+#purple-brand {
+    background-color: #673ab7;
+}
+
+#fuchsia-brand {
+    background-color: #b10dc9;
+}
+
+#red-brand {
+    background-color: #e83944;
+}
+
+#maroon-brand {
+    background-color: #85144b;
+}
+
+
+
+
+
+
+
+
+
+
