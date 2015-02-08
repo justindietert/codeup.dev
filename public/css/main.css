@@ -59,6 +59,18 @@ a.site-nav {
     text-decoration: none;
 }
 
+.icon-nav-link {
+    font-size: 14px;
+}
+
+.menu-icon {
+    font-size: 25px;
+}
+
+.menu-position {
+    padding-top: 10px;
+}
+
 .logo-area {
     padding-top: 15px;
 }
@@ -73,7 +85,7 @@ a.site-nav {
 -------------------------------------------------- */
 
 .feature {
-    height: 400px;
+    min-height: 400px;
 }
 
 .feature-img {

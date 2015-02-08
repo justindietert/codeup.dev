@@ -32,14 +32,37 @@
   <nav class="nav-jd">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-1 col-sm-offset-1 logo-area"><a href="#"><img src="/img/jd-logo@2x.png" alt="Justin Dietert" class="jd-logo"></a></div>
+        <div class="col-xs-1 col-xs-offset-1 logo-area"><a href="#"><img src="/img/jd-logo@2x.png" alt="Justin Dietert" class="jd-logo"></a></div>
 
-        <div class="col-sm-1 col-sm-offset-2 nav-link"><a href="#" class="site-nav">Work</a></div>
-        <div class="col-sm-1 col-sm-offset-1 nav-link"><a href="#" class="site-nav">Resum&eacute;</a></div>
-        <div class="col-sm-1 col-sm-offset-1 nav-link"><a href="#" class="site-nav">About</a></div>
-        <div class="col-sm-1 col-sm-offset-1 nav-link"><a href="#" class="site-nav">Contact</a></div>
+        <div class="col-sm-1 col-sm-offset-2 hidden-xs nav-link"><a href="#" class="site-nav">Work&nbsp;&nbsp;<i class="fa fa-angle-double-down icon-nav-link"></i></a></div>
+        <div class="col-sm-1 col-sm-offset-1 hidden-xs nav-link"><a href="#" class="site-nav">Resum&eacute;</a></div>
+        <div class="col-sm-1 col-sm-offset-1 hidden-xs nav-link"><a href="#" class="site-nav">About</a></div>
+        <div class="col-sm-1 col-sm-offset-1 hidden-xs nav-link"><a href="#" class="site-nav">Contact</a></div>
+
+        <div class="col-xs-1 col-xs-offset-8 menu-position">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#expand" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <i class="fa fa-bars menu-icon"></i>
+          </button>
+        </div> <!-- end navigation button -->
+
+        <div id="expand" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown active">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Work&nbsp;&nbsp;<i class="fa fa-angle-double-down icon-nav-link"></i></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Print and identity</a></li>
+                <li><a href="#">Web development</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Resum&eacute;</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+
       </div>
-    </div> <!-- /container -->
+    </div> 
   </nav>
   
   <div class="container-fluid">
