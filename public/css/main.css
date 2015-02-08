@@ -11,9 +11,10 @@ body {
     font-family: 'Alegreya Sans', sans-serif;
     font-weight: 400;
     /*font-size: 15px;*/
+    /*background-color: #e7e7eb;*/
     background-color: #e7e7eb;
     /*Necessary for fixed nav*/
-    min-height: 2000px;
+    min-height: 1200px;
     padding-top: 80px;
     /*Necessary for sticky footer*/
     padding-bottom: 213px;
@@ -35,7 +36,7 @@ h1 {
 
 .nav-jd {
     height: 80px; /*remember to change body padding-top to match*/
-    background-color: rgba(150,150,154,0.5);
+    background-color: rgba(231,231,235,0.9);
     padding-right: 0;
     padding-left: 0;
     max-height: 340px;
@@ -45,17 +46,60 @@ h1 {
     top: 0;
     z-index: 1030;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     color: #333399;
 }
 
-.nav-links {
+.nav-link {
     padding-top: 25px;
 }
 
 a.site-nav {
     color: #333399;
     text-decoration: none;
+}
+
+.logo-area {
+    padding-top: 15px;
+}
+
+.jd-logo {
+    width: 50px;
+    height: 50px
+}
+
+
+/* Main content styles
+-------------------------------------------------- */
+
+.feature {
+    height: 400px;
+}
+
+.feature-img {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.feature-img-desktop {
+    background-image: url(../img/desktop-view.jpg);
+}
+
+.indigo {
+    background-color: #221c35;
+}
+
+.maroon {
+    background-color: #85144b;
+}
+
+.red {
+    background-color: #e83944;
+}
+
+.form-area {
+    height: 650px;
 }
 
 
@@ -99,7 +143,7 @@ ul#social {
 
 ul#social li {
     display: inline;
-    padding-right: 10px;
+    padding-right: 15px;
 }
 
 ul#social li:last-child {
@@ -138,32 +182,32 @@ ul#social li:last-child {
     padding-right: 0;
 }*/
 
-#indigo-brand, #blue-brand, #purple-brand, 
-#fuchsia-brand, #red-brand, #maroon-brand {
+#indigo-bar, #blue-bar, #purple-bar, 
+#fuchsia-bar, #red-bar, #maroon-bar {
     height: 10px;
 }
 
-#indigo-brand {
+#indigo-bar {
     background-color: #221c35;
 }
 
-#blue-brand {
+#blue-bar {
     background-color: #333399;
 }
 
-#purple-brand {
+#purple-bar {
     background-color: #673ab7;
 }
 
-#fuchsia-brand {
+#fuchsia-bar {
     background-color: #b10dc9;
 }
 
-#red-brand {
+#red-bar {
     background-color: #e83944;
 }
 
-#maroon-brand {
+#maroon-bar {
     background-color: #85144b;
 }
 
