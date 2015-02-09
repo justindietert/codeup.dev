@@ -1,0 +1,254 @@
+
+/* Main custom styles
+-------------------------------------------------- */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: 400;
+    /*font-size: 15px;*/
+    /*background-color: #e7e7eb;*/
+    background-color: #fff;
+    /*Necessary for fixed nav*/
+    min-height: 1200px;
+    padding-top: 70px;
+    /*Necessary for sticky footer*/
+    padding-bottom: 213px;
+}
+
+.no-lr-pad {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+h1 {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: 100;
+    font-size: 48px;
+    color: #fff;
+    line-height: 58px;
+}
+
+.header-bold {
+    font-weight: 400;
+}
+
+
+
+/* Main content styles
+-------------------------------------------------- */
+
+.indigo {
+    background-color: #221c35;
+}
+
+.maroon {
+    background-color: #85144b;
+}
+
+.red {
+    background-color: #e83944;
+}
+
+.blue {
+    background-color: #333399;
+}
+
+.purple {
+    background-color: #673ab7;
+}
+
+.fuchsia {
+    background-color: #b10dc9;
+}
+
+.rel {
+    position: relative;
+}
+
+
+
+/* K E R N I N G
+-------------------------------------------------- */
+
+/*.char2 {
+    margin-left: -5px;
+}*/
+
+
+
+/* Nav styles
+-------------------------------------------------- */
+
+.nav-jd {
+    height: 70px; /*remember to change body padding-top to match*/
+    background-color: rgb(231,231,235);
+    /*padding-right: 0;
+    padding-left: 0;
+    max-height: 340px;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 1030;
+    font-size: 18px;
+    font-weight: 400;
+    color: #333399;*/
+}
+
+.jd-logo {
+    width: 50px;
+    height: 50px
+}
+
+button.nav-bar-toggle {
+    border: 0;
+}
+
+/*.nav-link {
+    padding-top: 25px;
+}*/
+
+/*a.site-nav {
+    color: #333399;
+    text-decoration: none;
+}
+
+.icon-nav-link {
+    font-size: 14px;
+}
+
+.menu-icon {
+    font-size: 25px;
+}
+
+.menu-position {
+    padding-top: 10px;
+}
+
+.logo-area {
+    padding-top: 15px;
+}*/
+
+
+
+
+
+
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    padding-bottom: 55px;
+}
+
+.social-block {
+    padding-top: 40px;
+    margin: 0;
+}
+
+.social-block ul li a {
+    font-size: 34px;
+    color: #96969a;
+    margin: 0;
+}
+
+.social-block ul li a:hover {
+    color: #606064;
+}
+
+.social-block ul li a:active {
+    color: #333399;
+}
+
+ul#social {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+ul#social li {
+    display: inline;
+    padding-right: 15px;
+}
+
+ul#social li:last-child {
+    padding-right: 0;
+}
+
+.site-desc, .site-info {
+    margin: 0;
+    color: #96969a;
+    text-align: center;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 20px;
+}
+
+.site-desc {
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.site-info {
+    padding-top: 10px;
+}
+
+.sub-footer {
+    height: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+#indigo-bar, #blue-bar, #purple-bar, 
+#fuchsia-bar, #red-bar, #maroon-bar {
+    height: 10px;
+}
+
+#indigo-bar {
+    background-color: #221c35;
+}
+
+#blue-bar {
+    background-color: #333399;
+}
+
+#purple-bar {
+    background-color: #673ab7;
+}
+
+#fuchsia-bar {
+    background-color: #b10dc9;
+}
+
+#red-bar {
+    background-color: #e83944;
+}
+
+#maroon-bar {
+    background-color: #85144b;
+}
+
+
+
+
+
+
+
+
+
+
