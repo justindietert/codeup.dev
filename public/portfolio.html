@@ -13,13 +13,24 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:300,400|Alegreya+Sans:100,300,400,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:300,400|Alegreya+Sans:100,100italic,300,400,400italic' rel='stylesheet' type='text/css'>
     
     <!-- FontAwesome icons-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
+    <!-- Lettering.js -->
+    <script src="/js/jquery.lettering-0.6.1.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $(".fancy_title").lettering();
+      });
+    </script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -34,8 +45,8 @@
       <div class="row">
         <div class="col-xs-1 col-xs-offset-1 logo-area"><a href="#"><img src="/img/jd-logo@2x.png" alt="Justin Dietert" class="jd-logo"></a></div>
 
-        <div class="col-sm-1 col-sm-offset-2 hidden-xs nav-link"><a href="#" class="site-nav">Work&nbsp;&nbsp;<i class="fa fa-angle-double-down icon-nav-link"></i></a></div>
-        <div class="col-sm-1 col-sm-offset-1 hidden-xs nav-link"><a href="#" class="site-nav">Resum&eacute;</a></div>
+        <div class="col-sm-1 col-sm-offset-2 hidden-xs nav-link"><a href="#" class="site-nav">Work&nbsp;&nbsp;<i class="fa fa-caret-down icon-nav-link"></i></a></div>
+        <div class="col-sm-1 col-sm-offset-1 hidden-xs nav-link"><a href="/resume.html" class="site-nav">Resum&eacute;</a></div>
         <div class="col-sm-1 col-sm-offset-1 hidden-xs nav-link"><a href="#" class="site-nav">About</a></div>
         <div class="col-sm-1 col-sm-offset-1 hidden-xs nav-link"><a href="#" class="site-nav">Contact</a></div>
 
@@ -46,35 +57,39 @@
           </button>
         </div> <!-- end navigation button -->
 
-        <div id="expand" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown active">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Work&nbsp;&nbsp;<i class="fa fa-angle-double-down icon-nav-link"></i></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Print and identity</a></li>
-                <li><a href="#">Web development</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Resum&eacute;</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
+        <div id="expand" class="">
+          
         </div><!--/.nav-collapse -->
 
       </div>
     </div> 
   </nav>
+
+
+
   
   <div class="container-fluid">
-    <div class="row">
+    <div class="row rel">
       <div class="col-sm-5 feature feature-img feature-img-desktop indigo"></div>
-      <div class="col-sm-7 feature indigo"></div>
+
+      <div class="col-sm-7 col-sm-offset-4 hidden-xs feature float-over top">
+        <h1>Justin Dietert</h1>
+      </div>
+
+      <div class="col-sm-7 feature indigo hidden-xs"></div>
     </div>
+
     
-    <div class="row">
-      <div class="col-sm-5 feature maroon"></div>
-      <div class="col-sm-7 feature feature-img maroon"></div>
+    <div class="row rel">
+      <div class="col-sm-5 feature maroon hidden-xs"></div>
+
+      <div class="col-sm-7 col-sm-offset-4 hidden-xs feature float-over top">
+        <h1>Print and identity design</h1>
+      </div>
+
+      <div class="col-sm-7 feature feature-img feature-img-print maroon"></div>
     </div>
+
     
     <div class="row">
       <div class="col-sm-5 feature feature-img red"></div>
@@ -132,8 +147,7 @@
     </div>
   </div>
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="/js/bootstrap.min.js"></script>
 </body>

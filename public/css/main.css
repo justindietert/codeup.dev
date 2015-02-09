@@ -23,13 +23,78 @@ body {
 h1 {
     font-family: 'Alegreya Sans', sans-serif;
     font-weight: 100;
-    font-size: 55px;
+    font-size: 48px;
+    color: #fff;
+    line-height: 58px;
 }
 
-/*.no-lr-pad {
-    padding-left: 0;
-    padding-right: 0;
-}*/
+.header-bold {
+    font-weight: 400;
+}
+
+.header-italic {
+    font-family: 'Alegreya Sans';
+    font-style: italic;
+    font-weight: 100;
+}
+
+/* Main content styles
+-------------------------------------------------- */
+
+.feature {
+    height: 400px;
+}
+
+.feature-img {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.feature-img-desktop {
+    background-image: url(../img/desktop-view-light.jpg);
+}
+
+.indigo {
+    background-color: #221c35;
+}
+
+.maroon {
+    background-color: #85144b;
+}
+
+.red {
+    background-color: #e83944;
+}
+
+.form-area {
+    height: 650px;
+}
+
+.rel {
+    position: relative;
+    /*overflow: hidden;*/
+}
+
+.float-over {
+    position: absolute;
+    top: 140px;
+    left: 0;
+}
+
+.top {
+    z-index: 10;
+}
+
+
+/* K E R N I N G
+-------------------------------------------------- */
+
+.char2 {
+    margin-left: -5px;
+}
+
+
 
 /* Nav styles
 -------------------------------------------------- */
@@ -46,7 +111,7 @@ h1 {
     top: 0;
     z-index: 1030;
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 400;
     color: #333399;
 }
 
@@ -80,39 +145,12 @@ a.site-nav {
     height: 50px
 }
 
-
-/* Main content styles
--------------------------------------------------- */
-
-.feature {
-    min-height: 400px;
+#expand {
+    height: 200px;
 }
 
-.feature-img {
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 
-.feature-img-desktop {
-    background-image: url(../img/desktop-view.jpg);
-}
 
-.indigo {
-    background-color: #221c35;
-}
-
-.maroon {
-    background-color: #85144b;
-}
-
-.red {
-    background-color: #e83944;
-}
-
-.form-area {
-    height: 650px;
-}
 
 
 
