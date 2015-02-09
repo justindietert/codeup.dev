@@ -42,8 +42,21 @@ h2 {
 h3 {
     font-family: 'Alegreya Sans', sans-serif;
     font-weight: 400;
-    font-size: 34px;
-    line-height: 39px;
+    font-size: 30px;
+    line-height: 35px;
+    margin-bottom: 15px;
+}
+
+.h3-top {
+    margin-top: 0;
+}
+
+p {
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 25px;
+    margin-bottom: 15px;
 }
 
 a.view-work {
@@ -139,6 +152,11 @@ a.site-nav {
 
 .feature-img-desktop-red {
     background-image: url(../img/desktop-view-red.jpg);
+}
+
+.form-row {
+    padding-top: 70px;
+    padding-bottom: 70px;
 }
 
 .indigo {
