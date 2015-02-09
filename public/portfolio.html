@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:300,400|Alegreya+Sans:100,100italic,300,400,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400|Alegreya+Sans:100,300,400,400italic' rel='stylesheet' type='text/css'>
     
     <!-- FontAwesome icons-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -29,6 +29,7 @@
     <script>
       $(document).ready(function() {
         $(".fancy_title").lettering();
+        $(".link_kern").lettering();
       });
     </script>
 
@@ -45,7 +46,7 @@
       <div class="row">
         <div class="col-xs-1 col-xs-offset-1 logo-area"><a href="#"><img src="/img/jd-logo@2x.png" alt="Justin Dietert" class="jd-logo"></a></div>
 
-        <div class="col-sm-1 col-sm-offset-2 hidden-xs nav-link"><a href="#" class="site-nav">Work&nbsp;&nbsp;<i class="fa fa-caret-down icon-nav-link"></i></a></div>
+        <div class="col-sm-1 col-sm-offset-2 hidden-xs nav-link"><a href="#" class="site-nav"><span class="link_kern">Work </span><i class="fa fa-caret-down icon-nav-link"></i></a></div>
         <div class="col-sm-1 col-sm-offset-1 hidden-xs nav-link"><a href="/resume.html" class="site-nav">Resum&eacute;</a></div>
         <div class="col-sm-1 col-sm-offset-1 hidden-xs nav-link"><a href="#" class="site-nav">About</a></div>
         <div class="col-sm-1 col-sm-offset-1 hidden-xs nav-link"><a href="#" class="site-nav">Contact</a></div>
@@ -57,8 +58,7 @@
           </button>
         </div> <!-- end navigation button -->
 
-        <div id="expand" class="">
-          
+        <div id="expand" class=""> 
         </div><!--/.nav-collapse -->
 
       </div>
@@ -69,36 +69,47 @@
 
   
   <div class="container-fluid">
+
+
     <div class="row rel">
-      <div class="col-sm-5 feature feature-img feature-img-desktop indigo"></div>
-
-      <div class="col-sm-7 col-sm-offset-4 hidden-xs feature float-over top">
-        <h1>Justin Dietert</h1>
+      <div class="col-md-5 feature feature-img feature-img-desktop indigo"></div>
+      <div class="col-md-7 col-md-offset-4 hidden-xs hidden-sm float-over-main top">
+        <h1 class="white-text">Justin Dietert is a graphic designer and&nbsp;web developer based in San Antonio,&nbsp;<span class="fancy_title">Te</span>xas.</h1>
       </div>
-
-      <div class="col-sm-7 feature indigo hidden-xs"></div>
+      <div class="col-md-7 feature indigo hidden-xs hidden-sm"></div>
     </div>
 
     
     <div class="row rel">
-      <div class="col-sm-5 feature maroon hidden-xs"></div>
-
-      <div class="col-sm-7 col-sm-offset-4 hidden-xs feature float-over top">
-        <h1>Print and identity design</h1>
+      <div class="col-md-5 feature maroon hidden-xs hidden-sm"></div>
+      <div class="col-md-7 col-md-offset-4 hidden-xs hidden-sm float-over top">
+        <h2 class="white-text">Print and identity design</h2>
       </div>
-
-      <div class="col-sm-7 feature feature-img feature-img-print maroon"></div>
+      <div class="col-md-3 col-md-offset-1 hidden-xs hidden-sm float-over-link top">
+        <a href="#" class="view-work">View work</a>
+      </div>
+      <div class="col-md-7 feature feature-img feature-img-desktop-maroon maroon"></div>
     </div>
 
     
-    <div class="row">
-      <div class="col-sm-5 feature feature-img red"></div>
-      <div class="col-sm-7 feature red"></div>
+    <div class="row rel">
+      <div class="col-md-5 feature feature-img feature-img-desktop-red red"></div>
+      <div class="col-md-7 col-md-offset-4 hidden-xs hidden-sm float-over top">
+        <h2 class="white-text">Web development</h2>
+      </div>
+      <div class="col-md-3 col-md-offset-1 hidden-xs hidden-sm float-over-link top">
+        <a href="#" class="view-work">View work</a>
+      </div>
+      <div class="col-md-7 feature red hidden-xs hidden-sm"></div>
     </div>
 
+
     <div class="row">
-      <div class="col-sm-10 col-sm-offset-1 form-area"></div>
+      <div class="col-md-3 col-md-offset-1"></div>
+      <div class="col-md-6 col-md-offset-1"></div>
     </div>
+
+
   </div> <!-- /container -->
 
   
