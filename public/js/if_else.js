@@ -9,15 +9,15 @@ var favorite = 'green'; // todo, change this to your favorite color from the lis
 // todo: When a color is encountered log a message that tells the color, and an object of that color.
 //       Example: Blue is the color of the sky.
 if (color == 'red') {
-    console.log('Red is the color of blood.');
+    console.log(color + ' is the color of blood.');
 } else if (color == 'orange') {
-    console.log('Orange is the color of an orange.');
+    console.log(color + ' is the color of an orange.');
 } else if (color == 'yellow') {
-    console.log('Yellow is the color of the sun.');
+    console.log(color + ' is the color of the sun.');
 } else if (color == 'green') {
-    console.log('Green is the color of grass.');
+    console.log(color + ' is the color of grass.');
 } else if (color == 'blue') {
-    console.log('Blue is the color of the sky.');
+    console.log(color + ' is the color of the sky.');
 } else {
     console.log('I do not know anything by that color.')
 }
