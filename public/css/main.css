@@ -59,6 +59,10 @@ p {
     margin-bottom: 15px;
 }
 
+/*p.form-area {
+    max-width: 100px;
+}*/
+
 a.view-work {
     width: 200px;
     padding: 15px 35px;
@@ -210,11 +214,6 @@ a.site-nav {
 .white-text {
     color: #fff;
 }
-
-
-/*.form-area {
-    height: 650px;
-}*/
 
 .rel {
     position: relative;
