@@ -32,6 +32,10 @@ h1 {
     font-weight: 400;
 }
 
+.header-block {
+    max-width: 600px;
+}
+
 h2 {
     font-family: 'Alegreya Sans', sans-serif;
     font-weight: 100;
