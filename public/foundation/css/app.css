@@ -1,0 +1,127 @@
+
+/* Main content styles
+-------------------------------------------------- */
+
+body {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 300;
+    /*background-color: #e7e7eb;   */
+}
+
+h1, h2, h3, p {
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+h1, h2 {
+    font-weight: 100;
+}
+
+h3, p {
+    font-weight: 400;
+}
+
+.indigo {
+    background-color: #221c35;
+}
+
+.maroon {
+    background-color: #85144b;
+}
+
+.red {
+    background-color: #e83944;
+}
+
+.blue {
+    background-color: #333399;
+}
+
+.purple {
+    background-color: #673ab7;
+}
+
+.fuchsia {
+    background-color: #b10dc9;
+}
+
+.indigo-text {
+    color: #221c35;
+}
+
+.maroon-text {
+    color: #85144b;
+}
+
+.red-text {
+    color: #e83944;
+}
+
+.blue-text {
+    color: #333399;
+}
+
+.purple-text {
+    color: #673ab7;
+}
+
+.fuchsia-text {
+    color: #b10dc9;
+}
+
+.white-text {
+    color: #fff;
+}
+
+.rel {
+    position: relative;
+}
+
+/* Image styles
+-------------------------------------------------- */
+
+.feature-img {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.feature-img-desktop {
+    background-image: url(../img/desktop-view-light.jpg);
+}
+
+.feature-img-desktop-maroon {
+    background-image: url(../img/desktop-view-maroon.jpg);
+}
+
+.feature-img-desktop-red {
+    background-image: url(../img/desktop-view-red.jpg);
+}
+
+
+/* Footer styles
+-------------------------------------------------- */
+
+#indigo-bar {
+    background-color: #221c35;
+}
+
+#blue-bar {
+    background-color: #333399;
+}
+
+#purple-bar {
+    background-color: #673ab7;
+}
+
+#fuchsia-bar {
+    background-color: #b10dc9;
+}
+
+#red-bar {
+    background-color: #e83944;
+}
+
+#maroon-bar {
+    background-color: #85144b;
+}
+
