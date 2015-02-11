@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For Loop JS</title>
+</head>
+<body>
+    <script>
+        // for (var i = 0; i <= 10; i++) {
+        //     if (i > 0) {
+        //     console.log(i);
+        //     }
+        // }
+
+        // for (var i = 100; i >= 5; i -= 5) {
+        //     console.log(i);
+        // }
+
+        var sum = 0;
+
+        for (var i = 0; i < 1000; i++) {
+            if ((i % 3 == 0) || (i % 5 == 0)) {
+                sum += i;
+            }
+        }
+
+        console.log(sum);
+
+    </script>
+</body>
+</html>
