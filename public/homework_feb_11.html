@@ -17,11 +17,11 @@
                 if (isNaN(guess) == true || guess == '' || guess.trim() == '') {
                     alert("Guess # " + i + " is not a number. Enter numbers only, please and thank you.");
                 } else if (guess < 1 || guess > 100) {
-                    alert("Guess # " + i + " is out of range. Only enter a number from 1 to 100, please and thank you.");
+                    alert("Guess # " + i + ", " + "'" + guess + "'" + " is out of range. Only enter a number from 1 to 100, please and thank you.");
                 } else if (guess < myNumber) {
-                    alert("Guess # " + i + " is wrong. Go higher.");
+                    alert("Guess # " + i + ", " + "'" + guess + "'" + " is wrong. Go higher.");
                 } else if (guess > myNumber) {
-                    alert("Guess # " + i + " is wrong. Go lower.");
+                    alert("Guess # " + i + ", " + "'" + guess + "'" + " is wrong. Go lower.");
                 } else {
                     alert("Correct! My number is " + myNumber + "!");
                     break;
