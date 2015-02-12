@@ -8,11 +8,27 @@
     <script>
     // todo: Ask the user for their name.
     // Keep asking if an empty input is provided.
+    var userName = prompt("What is your name?");
 
+    while (userName == '' || userName.trim() == '' || isNaN(userName) == false) {
+        userName = prompt("Invalid entry! What is your name?");
+    }
     // todo: Show an alert message that welcomes the user based on their input.
+    userName = userName.trim();
+    alert("Welcome, " + userName + "!");
 
+    //----------------------------------------------------------------------------
     // todo: Ask the user if they like pizza.
     //       Based on their answer tell show a creative alert message.
+    var iLikePizzaILikeIt = confirm("Do you like pizza? Please click 'OK' if yes or 'Cancel' if no.");
+
+    if (iLikePizzaILikeIt == true) {
+        alert("Hi, Steve! I like pizza. I LIKE it!");
+    } else {
+        alert("Steve...");
+    }
+
+
     </script>
 </body>
 </html>
