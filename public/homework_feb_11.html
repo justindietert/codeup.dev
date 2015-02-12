@@ -11,12 +11,12 @@
         do {
             var myNumber = Math.floor((Math.random()*100)+1);
 
-            for (var i = 1; i <= 100; i++) {
-                var guess = prompt("What number am I thinking of from 1 to 100? I will tell you if my number is higher or lower until your guess is correct.");
+            for (var i = 1; i <= 50; i++) {
+                var guess = prompt("What number am I thinking of from 1 to 100? I will tell you if my number is higher or lower until your guess is correct. You only get 50 guesses.");
 
                 guess = guess.trim();
 
-                var alertSentence = function() 
+                function alertSentence()
                 {
                     return "Guess #" + i + ", " + "\"" + guess + "\"" + ", is ";
                 }
