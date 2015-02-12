@@ -12,23 +12,26 @@
             var myNumber = Math.floor((Math.random()*100)+1);
 
             for (var i = 1; i <= 50; i++) {
-                var guess = prompt("What number am I thinking of from 1 to 100? I will tell you if my number is higher or lower until your guess is correct. You only get 50 guesses.");
+                var guess = prompt("What number am I thinking of from 1 to 100? I will tell you if my number is higher or lower than your guess until you are correct. You only get fifty guesses. Please enter numerals (1 to 100) only.");
 
                 guess = guess.trim();
 
                 function alertSentence()
                 {
-                    return "Guess #" + i + ", " + "\"" + guess + "\"" + ", is ";
+                    return "Guess #" + i + " out of fifty, " + "\"" + guess + "\"" + ", is ";
                 }
 
-                if (isNaN(guess) == true || guess == '') {
-                    alert("Guess #" + i + " is not a number. Enter numbers only, please and thank you.");
+                if (i == 50) {
+                    alert("You are out of guesses!");
+                    break;
+                } else if (isNaN(guess) == true || guess == '') {
+                    alert(alertSentence() + "not a numeral. Enter a numeral only, please and thank you.");
                 } else if (guess < 1 || guess > 100) {
-                    alert(alertSentence() + "out of range. Only enter a number from 1 to 100, please and thank you.");
+                    alert(alertSentence() + "out of range. Enter a numeral from 1 to 100, please and thank you.");
                 } else if (guess < myNumber) {
-                    alert(alertSentence() + "wrong. Go higher.");
+                    alert(alertSentence() + "wrong. Guess higher.");
                 } else if (guess > myNumber) {
-                    alert(alertSentence() + "wrong. Go lower.");
+                    alert(alertSentence() + "wrong. Guess lower.");
                 } else {
                     alert("Correct! My number is " + myNumber + "!");
                     break;
