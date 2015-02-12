@@ -10,7 +10,7 @@
     // Keep asking if an empty input is provided.
     var userName = prompt("What is your name?");
 
-    while (userName == '' || userName.trim() == '' || isNaN(userName) == false) {
+    while (userName == false || isNaN(userName) == false) {
         userName = prompt("Invalid entry! What is your name?");
     }
     // todo: Show an alert message that welcomes the user based on their input.
