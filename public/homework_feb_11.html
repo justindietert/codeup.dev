@@ -16,11 +16,11 @@
 
                 var alertSentence = function() 
                 {
-                    return "Guess # " + i + ", " + "\"" + guess + "\"" + ", is ";
+                    return "Guess #" + i + ", " + "\"" + guess + "\"" + ", is ";
                 }
 
                 if (isNaN(guess) == true || guess == '' || guess.trim() == '') {
-                    alert("Guess # " + i + " is not a number. Enter numbers only, please and thank you.");
+                    alert("Guess #" + i + " is not a number. Enter numbers only, please and thank you.");
                 } else if (guess < 1 || guess > 100) {
                     alert(alertSentence() + "out of range. Only enter a number from 1 to 100, please and thank you.");
                 } else if (guess < myNumber) {
