@@ -14,12 +14,14 @@
             for (var i = 1; i <= 100; i++) {
                 var guess = prompt("What number am I thinking of from 1 to 100? I will tell you if my number is higher or lower until your guess is correct.");
 
+                guess = guess.trim();
+
                 var alertSentence = function() 
                 {
                     return "Guess #" + i + ", " + "\"" + guess + "\"" + ", is ";
                 }
 
-                if (isNaN(guess) == true || guess == '' || guess.trim() == '') {
+                if (isNaN(guess) == true || guess == '') {
                     alert("Guess #" + i + " is not a number. Enter numbers only, please and thank you.");
                 } else if (guess < 1 || guess > 100) {
                     alert(alertSentence() + "out of range. Only enter a number from 1 to 100, please and thank you.");
