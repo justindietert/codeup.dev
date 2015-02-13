@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Functions JS</title>
+</head>
+<body>
+
+    <script>
+
+    //Immediately-Invoked Function Expression (a.k.a. Self-Invoking Function)
+    (function(){
+
+        var myNameIs = 'Justin'; // todo: Fill in your name here.
+
+        function sayHello(name)
+        {
+            console.log("Hello from " + name + ".");
+        }
+
+        sayHello(myNameIs);
+        
+        var random = Math.floor((Math.random()*100)+1);
+        
+        function isOdd(number)
+        {
+            var message = (number % 2 != 0) ? number + " is odd." : number + " is even.";
+            console.log(message);
+        }
+
+        isOdd(random);
+
+    })();
+    
+    </script>
+</body>
+</html>
