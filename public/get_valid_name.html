@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get Valid Name</title>
+</head>
+<body>
+    <script>
+        (function(){
+
+            function getValidName() {
+                var name = prompt('Please input your name. Blank data or numbers will not be saved.')
+                if((name == '' || name.trim() == '' || name == null) || !isNaN(parseInt(name))) {
+                    return getValidName();
+                }
+
+                return name;
+            }
+
+            // getValidName();
+            alert("Your name is: " + getValidName());
+
+        })();
+    </script>
+</body>
+</html>
