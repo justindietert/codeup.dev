@@ -25,13 +25,18 @@
         // Problem 2
         //_________________________________________
         var sum = 0;
-
-        for (var i = 1; i <= 10; i++) {
-            if ()
-            sum = 
+       
+        for (var i = 0; i <= 4000000; i++) {
+            var fibNumber = (Math.pow(1.618034, i) - Math.pow(-0.618034, i)) / Math.sqrt(5);
+            var floorFib = Math.floor(fibNumber);
+           
+            if ((floorFib % 2 == 0) && (floorFib <= 4000000)) {
+                sum += floorFib;
+            }
         }
 
         console.log(sum);
+
     </script>
 </body>
 </html>
