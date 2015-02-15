@@ -9,15 +9,44 @@
         //------------------------------------
         // Palindrome Checker
         //------------------------------------
-        // prompt user for a string.
+    (function(){
+        do {
+            // prompt user for a string.
+            function getValidString() 
+            {
+                var string = prompt('Please enter a string of characters.\nI will tell you if it is a palindrome or not.\nBlank data will not be accepted.')
+                if(string == '' || string.trim() == '' || string == null) {
+                    return getValidString();
+                }
 
-        // check if the string is a palindrome or not.
+                return string;
+            }
 
-        // console log or alert the user yes or no.
+            // convert user-input to all uppercase for equal character comparison
+            var allCaps = getValidString().toUpperCase();
 
+            // convert user-input to array
+            var breakUp = allCaps.split('');
 
+            // remove white space elements from array
+            var removeWhiteSpace = breakUp.filter(function(str) {
+                return /\S/.test(str);
+            });
 
+            var backToString = removeWhiteSpace.join('');
+            var reverseArray = removeWhiteSpace.reverse();
+            var reverseToString = reverseArray.join('');
 
-    </script>
+            // test if string is a palindrome
+            if (backToString == reverseToString) {
+                alert(allCaps + " is a palindrome.");
+            } else {
+                alert(allCaps + " is NOT a palindrome.");
+            }
+
+        } while (confirm("Check another entry?") == true);
+    })();
+
+    </script>   
 </body>
 </html>
