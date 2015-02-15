@@ -24,18 +24,42 @@
         //-----------------------------------------
         // Problem 2
         //_________________________________________
-        var sum = 0;
+        // var sum = 0;
        
-        for (var i = 0; i <= 4000000; i++) {
-            var fibNumber = (Math.pow(1.618034, i) - Math.pow(-0.618034, i)) / Math.sqrt(5);
-            var floorFib = Math.floor(fibNumber);
+        // for (var i = 0; i <= 4000000; i++) {
+        //     var fibNumber = (Math.pow(1.618034, i) - Math.pow(-0.618034, i)) / Math.sqrt(5);
+        //     var floorFib = Math.floor(fibNumber);
            
-            if ((floorFib % 2 == 0) && (floorFib <= 4000000)) {
-                sum += floorFib;
+        //     if ((floorFib % 2 == 0) && (floorFib <= 4000000)) {
+        //         sum += floorFib;
+        //     }
+        // }
+
+        // console.log(sum);
+
+        //-----------------------------------------
+        // Problem 3
+        //_________________________________________
+
+        var oddNum;
+        var primeNum;
+        var targetNum = 600851475143;
+        var num;
+
+        for (var i = 2; i < num; i++) {
+
+            if (i % 2 != 0) {
+                oddNum = i;
             }
+
+            var lastDigit = i % 10;
+
+            if (lastDigit != 5) {
+                primeNum = i;
+            }
+            
         }
 
-        console.log(sum);
 
     </script>
 </body>
