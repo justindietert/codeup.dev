@@ -12,8 +12,14 @@
 
         game.timer = 10;
 
+        game.player1 = 'Isaac';
+        game.player2 = 'Justin';
+
+        whichPlayer = 1;
+        game['player' + whichPlayer]; // allows you to concatenate 1 to the player property so that the person assigned to player 1 is then called.
+
         game.addToScore = function () {
-            this.score++; //using 'this' can get complicated in complex code. 
+            this.score++; // using 'this' can get complicated in complex code. 
                           // it is still okay to simply use the actual object name 'game'.
         };
 
