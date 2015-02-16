@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game</title>
+</head>
+<body>
+    <script>
+        var game = {};
+
+        game.score = 0;
+
+        game.timer = 10;
+
+        game.addToScore = function () {
+            this.score++; //using 'this' can get complicated in complex code. 
+                          // it is still okay to simply use the actual object name 'game'.
+        };
+
+        game.goal = function () {
+            this.addToScore();
+        };
+
+
+    </script>
+</body>
+</html>
