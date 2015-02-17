@@ -5,7 +5,7 @@
     <title>Defuse the BOM</title>
 </head>
 <body>
-    <h2 id="message">This BOM will self destruct in <span id="timer">5</span> seconds...</h2>
+    <h2 id="message">This BOM will self destruct in <span id="timer">_</span> seconds...</h2>
 
     <button id="defuser">Defuse the BOM</button>
 
