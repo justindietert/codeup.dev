@@ -960,20 +960,30 @@
         }
       });
 
-  function findMostCommon(item) {
-    var frequency = {};  // array of frequency.
-    var max = 0;  // holds the max frequency.
-    var result;   // holds the max frequency element.
-    for(var v in item) {
-            frequency[item[v]]=(frequency[item[v]] || 0)+1; // increment frequency.
-            if(frequency[item[v]] > max) { // is this frequency > max so far ?
-                    max = frequency[item[v]];  // update max.
-                    result = item[v];          // update result.
-            }
-}
-  }
+  // find most common item in an array after sorting it
+  function findMostCommonItemIn(array) {
+      array.sort();
 
-  var mostCommonEyeColor = findMostCommon(allColors);
+      if (array.length == 0) {
+        return [null, 0];
+      }
+
+      var n = max = 1;
+      var maxNum = array[0]; 
+      var pv, cv;
+
+       for(var i = 0; i < array.length; i++, pv = array[i-1], cv = array[i]) {
+          if (pv == cv) { 
+            if (++n >= max) {
+               max = n; 
+               maxNum = cv;
+            }
+          } else n = 1;
+       }
+       return [maxNum, max];
+    };
+
+
 
 
 
@@ -991,7 +1001,7 @@
           "Total females: ": femaleTotal
         },
     "list_of_all_companies": companyList,
-    "most_commonly_occuring_eye_color": mostCommonEyeColor
+    "most_commonly_occuring_eye_color": findMostCommonItemIn(allColors)
   };
 
   console.log(report);
