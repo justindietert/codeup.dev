@@ -984,8 +984,15 @@
     };
 
 // ---------------------------------
-  var balanceActive, balanceNonActive;
-  
+  var balanceActive = 0, balanceNonActive = 0;
+
+  profiles.forEach(function(element, index) {
+    if (element.balance && element.isActive) {
+      balanceActive += getAmount(element.balance);
+    } else if (element.balance && (element.isActive == false)) {
+      balanceNonActive += getAmount(element.balance);
+    }
+  });
 
 
 

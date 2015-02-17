@@ -6,6 +6,9 @@
 </head>
 <body>
     <script>
+    // --------------------------------------
+    // Area of Circle
+    // --------------------------------------
         // create a circle object
         var circle = {
             radius: 3,
@@ -33,6 +36,31 @@
         // log info about the circle
         circle.logInfo(false);
         circle.logInfo(true);
+
+    // --------------------------------------
+    // Area of Trapezoid
+    // --------------------------------------
+        // area = (a + b) * h/2
+
+        var trapezoid = {
+            topLength: 5,
+            bottomLength: 10,
+            height: 15,
+            getArea: function () {
+                return (this.topLength + this.bottomLength) * (this.height/2);
+            },
+            logInfo: function () {
+                console.log("The area of a trapezoid with a top length of " + this.topLength + ", a bottom length of " + this.bottomLength + ", and a height of " + this.height + ", is " + this.getArea() + ".");
+            }
+        };
+
+        trapezoid.logInfo();
+
+
+
+
+
+
     </script>
 </body>
 </html>
