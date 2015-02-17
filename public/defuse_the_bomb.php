@@ -30,6 +30,7 @@
         function defuseTheBOM()
         {
             clearInterval(countdown);
+            alert('You saved the DOM from the BOM!');
         }
 
         // Don't modify anything below this line!
