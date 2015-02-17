@@ -40,25 +40,33 @@
         //-----------------------------------------
         // Problem 3
         //_________________________________________
+        // The prime factors of 13195 are 5, 7, 13 and 29.
+        // What is the largest prime factor of the number 600851475143 ?
 
         var oddNum;
         var primeNum;
-        var targetNum = 600851475143;
+        // var targetNum = 600851475143;
+        var targetNum = 13195;
         var num;
+        var arrayOfPrimes = [];
 
-        for (var i = 2; i < num; i++) {
+        for (var i = 2; i < targetNum; i++) {
 
             if (i % 2 != 0) {
                 oddNum = i;
             }
 
-            var lastDigit = i % 10;
+            lastDigit = oddNum % 10;
 
-            if (lastDigit != 5) {
-                primeNum = i;
-            }
-            
+            if ((lastDigit != 5) || (i == 2 || i == 3 || i == 5)) {
+                primeNum = oddNum;
+                arrayOfPrimes.push(primeNum);
+            }   
+
+            // targetNum / primeNum
         }
+
+        console.log(arrayOfPrimes);
 
 
     </script>
