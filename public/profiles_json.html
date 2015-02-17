@@ -16,7 +16,7 @@
   // Gender count of users
   // List of all companies represented by the users
   // Name the most commonly occuring eye color.
-  // - 
+  // What's the balance of all non-active accounts vs. the balance of all active accounts?
   
   
 
@@ -983,6 +983,9 @@
        return [maxNum, max];
     };
 
+// ---------------------------------
+  var balanceActive, balanceNonActive;
+  
 
 
 
@@ -1001,7 +1004,12 @@
           "Total females: ": femaleTotal
         },
     "list_of_all_companies": companyList,
-    "most_commonly_occuring_eye_color": findMostCommonItemIn(allColors)
+    "most_commonly_occuring_eye_color": findMostCommonItemIn(allColors),
+    "balance_of_active_accounts_vs_non-active": 
+        {
+          "Balance of active: ": balanceActive, 
+          "Balance of non-active: ": balanceNonActive
+        }
   };
 
   console.log(report);
