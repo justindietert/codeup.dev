@@ -3,13 +3,13 @@
 -------------------------------------------------- */
 
 body {
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     /*background-color: #e7e7eb;   */
 }
 
 h1, h2, h3, p {
-    font-family: 'Alegreya Sans', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 h1, h2 {
