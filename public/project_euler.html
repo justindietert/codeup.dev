@@ -49,6 +49,7 @@
         var targetNum = 13195;
         var num;
         var arrayOfPrimes = [];
+        var lastDigit;
 
         for (var i = 2; i < targetNum; i++) {
 
@@ -58,7 +59,11 @@
 
             lastDigit = oddNum % 10;
 
-            if ((lastDigit != 5) || (i == 2 || i == 3 || i == 5)) {
+            if (i == 2 || i == 3 || i == 5) {
+                arrayOfPrimes.push(i);
+            }
+
+            if (lastDigit != 5) {
                 primeNum = oddNum;
                 arrayOfPrimes.push(primeNum);
             }   
