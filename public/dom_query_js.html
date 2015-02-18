@@ -22,6 +22,15 @@
         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
         culpa qui officia deserunt mollit anim id est laborum.
     </p>
+    <p class="sub-paragraph">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+        ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat. Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+        culpa qui officia deserunt mollit anim id est laborum.
+    </p>
 
     <script>
 
@@ -38,15 +47,38 @@
         subHeader.style['color'] = 'blue';
 
         // todo: get all list items
-        // var listItems = ;
+        var listItems = document.getElementsByTagName('li');
 
         // todo: set text color on every other list item to grey
+        for (var i = 0; i < listItems.length; i++) {
+            if (i % 2 != 0) {
+                listItems[i].style['color'] = '#aaaaaa';
+            }
+        }
+
         // todo: set text color of li with dbid = 1 to blue
+        for (var i = 0; i < listItems.length; i++) {
+            var dbId = listItems[i].attributes['data-dbid'].value;
+
+            if (dbId == 1) {
+                listItems[i].style['color'] = 'blue';
+            }
+        }
 
         // todo: get all elements with class name sub-paragraph
-        // var subParagraphs = ;
+        var subParagraphs = document.getElementsByClassName('sub-paragraph');
 
         // todo: change the text in the first sub paragraph to "Mission Accomplished!"
+        for (var i = 0; i < subParagraphs.length; i++) {
+            subParagraphs[0].innerHTML = 'Mission Accomplished!';
+        }
+
+        // subParagraphs.forEach.call(subParagraphs, function(element, index){
+            
+        //         element.innerHTML = 'Mission';
+            
+        // });
+        
 
     </script>
 
