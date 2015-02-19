@@ -32,47 +32,79 @@
         culpa qui officia deserunt mollit anim id est laborum.
     </p>
 
+    <button id="btn1">Change Main Header</button>
+    <button id="btn2">Subheader to Blue</button>
+    <button id="btn3">Every Other List Item to Grey</button>
+    <button id="btn4">First List Item Blue</button>
+    <button id="btn5">Change First Paragraph</button>
+
     <script>
 
         // todo: get the main header element by id
         var mainHeader = document.getElementById('main-header');
 
         // todo: set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML = "JavaScript is Cool";
+        function changeMainHeader() { 
+            mainHeader.innerHTML = "JavaScript is Cool";
+        }
 
+        var btn1 = document.getElementById('btn1');
+        btn1.addEventListener('click', changeMainHeader, false);
+
+        
         // todo: get the sub header element by id
         var subHeader = document.getElementById('sub-header');
 
         // todo: set the text color of subHeader to blue
-        subHeader.style['color'] = 'blue';
+        function subheaderToBlue() {   
+            subHeader.style['color'] = 'blue';
+        } 
+
+        var btn2 = document.getElementById('btn2');
+        btn2.addEventListener('click', subheaderToBlue, false);
 
         // todo: get all list items
         var listItems = document.getElementsByTagName('li');
 
         // todo: set text color on every other list item to grey
-        for (var i = 0; i < listItems.length; i++) {
-            if (i % 2 != 0) {
-                listItems[i].style['color'] = '#aaaaaa';
+        function everyOtherItem() {
+            for (var i = 0; i < listItems.length; i++) {
+                if (i % 2 != 0) {
+                    listItems[i].style['color'] = '#aaaaaa';
+                }
             }
         }
+
+        var btn3 = document.getElementById('btn3');
+        btn3.addEventListener('click', everyOtherItem, false);
 
         // todo: set text color of li with dbid = 1 to blue
-        for (var i = 0; i < listItems.length; i++) {
-            var dbId = listItems[i].attributes['data-dbid'].value;
+        function firstListItem() {
+            for (var i = 0; i < listItems.length; i++) {
+                var dbId = listItems[i].attributes['data-dbid'].value;
 
-            if (dbId == 1) {
-                listItems[i].style['color'] = 'blue';
+                if (dbId == 1) {
+                    listItems[i].style['color'] = 'blue';
+                }
             }
         }
+
+        var btn4 = document.getElementById('btn4');
+        btn4.addEventListener('click', firstListItem, false);
 
         // todo: get all elements with class name sub-paragraph
         var subParagraphs = document.getElementsByClassName('sub-paragraph');
 
         // todo: change the text in the first sub paragraph to "Mission Accomplished!"
-        // for (var i = 0; i < subParagraphs.length; i++) {
+        function firstParagraph() {
             subParagraphs[0].innerHTML = 'Mission Accomplished!';
-        // }
-        // don't need a for loop since you are only targeting one array item
+        }
+
+        var btn5 = document.getElementById('btn5');
+        btn5.addEventListener('click', firstParagraph, false);
+
+
+        
         
 
     </script>
