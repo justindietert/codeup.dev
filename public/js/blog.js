@@ -2,26 +2,29 @@ var blog = [
     {
         "title": "This is a title for this",
         "date": "2015-10-30",
-        "author": "Isaac Castillo",
-        "image": "http://www.someimagehere.com/image.jpg",
+        "author": "Justin Dietert",
+        "image": "http://lorempixel.com/600/350/abstract/3/",
         "tags": [
-            "web",
-            "design",
-            "html"
+            "Web",
+            "Design",
+            "HTML",
+            "CSS"
         ],
-        "category": "development",
+        "category": "Design",
         "post": "lorem ipsum dolor and stuff here"
     },
     {
-        "title": "This is a title for this",
+        "title": "Another title here",
         "date": "2015-10-30",
-        "author": "Isaac Castillo",
+        "author": "Justin Dietert",
+        "image": "http://lorempixel.com/600/350/abstract/10/",
         "tags": [
-            "web",
-            "design",
-            "html"
+            "Web",
+            "Design",
+            "HTML",
+            "Media queries"
         ],
-        "category": "development",
+        "category": "Development",
         "post": "lorem ipsum dolor and stuff here"
     }
 ]
