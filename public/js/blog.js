@@ -65,15 +65,19 @@ function populateExistingPost(post) {
     var author = '<h5>By <a href="#">' + post.author + '</a></h5>';
     var authorDate = '<h5>Posted on <a href="">' + post.date + '</a>';
     var category = ' under <a href="">' + post.category + '</a>.</h5>';
-    var tags = [];
+    var tagGroup = [];
     post.tags.forEach(function (element, index, array) {
-        tags += '<a href="#">' + element + '</a>' + ', ';
+        if (index == post.tags.length - 1) {
+            tagGroup += '<a href="#">' + element + '</a>';
+        } else {
+            tagGroup += '<a href="#">' + element + '</a>' + ', ';
+        }
     });
     
     var image = '<div class="row"><div class="medium-12 columns">' + '<img class="image-cell" src="' + post.image + '" alt="">';
     var body = '<p>' + post.body + '</p>' + '</div></div></article>';
 
-    var postHTML = title + author + authorDate + category + '<h5>Tags: ' + tags + '</h5>' + image + body;
+    var postHTML = title + author + authorDate + category + '<h5>Tags: ' + tagGroup + '</h5>' + image + body;
     return postHTML;
 }
 
