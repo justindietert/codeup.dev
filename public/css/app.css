@@ -14,12 +14,12 @@ h1, h2, h3, h4, h5, h6, p, a {
 
 h1 {
     font-weight: 300;
-    line-height: 1.2;
+    /*line-height: 1.2;*/
 }
 
-h2, h3 {
-    font-weight: 400;
-    font-size: 2.625rem;
+h2 {
+    font-weight: 600;
+    /*font-size: 2.625rem;*/
 }
 
 h2 a {
@@ -30,9 +30,9 @@ p {
     font-weight: 400;
 }
 
-article p:first-child {
+/*article p:first-child {
     font-size: 1.25rem;
-}
+}*/
 
 h2.tag-line {
     font-weight: 400;
@@ -42,12 +42,12 @@ h2.tag-line {
     color: #96969a;
 }
 
-h4 {
+h3 {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     color: #919195;
     /*margin-bottom: 1rem;*/
-    font-size: 1.4375rem;
+    /*font-size: 1.4375rem;*/
 }
 
 h5 {
@@ -55,7 +55,7 @@ h5 {
     font-weight: 300;
     color: #919195;
     /*margin-bottom: 1rem;*/
-    font-size: 1rem;
+    /*font-size: 1rem;*/
 }
 
 h6 {
@@ -141,8 +141,8 @@ aside h5 {
 }
 
 .image-cell {
-    margin-top: 0.5em;
-    margin-bottom: 1.75em;
+    margin-top: 1.325rem;
+    margin-bottom: 1.75rem;
 }
 
 .footer-text {
@@ -177,9 +177,9 @@ aside h5 {
 .top-bar-section ul li > a {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
-    font-size: 0.938rem;
+    /*font-size: 0.938rem;*/
     color: #e7e7eb;
-    letter-spacing: 0.025rem;
+    letter-spacing: 0.05rem;
 }
 
 .top-bar .name h1 a {
@@ -192,7 +192,7 @@ aside h5 {
 .top-bar .toggle-topbar.menu-icon a {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
-    font-size: 0.938rem;
+    /*font-size: 0.938rem;*/
     letter-spacing: 0.125rem;
     color: #e7e7eb;
 }

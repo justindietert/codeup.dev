@@ -1,7 +1,7 @@
 var blog = [
     {
         "title": "This is a title for this",
-        "date": "2015-10-30",
+        "date": "2015/10/30",
         "author": "Justin Dietert",
         "image": "http://lorempixel.com/600/350/abstract/3/",
         "tags": [
@@ -15,7 +15,7 @@ var blog = [
     },
     {
         "title": "Another title here",
-        "date": "2015-10-30",
+        "date": "2015/10/30",
         "author": "Justin Dietert",
         "image": "http://lorempixel.com/600/350/abstract/10/",
         "tags": [
@@ -62,16 +62,21 @@ var allPosts = [];
 
 function populateExistingPost(post) {
     var title = '<article><hr /><h2><a href="#">' + post.title + '</a></h2>';
-    var authorDate = '';
-    var tags = '';
+    var author = '<h5>By <a href="#">' + post.author + '</a></h5>';
+    var authorDate = '<h5>Posted on <a href="">' + post.date + '</a>';
+    var category = ' under <a href="">' + post.category + '</a>.</h5>';
+    var tags = [];
     post.tags.forEach(function (element, index, array) {
-        tags += element + ', ';
+        tags += '<a href="#">' + element + '</a>' + ', ';
     });
+    
+    var image = '<div class="row"><div class="medium-12 columns">' + '<img class="image-cell" src="' + post.image + '" alt="">';
+    var body = '<p>' + post.body + '</p>' + '</div></div></article>';
 
-    var body = '</article>';
-    var postHTML = title + authorDate + tags + body;
+    var postHTML = title + author + authorDate + category + '<h5>Tags: ' + tags + '</h5>' + image + body;
     return postHTML;
 }
+
 
 
 
