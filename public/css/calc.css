@@ -1,0 +1,320 @@
+
+/* Main content styles
+-------------------------------------------------- */
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    background-color: #e7e7eb;   
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1 {
+    font-weight: 300;
+    /*line-height: 1.2;*/
+}
+
+h2 {
+    font-weight: 600;
+    /*font-size: 2.625rem;*/
+}
+
+h2 a {
+    color: #221c35;
+}
+
+p {
+    font-weight: 400;
+}
+
+/*article p:first-child {
+    font-size: 1.25rem;
+}*/
+
+h2.tag-line {
+    font-weight: 400;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.125rem;
+    color: #96969a;
+}
+
+h3 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    color: #919195;
+    /*margin-bottom: 1rem;*/
+    /*font-size: 1.4375rem;*/
+}
+
+h5 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    color: #606064;
+    /*margin-bottom: 1rem;*/
+    /*font-size: 1rem;*/
+}
+
+h6 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    color: #96969a;
+}
+
+hr {
+  border: solid #d6d6da;
+  border-width: 1px 0 0;
+  clear: both;
+  margin: 1.25rem 0 1.1875rem;
+  height: 0; }
+
+.indigo {
+    background-color: #221c35;
+}
+
+.maroon {
+    background-color: #85144b;
+}
+
+.red {
+    background-color: #e83944;
+}
+
+.blue {
+    background-color: #333399;
+}
+
+.purple {
+    background-color: #673ab7;
+}
+
+.fuchsia {
+    background-color: #b10dc9;
+}
+
+.white {
+    background-color: #fff;
+}
+
+.indigo-text {
+    color: #221c35;
+}
+
+.maroon-text {
+    color: #85144b;
+}
+
+.red-text {
+    color: #e83944;
+}
+
+.blue-text {
+    color: #333399;
+}
+
+.purple-text {
+    color: #673ab7;
+}
+
+.fuchsia-text {
+    color: #b10dc9;
+}
+
+.white-text {
+    color: #fff;
+}
+
+.rel {
+    position: relative;
+}
+
+
+/* Blog styles
+-------------------------------------------------- */
+
+aside h5 {
+    padding-left: 0.875rem;
+    padding-top: 0.75rem;
+}
+
+.image-cell {
+    margin-top: 1.325rem;
+    margin-bottom: 1.75rem;
+}
+
+.footer-text {
+    color: #96969a;
+}
+
+.top-row {
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.contain-to-grid {
+    background: #333399;
+}
+
+.top-bar {
+    background: #333399;
+}
+
+.lighter-weight {
+    font-weight: 300;
+    text-transform: none;
+    letter-spacing: 0.125rem;
+}
+
+.medium-weight {
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0.0875rem;
+}
+
+.top-bar-section ul li > a {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    /*font-size: 0.938rem;*/
+    color: #e7e7eb;
+    letter-spacing: 0.05rem;
+}
+
+.top-bar .name h1 a {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.125rem;
+    color: #e7e7eb;
+}
+
+.top-bar .toggle-topbar.menu-icon a {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    /*font-size: 0.938rem;*/
+    letter-spacing: 0.125rem;
+    color: #e7e7eb;
+}
+
+.top-bar-section ul li {
+    background: #333399; }
+
+.top-bar-section li.hover > a:not(.button) {
+      background-color: #221c35;
+      background: #333399;
+      color: #e7e7eb; }
+    .top-bar-section li:not(.has-form) a:not(.button) {
+      padding: 0 0.9375rem;
+      line-height: 2.8125rem;
+      background: #333399; }
+      .top-bar-section li:not(.has-form) a:not(.button):hover {
+        background-color: #221c35;
+        background: #2c2c84; }
+    .top-bar-section li.active:not(.has-form) a:not(.button) {
+      padding: 0 0.9375rem;
+      line-height: 2.8125rem;
+      color: #e7e7eb;
+      background: #2c2c84; }
+      .top-bar-section li.active:not(.has-form) a:not(.button):hover {
+        background: #2c2c84;
+        color: #e7e7eb; }
+
+.top-bar-section ul li > a.button:hover, .top-bar-section ul li > a.button:focus {
+    background-color: #221c35;
+    color: #e7e7eb;
+    }
+
+
+.top-bar .toggle-topbar a {
+      color: #e7e7eb;
+      text-transform: uppercase;
+      font-size: 0.8125rem;
+      font-weight: bold;
+      position: relative;
+      display: block;
+      padding: 0 0.9375rem;
+      height: 2.8125rem;
+      line-height: 2.8125rem; }
+    .top-bar .toggle-topbar.menu-icon {
+      top: 50%;
+      margin-top: -16px; }
+      .top-bar .toggle-topbar.menu-icon a {
+        height: 34px;
+        line-height: 33px;
+        padding: 0 2.5rem 0 0.9375rem;
+        color: #e7e7eb;
+        position: relative; }
+        .top-bar .toggle-topbar.menu-icon a span::after {
+          content: "";
+          position: absolute;
+          display: block;
+          height: 0;
+          top: 50%;
+          margin-top: -8px;
+          right: 0.9375rem;
+          box-shadow: 0 0 0 1px #FFFFFF, 0 7px 0 1px #FFFFFF, 0 14px 0 1px #FFFFFF;
+          width: 16px; }
+        .top-bar .toggle-topbar.menu-icon a span:hover:after {
+          box-shadow: 0 0 0 1px "", 0 7px 0 1px "", 0 14px 0 1px ""; }
+  .top-bar.expanded {
+    height: auto;
+    background: transparent; }
+    .top-bar.expanded .title-area {
+      background: #333399; }
+    .top-bar.expanded .toggle-topbar a {
+      color: #e7e7eb; }
+      .top-bar.expanded .toggle-topbar a span::after {
+        box-shadow: 0 0 0 1px #888888, 0 7px 0 1px #888888, 0 14px 0 1px #888888; }
+
+
+
+/* Image styles
+-------------------------------------------------- */
+
+.feature-img {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.feature-img-desktop {
+    background-image: url(../img/desktop-view-light.jpg);
+}
+
+.feature-img-desktop-maroon {
+    background-image: url(../img/desktop-view-maroon.jpg);
+}
+
+.feature-img-desktop-red {
+    background-image: url(../img/desktop-view-red.jpg);
+}
+
+
+/* Footer styles
+-------------------------------------------------- */
+
+#indigo-bar {
+    background-color: #221c35;
+}
+
+#blue-bar {
+    background-color: #333399;
+}
+
+#purple-bar {
+    background-color: #673ab7;
+}
+
+#fuchsia-bar {
+    background-color: #b10dc9;
+}
+
+#red-bar {
+    background-color: #e83944;
+}
+
+#maroon-bar {
+    background-color: #85144b;
+}
+
