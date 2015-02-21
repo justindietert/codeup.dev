@@ -54,34 +54,48 @@
 
     
     <div class="row"> 
-      <div class="medium-5 columns" role="content">
+      <div class="medium-5 columns" role="content" id="calc">
 
           <hr>
           
-          <ul class="small-block-grid-3">
-              <li><input type="text" value="" name="left-operand" id="input" readonly></li>
-              <li><input type="text" value="" name="operator" id="input" readonly></li>
-              <li><input type="text" value="" name="right-operand" id="input" readonly></li>
-          </ul>
+          <div class="row">
+            <div class="small-2 columns">
+              <input class="button medium-grey" type="button" name="clear" value="C">
+            </div>
+            <div class="small-10 columns">
+              <input type="text" value="" name="calcScreen" readonly>
+              <!-- <li><input type="text" value="" name="operator" readonly></li>
+              <li><input type="text" value="" name="right-operand" readonly></li> -->
+            </div>
+          </div>
 
           <ul class="small-block-grid-4">
-              <li><a href="#" data-calc="7" class="button medium-grey" id="key">7</a></li>
-              <li><a href="#" data-calc="8" class="button medium-grey" id="key">8</a></li>
-              <li><a href="#" data-calc="9" class="button medium-grey" id="key">9</a></li>
-              <li><a href="#" data-calc="+" class="button success" id="key">+</a></li>
-              <li><a href="#" data-calc="4" class="button medium-grey" id="key">4</a></li>
-              <li><a href="#" data-calc="5" class="button medium-grey" id="key">5</a></li>
-              <li><a href="#" data-calc="6" class="button medium-grey" id="key">6</a></li>
-              <li><a href="#" data-calc="–" class="button success" id="key">–</a></li>
-              <li><a href="#" data-calc="1" class="button medium-grey" id="key">1</a></li>
-              <li><a href="#" data-calc="2" class="button medium-grey" id="key">2</a></li>
-              <li><a href="#" data-calc="3" class="button medium-grey" id="key">3</a></li>
-              <li><a href="#" data-calc="x" class="button success" id="key">x</a></li>
-              <li><a href="#" data-calc="clear" class="button medium-grey" id="key">C</a></li>
-              <li><a href="#" data-calc="0" class="button medium-grey" id="key">0</a></li>
-              <li><a href="#" data-calc="=" class="button medium-grey" id="key">=</a></li>
-              <li><a href="#" data-calc="/" class="button success" id="key">/</a></li>
+              <li><input class="button medium-grey" type="button" name="seven" value="7"></li>
+              <li><input class="button medium-grey" type="button" name="eight" value="8"></li>
+              <li><input class="button medium-grey" type="button" name="nine" value="9"></li>
+
+              <li><input class="button success" type="button" name="divide" value="/"></li>
+
+              <li><input class="button medium-grey" type="button" name="four" value="4"></li>
+              <li><input class="button medium-grey" type="button" name="five" value="5"></li>
+              <li><input class="button medium-grey" type="button" name="six" value="6"></li>
+
+              <li><input class="button success" type="button" name="multiply" value="*"></li>
+
+              <li><input class="button medium-grey" type="button" name="one" value="1"></li>
+              <li><input class="button medium-grey" type="button" name="two" value="2"></li>
+              <li><input class="button medium-grey" type="button" name="three" value="3"></li>
+
+              <li><input class="button success" type="button" name="subtract" value="-"></li>
+              
+              <li><input class="button medium-grey" type="button" name="zero" value="0"></li>
+              <li><input class="button medium-grey" type="button" name="decimal" value="."></li>
+              <li><input class="button medium-grey" type="button" name="equals" value="="></li>
+              
+              <li><input class="button success" type="button" name="add" value="+"></li>
           </ul>  
+
+
        
       </div> 
 

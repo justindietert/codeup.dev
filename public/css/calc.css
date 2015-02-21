@@ -2,6 +2,24 @@
 /* Main content styles
 -------------------------------------------------- */
 
+textarea, input { 
+  outline: none; 
+}
+
+input[type="text"] {
+  height: 4rem;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #221c35;
+  text-align: right;
+}
+
+input[type="button"] {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  font-size: 1.25rem;
+}
+
 body {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 400;
