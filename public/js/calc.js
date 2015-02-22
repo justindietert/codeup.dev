@@ -1,5 +1,21 @@
 
+
 var inputs = document.getElementsByTagName('input');
+
+function getScreenValue() {
+    return inputs.calcScreen.value;
+}
+
+function getLastChar() {
+    return getScreenValue().substr(getScreenValue().length - 1);
+}
+
+// function getNextToLastChar() {
+//     var lastTwo = getScreenValue().substr(getScreenValue().length - 2);
+//     var target = lastTwo.split('').shift();
+//     return target;
+// }
+
 
 function zero() {
     inputs.calcScreen.value += "0";
@@ -41,29 +57,53 @@ function nine() {
     inputs.calcScreen.value += "9";
 }
 
+
+
+
 function divide() {
-    inputs.calcScreen.value += "/";
+    if ((getScreenValue() != "") && ((getLastChar() != "/") && (getLastChar() != "*") && (getLastChar() != "-") && (getLastChar() != "+") )) {
+        inputs.calcScreen.value += "/";
+    }   
 }
 
 function multiply() {
-    inputs.calcScreen.value += "*";
+   if ((getScreenValue() != "") && ((getLastChar() != "/") && (getLastChar() != "*") && (getLastChar() != "-") && (getLastChar() != "+") )) {
+        inputs.calcScreen.value += "*";
+    }  
 }
 
 function subtract() {
-    inputs.calcScreen.value += "-";
+    if ((getScreenValue() != "") && ((getLastChar() != "/") && (getLastChar() != "*") && (getLastChar() != "-") && (getLastChar() != "+") )) {
+        inputs.calcScreen.value += "-";
+    }  
 }
 
 function add() {
-    inputs.calcScreen.value += "+";
+    if ((getScreenValue() != "") && ((getLastChar() != "/") && (getLastChar() != "*") && (getLastChar() != "-") && (getLastChar() != "+") )) {
+        inputs.calcScreen.value += "+";
+    }  
 }
+
+
+
+// (getScreenValue().indexOf('.') === -1) && (getScreenValue().indexOf("+") === -1)
+
+decimalPresent = true;
+var operators = ["+", "-", "*", "/"];
 
 function decimal() {
-    inputs.calcScreen.value += ".";
+    if ((getScreenValue().indexOf('.') === -1) ) {
+        inputs.calcScreen.value += ".";
+    }
 }
 
+
+
+// .toFixed(7)
 
 function equals() {
     var answer = eval(inputs.calcScreen.value);
+
     inputs.calcScreen.value = answer;
 }
 
@@ -91,7 +131,6 @@ inputs.decimal.addEventListener('click', decimal, false);
 
 inputs.equals.addEventListener('click', equals, false);
 inputs.clear.addEventListener('click', clear, false);
-
 
 
 
