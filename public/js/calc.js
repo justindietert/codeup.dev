@@ -102,8 +102,13 @@ function decimal() {
 // .toFixed(7)
 
 function equals() {
-    var answer = eval(inputs.calcScreen.value);
 
+    if ((getScreenValue().indexOf('.') === -1) ) {
+        var answer = eval(inputs.calcScreen.value).toFixed(7);
+    } else {
+        var answer = eval(inputs.calcScreen.value);
+    }
+   
     inputs.calcScreen.value = answer;
 }
 
