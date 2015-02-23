@@ -6,24 +6,36 @@ textarea, input {
   outline: none; 
 }
 
+.float-left {
+  float: left;
+}
+
 input[type="text"] {
-  height: 4rem;
+  height: 3.625rem;
   font-size: 2.5rem;
   font-weight: 300;
   color: #221c35;
   text-align: right;
+  width: 14rem;
+  float: left;
+  margin-left: 0.25rem;
 }
 
 input[type="button"] {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
   font-size: 1.25rem;
+  /*width: 1.625em;*/
 }
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 400;
-    background-color: #e7e7eb;   
+    background-color: #e7e7eb;  
+    /*background: radial-gradient(circle, #e7e7eb 20%, #96969a); */
+    /*background-image: url(../img/LineScreen_80.png), url(../img/gradient.jpg);
+    background-repeat: repeat, no-repeat;
+    background-size: 2px 2px, cover;*/
 }
 
 h1, h2, h3, h4, h5, h6, p, a {
@@ -172,7 +184,7 @@ aside h5 {
 }
 
 .top-row {
-    margin-top: 2rem;
+    margin-top: 3rem;
     margin-bottom: 0.5rem;
 }
 
