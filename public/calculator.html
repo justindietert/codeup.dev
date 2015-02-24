@@ -47,54 +47,83 @@
       </div>
 
 
-    
-    <div class="row top-row"> 
-      <div class="small-12 columns" role="content">
-        <input class="button medium-grey float-left" type="button" name="clear" value="C">
-        <input type="text" value="" name="calcScreen" readonly>        
-      </div> 
-    </div>
+  <div class="row top-row"> <!-- Start of Calculator Container -->
+    <div class="small-12 columns">
 
-    <div class="row">
-        <div class="small-12 columns">  
-              <input class="button medium-grey" type="button" name="seven" value="7">
-              <input class="button medium-grey" type="button" name="eight" value="8">
-              <input class="button medium-grey" type="button" name="nine" value="9">
-
-              <input class="button success" type="button" name="divide" value="/">
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="small-12 columns"> 
-              <input class="button medium-grey" type="button" name="four" value="4">
-              <input class="button medium-grey" type="button" name="five" value="5">
-              <input class="button medium-grey" type="button" name="six" value="6">
-
-              <input class="button success" type="button" name="multiply" value="*">
-        </div>
-    </div>
-    
-    <div class="row">
+      <div class="row"> 
         <div class="small-12 columns">
-              <input class="button medium-grey" type="button" name="one" value="1">
-              <input class="button medium-grey" type="button" name="two" value="2">
-              <input class="button medium-grey" type="button" name="three" value="3">
+          <!-- <input class="button medium-grey float-left" type="button" name="clear" value="C"> -->
+          <span class="button medium-grey float-left" id="clear">C</span>
+          <input type="text" value="" name="calcScreen" readonly>        
+        </div> 
+      </div>
 
-              <input class="button success" type="button" name="subtract" value="-">
-       </div>
+      <div class="row">
+          <div class="small-12 columns">
+                <span class="button medium-grey">7</span>  
+                <span class="button medium-grey">8</span> 
+                <span class="button medium-grey">9</span> 
+
+                <span class="button success" id="divide">/</span> 
+
+                <!-- <input class="button medium-grey" type="button" name="seven" value="7">
+                <input class="button medium-grey" type="button" name="eight" value="8">
+                <input class="button medium-grey" type="button" name="nine" value="9">
+
+                <input class="button success" type="button" name="divide" value="/"> -->
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="small-12 columns">
+                <span class="button medium-grey">4</span>
+                <span class="button medium-grey">5</span>
+                <span class="button medium-grey">6</span>
+
+                <span class="button success" id="multiply">*</span>
+
+                <!-- <input class="button medium-grey" type="button" name="four" value="4">
+                <input class="button medium-grey" type="button" name="five" value="5">
+                <input class="button medium-grey" type="button" name="six" value="6">
+
+                <input class="button success" type="button" name="multiply" value="*"> -->
+          </div>
+      </div>
+      
+      <div class="row">
+          <div class="small-12 columns">
+                <span class="button medium-grey">1</span>
+                <span class="button medium-grey">2</span>
+                <span class="button medium-grey">3</span>
+
+                <span class="button success" id="subtract">-</span>
+
+                <!-- <input class="button medium-grey" type="button" name="one" value="1">
+                <input class="button medium-grey" type="button" name="two" value="2">
+                <input class="button medium-grey" type="button" name="three" value="3">
+
+                <input class="button success" type="button" name="subtract" value="-"> -->
+         </div>
+      </div>
+                
+      <div class="row">
+          <div class="small-12 columns"> 
+                <span class="button medium-grey">0</span>
+                <span class="button medium-grey">.</span>
+                <span class="button medium-grey">=</span>
+
+                <span class="button success" id="add">+</span>  
+
+                <!-- <input class="button medium-grey" type="button" name="zero" value="0">
+                <input class="button medium-grey" type="button" name="decimal" value=".">
+                <input class="button medium-grey" type="button" name="equals" value="=">
+                
+                <input class="button success" type="button" name="add" value="+"> -->
+         </div>
+      </div>
+
     </div>
-              
-    <div class="row">
-        <div class="small-12 columns">          
-              <input class="button medium-grey" type="button" name="zero" value="0">
-              <input class="button medium-grey" type="button" name="decimal" value=".">
-              <input class="button medium-grey" type="button" name="equals" value="=">
-              
-              <input class="button success" type="button" name="add" value="+">
-       </div>
-    </div>
-           
+  </div>  <!-- End of Calculator Container -->        
       
        
      

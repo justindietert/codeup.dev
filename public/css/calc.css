@@ -10,19 +10,35 @@ textarea, input {
   float: left;
 }
 
+span.button {
+  font-family: 'Source Code Pro', sans-serif;
+  font-weight: 400;
+  font-size: 1.25rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  margin-bottom: 0.1875rem;
+}
+
+.top-row {
+    margin-top: 3rem;
+    margin-bottom: 0;
+}
+
 input[type="text"] {
   height: 3.625rem;
   font-size: 2.5rem;
   font-weight: 300;
   color: #221c35;
   text-align: right;
-  width: 14rem;
+  width: 14.675rem;
   float: left;
-  margin-left: 0.25rem;
+  margin-left: 0.1875rem;
+  margin-bottom: 0;
 }
 
 input[type="button"] {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Source Code Pro', sans-serif;
   font-weight: 400;
   font-size: 1.25rem;
   /*width: 1.625em;*/
@@ -181,11 +197,6 @@ aside h5 {
 
 .footer-text {
     color: #96969a;
-}
-
-.top-row {
-    margin-top: 3rem;
-    margin-bottom: 0.5rem;
 }
 
 .contain-to-grid {
