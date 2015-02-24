@@ -5,7 +5,7 @@
 body {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 400;
-    background-color: #e7e7eb;   
+    /*background-color: #333399;   */
 }
 
 h1, h2, h3, h4, h5, h6, p, a {
@@ -171,11 +171,11 @@ aside h5 {
 }
 
 .contain-to-grid {
-    background: #333399;
+    background: #e7e7eb;
 }
 
 .top-bar {
-    background: #333399;
+    background: #e7e7eb;
 }
 
 .lighter-weight {
@@ -194,7 +194,7 @@ aside h5 {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     /*font-size: 0.938rem;*/
-    color: #e7e7eb;
+    color: #333399;
     letter-spacing: 0.05rem;
 }
 
@@ -202,7 +202,7 @@ aside h5 {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.125rem;
-    color: #e7e7eb;
+    color: #333399;
 }
 
 .top-bar .toggle-topbar.menu-icon a {
@@ -210,40 +210,40 @@ aside h5 {
     font-weight: 300;
     /*font-size: 0.938rem;*/
     letter-spacing: 0.125rem;
-    color: #e7e7eb;
+    color: #333399;
 }
 
 .top-bar-section ul li {
-    background: #333399; }
+    background: #e7e7eb; }
 
 .top-bar-section li.hover > a:not(.button) {
       background-color: #221c35;
-      background: #333399;
-      color: #e7e7eb; }
+      background: #e7e7eb;
+      color: #333399; }
     .top-bar-section li:not(.has-form) a:not(.button) {
       padding: 0 0.9375rem;
       line-height: 2.8125rem;
-      background: #333399; }
+      background: #e7e7eb; }
       .top-bar-section li:not(.has-form) a:not(.button):hover {
         background-color: #221c35;
         background: #2c2c84; }
     .top-bar-section li.active:not(.has-form) a:not(.button) {
       padding: 0 0.9375rem;
       line-height: 2.8125rem;
-      color: #e7e7eb;
+      color: #333399;
       background: #2c2c84; }
       .top-bar-section li.active:not(.has-form) a:not(.button):hover {
         background: #2c2c84;
-        color: #e7e7eb; }
+        color: #333399; }
 
 .top-bar-section ul li > a.button:hover, .top-bar-section ul li > a.button:focus {
     background-color: #221c35;
-    color: #e7e7eb;
+    color: #333399;
     }
 
 
 .top-bar .toggle-topbar a {
-      color: #e7e7eb;
+      color: #333399;
       text-transform: uppercase;
       font-size: 0.8125rem;
       font-weight: bold;
@@ -259,7 +259,7 @@ aside h5 {
         height: 34px;
         line-height: 33px;
         padding: 0 2.5rem 0 0.9375rem;
-        color: #e7e7eb;
+        color: #333399;
         position: relative; }
         .top-bar .toggle-topbar.menu-icon a span::after {
           content: "";
@@ -277,9 +277,9 @@ aside h5 {
     height: auto;
     background: transparent; }
     .top-bar.expanded .title-area {
-      background: #333399; }
+      background: #e7e7eb; }
     .top-bar.expanded .toggle-topbar a {
-      color: #e7e7eb; }
+      color: #333399; }
       .top-bar.expanded .toggle-topbar a span::after {
         box-shadow: 0 0 0 1px #888888, 0 7px 0 1px #888888, 0 14px 0 1px #888888; }
 
