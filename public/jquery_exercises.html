@@ -3,17 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>jQuery Exercises</title>
+    <style>
+        body {
+            font-size: 100%;
+            font-family: 'Verdana';
+            line-height: 1.5rem;
+            background: #f6f6f6;
+        }
+
+        ul {
+            padding-left: 0;
+            list-style-type: circle;
+        }
+
+        h1 {
+            margin-top: 2.5rem;
+        }
+
+        .container {
+            width: 60%;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="header" id="stuff">jQuery Exercises</h1>
-        <p class="body-text" id="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab quasi expedita, nostrum maxime. Neque libero et, fugiat facilis eveniet adipisci nesciunt, accusamus animi inventore odio unde earum natus nemo in laboriosam at aliquam, hic quae corporis dolores modi soluta nam cum doloremque. Quibusdam accusantium et non maiores, amet eligendi, natus? Temporibus dolor, asperiores voluptatum voluptas? Delectus ab repudiandae unde deleniti veniam beatae quae harum, illo deserunt magnam voluptate voluptas iusto excepturi fuga nostrum iste ullam iure ipsam dolorum atque obcaecati soluta. Repellat vel, veniam assumenda minus officia sit ab eum reiciendis, illo animi. Voluptates ipsum, magni, eius harum qui omnis.</p>
+        <h1 class="header codeup" id="stuff">jQuery Exercises</h1>
+        <p class="body-text" id="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab quasi expedita, nostrum maxime. Neque libero et, fugiat facilis eveniet adipisci nesciunt, <span class="codeup">accusamus animi inventore</span> odio unde earum natus nemo in laboriosam at aliquam, hic quae corporis dolores modi soluta nam cum doloremque. Quibusdam accusantium et non maiores, amet eligendi, natus? Temporibus dolor, asperiores voluptatum voluptas? Delectus ab repudiandae unde deleniti veniam beatae quae harum, illo deserunt magnam voluptate voluptas iusto excepturi fuga nostrum iste ullam iure ipsam dolorum atque obcaecati soluta. Repellat vel, veniam assumenda minus officia sit ab eum reiciendis, illo animi. Voluptates ipsum, magni, eius harum qui omnis.</p>
         <ul class="list" id="more-stuff">
-            <li id="first-list-item">Lorem ipsum dolor sit amet, consectetur.</li>
-            <li>Lorem ipsum dolor sit amet.</li>
-            <li>Lorem ipsum dolor sit.</li>
-            <li>Lorem ipsum dolor.</li>
-            <li>Lorem ipsum.</li>
+            <li class="list-items" id="first-list-item">Lorem ipsum dolor sit amet, consectetur.</li>
+            <li class="list-items codeup">Lorem ipsum dolor sit amet.</li>
+            <li class="list-items">Lorem ipsum dolor sit.</li>
+            <li class="list-items">Lorem ipsum dolor.</li>
+            <li class="list-items">Lorem ipsum.</li>
         </ul>
     </div>
 
@@ -21,8 +43,7 @@
     <script src="/js/jquery.js"></script>
     <script>
         $(document).ready(function() {
-            var contents = $('#intro').html();
-            alert(contents);
+            $('.codeup').css('border', 'solid 0.0625rem #0074D9').css('border-radius', '0.25rem').css('padding', '0 0.325rem 0 0.325rem').css('background', '#7FDBFF');
         });
     </script>
 </body>
