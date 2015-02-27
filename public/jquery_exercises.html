@@ -43,7 +43,10 @@
     <script src="/js/jquery.js"></script>
     <script>
         $(document).ready(function() {
-            $('.codeup').css('border', 'solid 0.0625rem #0074D9').css('border-radius', '0.25rem').css('padding', '0 0.325rem 0 0.325rem').css('background', '#7FDBFF');
+            $('li').css('font-size', '1.250rem').css('line-height', '2rem');
+            $('h1, p, li').css('color', '#001f3f');
+            var contents = $('h1').html();
+            alert(contents);
         });
     </script>
 </body>
