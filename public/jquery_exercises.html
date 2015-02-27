@@ -5,12 +5,24 @@
     <title>jQuery Exercises</title>
 </head>
 <body>
+    <div class="container">
+        <h1 class="header" id="stuff">jQuery Exercises</h1>
+        <p class="body-text" id="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab quasi expedita, nostrum maxime. Neque libero et, fugiat facilis eveniet adipisci nesciunt, accusamus animi inventore odio unde earum natus nemo in laboriosam at aliquam, hic quae corporis dolores modi soluta nam cum doloremque. Quibusdam accusantium et non maiores, amet eligendi, natus? Temporibus dolor, asperiores voluptatum voluptas? Delectus ab repudiandae unde deleniti veniam beatae quae harum, illo deserunt magnam voluptate voluptas iusto excepturi fuga nostrum iste ullam iure ipsam dolorum atque obcaecati soluta. Repellat vel, veniam assumenda minus officia sit ab eum reiciendis, illo animi. Voluptates ipsum, magni, eius harum qui omnis.</p>
+        <ul class="list" id="more-stuff">
+            <li id="first-list-item">Lorem ipsum dolor sit amet, consectetur.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit.</li>
+            <li>Lorem ipsum dolor.</li>
+            <li>Lorem ipsum.</li>
+        </ul>
+    </div>
 
 
     <script src="/js/jquery.js"></script>
     <script>
         $(document).ready(function() {
-            alert( 'The DOM has finished loading!' );
+            var contents = $('#intro').html();
+            alert(contents);
         });
     </script>
 </body>
