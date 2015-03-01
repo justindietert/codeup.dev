@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Keyboard</title>
+    <style>
+        body {
+            font-size: 100%;
+            font-family: 'Verdana';
+            line-height: 1.5rem;
+            background: #001f3f;
+            color: #0074D9;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: normal;
+            margin-top: 2.5rem;
+        }
+
+        .container {
+            width: 60%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="my-name"></h1>
+    </div>
+
+    <script src="/js/jquery.js"></script>
+    <script>
+            
+        //-----------------------------------------------------------------------------//
+        //  # Grab sequence of keys.                                                   //
+        //-----------------------------------------------------------------------------//
+
+            var keySequence = [];
+
+            $(document).keydown(function(event){
+
+            keySequence.push(event.keyCode);
+
+
+        //-----------------------------------------------------------------------------//
+        //  # When they match your name, attach your name to the h1 tag.               //
+        //-----------------------------------------------------------------------------//
+
+            var pattern = /748583847378/g;
+            var keysJoined = keySequence.join('');
+            var result = pattern.test(keysJoined);
+
+            if (result) {
+                $('h1').html('Justin');
+            }
+
+
+        //-----------------------------------------------------------------------------//
+        //  # Create the sequence below and alert('You have an additional 30 lives'):  //
+        //    up, up, down, down, left, right, left, right, b, a, b, a, enter          //
+        //-----------------------------------------------------------------------------//
+
+            console.log(keySequence);
+
+            var moarPower = /38384040373937396665666513/g;
+            var success = moarPower.test(keysJoined);
+
+            if (success) {
+                alert('You have an additional 30 lives.');
+                keySequence = [];
+            }
+
+        });
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
