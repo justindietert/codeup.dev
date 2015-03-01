@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Experiments</title>
+</head>
+<body>
+
+    <input type="text" id="textfield">
+
+    <script src="/js/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#textfield').keydown(function(event) {
+                console.log(event.keyCode);
+            });
+
+        });
+    </script>
+</body>
+</html>
