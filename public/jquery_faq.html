@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Keyboard</title>
+    <style>
+        body {
+            font-size: 100%;
+            font-family: 'Verdana';
+            line-height: 1.5rem;
+            background: #001f3f;
+            color: #0074D9;
+        }
+
+        a {
+            color: #0074D9;
+            text-decoration: none;
+        }
+
+        p#show-hide {
+            padding-top: 2rem;
+            cursor: pointer;
+        }
+
+        dl {
+            /*font-size: 3rem;*/
+            font-weight: normal;
+            padding-top: 1.5rem;
+        }
+
+        .container {
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        .invisible {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p id="show-hide">(show/hide answers)</p>
+        <dl>
+            <dt class="question">What is the location of Acadia National Park?</dt>
+            <dd class="answer invisible">Maine</dd>
+            <dt class="question">How many caves does Carlsbad Caverns contain?</dt>
+            <dd class="answer invisible">117</dd>
+            <dt class="question">How long is the Grand Canyon?</dt>
+            <dd class="answer invisible">277 miles</dd>
+            <dt class="question">Where is Mammoth Cave located?</dt>
+            <dd class="answer invisible">Kentucy</dd>
+            <dt class="question">What is the name of the forest that Sequoia National park protects?</dt>
+            <dd class="answer invisible">Giant Forest</dd>
+            <dt class="question">What are the names of the two best known geysers in Yellowstone?</dt>
+            <dd class="answer invisible"> Old Faithful and Grand Prismatic Spring</dd>
+            <dt class="question">Where is Joshua Tree National Park located?</dt>
+            <dd class="answer invisible">California</dd>
+            <dt class="question">Guadalupe Mountains contains the largest peak in Texas. What is the name of the peak?</dt>
+            <dd class="answer invisible">Guadalupe Peak</dd>
+            <dt class="question">Great Smoky Mountains National Park is part of which mountain range?</dt>
+            <dd class="answer invisible">Appalachian Mountains</dd>
+            <dt class="question">Where are the Great Sand Dunes located?</dt>
+            <dd class="answer invisible">Colorado</dd>
+        </dl>
+    </div>
+
+    <script src="/js/jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#show-hide').click(function(event) {
+                event.preventDefault();
+                $('.answer').toggleClass('invisible');
+            });
+        });
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
