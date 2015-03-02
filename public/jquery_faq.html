@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>jQuery Keyboard</title>
+    <title>jQuery Slide Toggle FAQ</title>
     <style>
         body {
             font-size: 100%;
@@ -80,7 +80,7 @@
         $(document).ready(function() {
             $('.question').click(function(event) {
                 event.preventDefault();
-                $(this).next().toggleClass('invisible');
+                $(this).next().slideToggle('fast');
             });
         });
 
