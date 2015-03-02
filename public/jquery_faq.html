@@ -31,6 +31,10 @@
             cursor: pointer;
         }
 
+        h3 {
+            cursor: pointer;
+        }
+
         h1 {
             padding-top: 1.25rem;
         }
@@ -141,18 +145,18 @@
     <script src="/js/jquery.js"></script>
     <script>
         $(document).ready(function() {
-            $('.question').click(function(event) {
+            $('dt').click(function(event) {
                 event.preventDefault();
-                $(this).next().slideToggle('fast');
+                $(this).next().fadeToggle('fast');
             });
 
             $('ul').each(function(){
                 $(this).children().first().css('font-weight', 'bold')
             });
 
-            $('li').click(function(event){
+            $('h3').click(function(event){
                 event.preventDefault();
-                $(this).parent().hide();
+                $(this).next().fadeToggle('fast');
             });
         });
 
