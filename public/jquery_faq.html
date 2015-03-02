@@ -36,11 +36,15 @@
         .invisible {
             display: none;
         }
+
+        dt {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <p id="show-hide">(show/hide answers)</p>
+        <!-- <p id="show-hide">(show/hide answers)</p> -->
         <dl>
             <dt class="question">What is the location of Acadia National Park?</dt>
             <dd class="answer invisible">Maine</dd>
@@ -68,9 +72,9 @@
     <script src="/js/jquery.js"></script>
     <script>
         $(document).ready(function() {
-            $('#show-hide').click(function(event) {
+            $('.question').click(function(event) {
                 event.preventDefault();
-                $('.answer').toggleClass('invisible');
+                $(this).next().toggleClass('invisible');
             });
         });
 
