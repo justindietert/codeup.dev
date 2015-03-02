@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>:: WHACK ::</title>
+    <style>
+        body {
+            font-size: 100%;
+            font-family: 'Verdana';
+            background: #dddddd;
+        }
+
+        .container {
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        img {
+            display: none;
+            cursor: -webkit-grabbing; 
+            cursor: -moz-grabbing;
+        }
+    </style>
+</head>
+<body>
+    <img id="mole" src="/img/mole.png" alt="mole">
+
+
+
+
+    <script src="/js/jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('img').fadeIn(250);
+
+            $('img').on('click', function(){
+                $(this).fadeOut(250);
+            });
+
+        });
+
+    </script>
+</body>
+</html>
