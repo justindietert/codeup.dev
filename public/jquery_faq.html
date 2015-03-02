@@ -46,6 +46,22 @@
             color: #001f3f;
             padding-top: 0.5rem;
         }
+
+        ul {
+            padding-left: 0;
+            margin-top: 0;
+        }
+
+        li {
+            color: #001f3f;
+        }
+
+        h3 {
+            padding-top: 1rem;
+            margin-bottom: 0.75rem;
+            font-weight: normal;
+            font-size: 1.5rem;
+        }
     </style>
 </head>
 <body>
@@ -73,6 +89,28 @@
             <dt class="question">Where are the Great Sand Dunes located?</dt>
                 <dd class="answer invisible">Colorado</dd>
         </dl>
+
+        <h3>Congaree</h3>
+        <ul>
+            <li>on the Congaree River</li>
+            <li>contains some of the tallest trees in the eastern US</li>
+            <li>located in South Carolina</li>
+            <li>26,545.86 acres </li>
+        </ul>
+        <h3>Crater Lake</h3>
+        <ul>
+            <li>located in Oregon</li>
+            <li>deepest lake in the US</li>
+            <li>183,224.05 acres </li>
+            <li>lies in the caldera of an ancient volcano called Mount Mazama</li>
+        </ul>
+        <h3>Cuyahoga Valley</h3>
+        <ul>
+            <li>located in Ohio</li>
+            <li>32,860.73 acres </li>
+            <li>has a scenic train ride</li>
+            <li>it's a valley</li>
+        </ul>
     </div>
 
     <script src="/js/jquery.js"></script>
@@ -81,6 +119,15 @@
             $('.question').click(function(event) {
                 event.preventDefault();
                 $(this).next().slideToggle('fast');
+            });
+
+            $('ul').each(function(){
+                $(this).children().first().css('font-weight', 'bold')
+            });
+
+            $('li').click(function(event){
+                event.preventDefault();
+                $(this).parent().addClass('invisible');
             });
         });
 
