@@ -2,6 +2,23 @@
 <html>
 <head>
     <title>Online Store</title>
+    <style>
+        body {
+            font-size: 100%;
+        }
+
+        table, th, td {
+            border: 1px solid #DDDDDD;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+        }
+    </style>
 </head>
 <body>
 
@@ -26,7 +43,10 @@
 <script>
 (function() {
     // TODO: Create an ajax GET request for /data/inventory.json
-    $('#refresh').on('click', function(){
+   
+    $('#refresh').on('click', loadStore);
+
+    function loadStore(){
 
         var inventory = $.get("/data/inventory.json");
 
@@ -47,7 +67,7 @@
                 htmlString += '</td><td>';
                 htmlString += value.quantity;
                 htmlString += '</td><td>';
-                htmlString += '$' + value.price;
+                htmlString += '$' + value.price.toFixed(2);
                 htmlString += '</td><td>';
                 htmlString += joinCats;
                 htmlString += '</td></tr>';
@@ -65,8 +85,9 @@
 
         });
 
-    });
+    };
 
+    loadStore();
     // TODO: Take the data from inventory.json and append it to the products table
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
     //             its contents and fields
