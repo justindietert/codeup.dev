@@ -157,15 +157,14 @@ hr {
 -------------------------------------------------- */
 
 .svg .jd-logo {
-  background: url('/img/jd-logo.svg');
   width: 2rem;
   height: 2rem;
+  background: url('/img/jd-logo.svg') no-repeat top left;
+  background-size: contain;
 }
 
 .no-svg .jd-logo {
   background: url('/img/jd-logo.png');
-  width: 32px;
-  height: 32px;
 }
 
 aside h5 {
