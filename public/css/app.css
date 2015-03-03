@@ -156,6 +156,18 @@ hr {
 /* Blog styles
 -------------------------------------------------- */
 
+.svg .jd-logo {
+  background: url('/img/jd-logo.svg');
+  width: 2rem;
+  height: 2rem;
+}
+
+.no-svg .jd-logo {
+  background: url('/img/jd-logo.png');
+  width: 32px;
+  height: 32px;
+}
+
 aside h5 {
     padding-left: 0.875rem;
     padding-top: 0.75rem;
@@ -168,11 +180,24 @@ aside h5 {
 
 .footer-text {
     color: #96969a;
+    margin-top: 0.25rem;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.float-right {
+  float: right;
 }
 
 .top-row {
     margin-top: 2rem;
     margin-bottom: 0.5rem;
+}
+
+.bottom-row {
+  margin-bottom: 0.25rem;
 }
 
 .contain-to-grid {
