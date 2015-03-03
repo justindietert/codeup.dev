@@ -46,13 +46,13 @@
     </div>
     
     <div class="row top-row">
-      <div class="medium-8 columns">
-        <h2 class="tag-line">Today&rsquo;s Weather</h2>
+      <div class="small-12 columns">
+        <h2 class="tag-line">Weather Forecast</h2>
       </div>
     </div>
 
     <div class="row"> 
-      <div class="medium-8 columns" role="content"></div>
+      <div class="small-12 columns" role="content" id="weather"></div>
     </div>
      
       
@@ -82,7 +82,30 @@
     </script>
 
     <script>
-      // custom script here
+      (function() {
+          var weatherDisplay = $('#weather');
+          var weatherHtml = '';
+
+          var currentWeather = $.ajax('http://api.openweathermap.org/data/2.5/forecast/daily?lat=29.423017&lon=-98.48527&cnt=3&mode=json');
+
+          currentWeather.done(function(data){
+            console.log(data);
+            var currentTemp = '<hr /><p>Current temp: ' + parseInt((data.main.temp -273.15) * 1.8 + 32) + '&#176;F</p>';
+
+            var icon = '<img src="http://openweathermap.org/img/w/' + data.weather[0].icon + '.png">'
+
+            var weatherToDisplay = currentTemp + icon; 
+            // + icon + windSpeed + humidity + pressure;
+
+            weatherDisplay.html(weatherToDisplay);
+          });
+
+
+          currentWeather.fail(function(){
+            console.log('500, error connecting to openweathermap API');
+          });
+
+      })();
     </script>
   </body>
 </html>
