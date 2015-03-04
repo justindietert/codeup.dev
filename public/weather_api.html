@@ -94,12 +94,11 @@
 
           currentWeather.done(function(data){
             console.log(data);
-            var currentTemp = '<hr /><p>Current temp: ' + parseInt((data.main.temp -273.15) * 1.8 + 32) + '&#176;F</p>';
-
+            var currentTemp = '<hr /><h3>Current temp: ' + parseInt((data.main.temp -273.15) * 1.8 + 32) + '&#176;F</h3>';
             var icon = '<img src="http://openweathermap.org/img/w/' + data.weather[0].icon + '.png">'
-
             var weatherToDisplay = currentTemp + icon; 
-            // + icon + windSpeed + humidity + pressure;
+
+            // windSpeed + humidity + pressure;
 
             weatherDisplay.html(weatherToDisplay);
           });
