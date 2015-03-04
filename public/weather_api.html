@@ -52,9 +52,7 @@
       </div>
     </div>
 
-    <div class="row"> 
-      <div class="medium-4 columns" role="content" id="weather"></div>
-    </div>
+    <div class="row" id="weather"></div>
      
       
     <footer class="row bottom-row">
@@ -85,42 +83,47 @@
     <script>
       (function() {
 
-          // Current Weather
+          // 3-Day Forecast
           //---------------------------------//
 
           var cityNameDisplay = $('#city');
-          var coordDisplay = $('#coord');
           var weatherDisplay = $('#weather');
-          var weatherHtml = '';
+          var allPosts = [];
 
-          var currentWeather = $.ajax('http://api.openweathermap.org/data/2.5/weather?q=San+Antonio,TX');
+          // var currentWeather = $.ajax('http://api.openweathermap.org/data/2.5/weather?q=San+Antonio,TX');
+          var threeDayWeather = $.ajax('http://api.openweathermap.org/data/2.5/forecast/daily?lat=29.423017&lon=-98.48527&cnt=3&mode=json')
 
-          currentWeather.done(function(data){
+          threeDayWeather.done(function(data){
               console.log(data);
-            
-              var panelStart = '<div class="panel">';
-              var currentTemp = '<h3>' + Math.round((data.main.temp -273.15) * 1.8 + 32) + '<span class="text-top">&#176;F</span>' + '<span class="lighter-weight">/</span>' + Math.round(data.main.temp -273.15) + '<span class="text-top">&#176;C</span></h3>';
-              var icon = '<img class="weather-icon" src="http://openweathermap.org/img/w/' + data.weather[0].icon + '.png">';
-              var humidity = '<ul><li><span class="heavy-weight">Humidity: </span>' + data.main.humidity + ' %</li>';
-              var windSpeed = '<li><span class="heavy-weight">Wind: </span>' + data.wind.speed + ' m/s</li>';
-              var pressure = '<li><span class="heavy-weight">Pressure: </span>' + data.main.pressure + ' hPa</li></ul>';
-              var panelEnd = '</div>';
 
-              var weatherToDisplay = panelStart + currentTemp + icon + humidity + windSpeed + pressure + panelEnd; 
-              // pressure;
+              $(data.list).each(function(index) {
+                  var containerStart = '<div class="medium-4 columns">';
+                  // set panel class to callout if first day
+                  if (index == 0) {
+                      var panelStart = '<div class="callout panel">';
+                  } else {
+                      var panelStart = '<div class="panel">';
+                  }
+                  var currentTemp = '<h3>' + Math.round((this.temp.max -273.15) * 1.8 + 32) + '<span class="text-top">&#176;F</span>' + '<span class="lighter-weight">/</span>' + Math.round((this.temp.min -273.15) * 1.8 + 32) + '<span class="text-top">&#176;F</span></h3>';
+                  var icon = '<img class="weather-icon" src="http://openweathermap.org/img/w/' + this.weather[0].icon + '.png">';
+                  var humidity = '<ul><li><span class="heavy-weight">Humidity: </span>' + this.humidity + ' %</li>';
+                  var windSpeed = '<li><span class="heavy-weight">Wind: </span>' + this.speed + ' m/s</li>';
+                  var pressure = '<li><span class="heavy-weight">Pressure: </span>' + this.pressure + ' hPa</li></ul>';
+                  var panelEnd = '</div>';
+                  var containerEnd = '</div>';
 
-              cityNameDisplay.html(data.name);
-              weatherDisplay.html(weatherToDisplay);
+                  var weatherGrouping = containerStart + panelStart + currentTemp + icon + humidity + windSpeed + pressure + panelEnd + containerEnd; 
+
+                  allPosts += weatherGrouping;
+              });
+
+              cityNameDisplay.html(data.city.name + ', ' + data.city.country);
+              weatherDisplay.html(allPosts);
           });
 
-          currentWeather.fail(function(){
+          threeDayWeather.fail(function(){
               console.log('500, error connecting to openweathermap API');
           });
-
-          // 3-day Weather
-          //---------------------------------//
-
-          var threeDayWeather = $.ajax('http://api.openweathermap.org/data/2.5/forecast/daily?lat=29.423017&lon=-98.48527&cnt=3&mode=json')
 
       })();
     </script>
