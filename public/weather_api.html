@@ -53,6 +53,13 @@
     </div>
 
     <div class="row" id="weather"></div>
+
+    <div class="row middle-row">
+      <div class="small-12 columns">
+        <!-- div to hold map -->
+        <div class="flex-video" id="map-canvas"></div>
+      </div>
+    </div>
      
       
     <footer class="row bottom-row">
@@ -80,21 +87,72 @@
       $(document).foundation();
     </script>
 
+    <!-- Load the Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=API_KEY_HERE"></script>
+
     <script>
       (function() {
+
+          "use strict";
+
+          // Google Maps API
+          //---------------------------------//
+          var styles = [{"featureType":"landscape","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"stylers":[{"hue":"#0000ff"},{"saturation":-40},{"gamma":2.15},{"lightness":12}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"lightness":24}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":57}]}];
+  
+          // Set our map options
+          var mapOptions = {
+            zoom: 10,
+            center: { lat: 29.424122, lng: -98.493629 },
+            mapTypeId: google.maps.MapTypeId.ROAD,
+            styles: styles
+          };
+
+          // google.maps.event.addDomListener(window, 'load', initialize);
+          google.maps.event.addDomListener(window, "resize", function() {
+              var center = map.getCenter();
+              google.maps.event.trigger(map, "resize");
+              map.setCenter(center); 
+          });
+
+          // Render the map
+          var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+          // Create lat and long for default marker position
+          var satx = { lat: 29.424122, lng: -98.493629 };
+
+          // Add the marker to our existing map
+          var marker = new google.maps.Marker({
+            position: satx,
+            map: map,
+            draggable: true,
+            animation: google.maps.Animation.DROP
+          });
+
+          var threeDayWeather;
+
+          threeDayWeather = $.ajax('http://api.openweathermap.org/data/2.5/forecast/daily?lat=' + satx.lat + '&lon=' + satx.lng + '&cnt=3&mode=json');
+
+          threeDayWeather.done(getWeatherData);
+
+          //get long lat of marker
+          google.maps.event.addListener(marker, 'dragend', function (event){
+              console.log(this.getPosition());
+
+              var threeDayWeather = $.ajax('http://api.openweathermap.org/data/2.5/forecast/daily?lat=' + this.getPosition().lat() + '&lon=' + this.getPosition().lng() + '&cnt=3&mode=json');
+
+              threeDayWeather.done(getWeatherData);
+          });
+
+          var weatherDisplay = $('#weather');
 
           // 3-Day Forecast
           //---------------------------------//
 
-          var cityNameDisplay = $('#city');
-          var weatherDisplay = $('#weather');
-          var allPosts = [];
-
-          // var currentWeather = $.ajax('http://api.openweathermap.org/data/2.5/weather?q=San+Antonio,TX');
-          var threeDayWeather = $.ajax('http://api.openweathermap.org/data/2.5/forecast/daily?lat=29.423017&lon=-98.48527&cnt=3&mode=json')
-
-          threeDayWeather.done(function(data){
+          function getWeatherData(data){
               console.log(data);
+
+              var cityNameDisplay = $('#city');
+              var allPosts = [];
 
               $(data.list).each(function(index) {
                   var containerStart = '<div class="medium-4 columns">';
@@ -119,10 +177,12 @@
 
               cityNameDisplay.html(data.city.name + ', ' + data.city.country);
               weatherDisplay.html(allPosts);
-          });
+          };
 
           threeDayWeather.fail(function(){
-              console.log('500, error connecting to openweathermap API');
+              $('.tag-line').html('');
+              weatherDisplay.html('<div class="small-12 columns"><div class="panel"><h3>500 Error</h3><ul><li class="blue-text">Could not connect to OpenWeatherMap API</li></ul></div></div>');
+              // console.log('500, error connecting to openweathermap API');
           });
 
       })();
