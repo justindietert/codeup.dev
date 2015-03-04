@@ -2,19 +2,6 @@
 /* Main content styles
 -------------------------------------------------- */
 
-#map-canvas *, #map-canvas *:before, #map-canvas *:after {
-    -moz-box-sizing: content-box!important;
-    -webkit-box-sizing: content-box!important;
-    box-sizing: content-box!important;  
-}
-#map-canvas img {
-    max-width: none;
-}
-#map-canvas label {
-    width: auto;
-    display: inline;
-}
-
 body {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 400;
@@ -31,34 +18,68 @@ h1 {
 }
 
 h2 {
-    font-weight: 600;
-    /*font-size: 2.625rem;*/
+    font-weight: 200;
+    font-size: 2.3125rem;
+    color: #221c35;
 }
 
-h2 a {
-    color: #221c35;
+.coords {
+  color: #c8c8cc;
 }
 
 p {
     font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
 }
 
-/*article p:first-child {
-    font-size: 1.25rem;
-}*/
+ul {
+  color: #333337 !important;
+  list-style: none;
+  margin-left: 0;
+}
+
+.weather-icon {
+  width: 2.344rem;
+  height: 2.344rem;
+  position: absolute;
+  top: 0.875rem;
+  right: 1.875rem;
+}
+
+.text-top {
+  vertical-align: 20%;
+  font-weight: 400;
+  font-size: 1.25rem;
+}
+
+.panel {
+  border-color: #d8d8dc;
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+  background: #f2f2f6;
+}
 
 h2.tag-line {
-    font-weight: 400;
+    font-weight: 300;
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.125rem;
-    color: #96969a;
+    color: #333399;
+    margin-top: 0;
+}
+
+h2#city {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 h3 {
     font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 300;
-    color: #919195;
+    font-weight: 600;
+    color: #606064;
+    font-size: 1.6875rem;
     /*margin-bottom: 1rem;*/
     /*font-size: 1.4375rem;*/
 }
@@ -145,14 +166,6 @@ hr {
 }
 
 
-/* Lettering JS styles
--------------------------------------------------- */
-
-.char2 {
-  margin-left: -0.0625rem;
-}
-
-
 /* Blog styles
 -------------------------------------------------- */
 
@@ -178,6 +191,8 @@ aside h5 {
 }
 
 .footer-text {
+    font-weight: 200;
+    letter-spacing: 0.0325rem;
     color: #96969a;
     margin-top: 0.25rem;
 }
@@ -191,8 +206,8 @@ aside h5 {
 }
 
 .top-row {
-    margin-top: 2rem;
-    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.75rem;
 }
 
 .bottom-row {
@@ -219,6 +234,10 @@ aside h5 {
     letter-spacing: 0.0875rem;
 }
 
+.heavy-weight {
+  font-weight: 600;
+}
+
 .top-bar-section ul li > a {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
@@ -229,8 +248,8 @@ aside h5 {
 
 .top-bar .name h1 a {
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.125rem;
+    /*text-transform: uppercase;*/
+    letter-spacing: 0.0625rem;
     color: #e7e7eb;
 }
 
@@ -333,33 +352,5 @@ aside h5 {
 
 .feature-img-desktop-red {
     background-image: url(../img/desktop-view-red.jpg);
-}
-
-
-/* Footer styles
--------------------------------------------------- */
-
-#indigo-bar {
-    background-color: #221c35;
-}
-
-#blue-bar {
-    background-color: #333399;
-}
-
-#purple-bar {
-    background-color: #673ab7;
-}
-
-#fuchsia-bar {
-    background-color: #b10dc9;
-}
-
-#red-bar {
-    background-color: #e83944;
-}
-
-#maroon-bar {
-    background-color: #85144b;
 }
 

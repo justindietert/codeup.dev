@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JD | Weather</title>
+    <title>The Elements</title>
     
     <!-- Normalize CSS -->
     <link rel="stylesheet" href="/css/normalize.css" />
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/css/foundation.css" />
 
     <!-- Custom Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:300,400|Source+Sans+Pro:300,300italic,400,400italic,600' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:300,400|Source+Sans+Pro:200,300,400,400italic,600' rel='stylesheet' type='text/css' />
 
     <!-- FontAwesome icons-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
@@ -29,7 +29,7 @@
         <nav class="top-bar" data-topbar>
           <ul class="title-area">
             <li class="name">
-              <h1 id="site-name"><a href="#">Justin Dietert <span class="lighter-weight">/</span><span class="medium-weight"> Weather</span></a></h1>
+              <h1 id="site-name"><a href="#"><i class="fa fa-cloud"></i> The Elements</a></h1>
             </li>
             <!-- <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li> -->
           </ul>
@@ -47,12 +47,13 @@
     
     <div class="row top-row">
       <div class="small-12 columns">
+        <h2 id="city"></h2>
         <h2 class="tag-line">3-day Forecast</h2>
       </div>
     </div>
 
     <div class="row"> 
-      <div class="small-12 columns" role="content" id="weather"></div>
+      <div class="medium-4 columns" role="content" id="weather"></div>
     </div>
      
       
@@ -87,24 +88,33 @@
           // Current Weather
           //---------------------------------//
 
+          var cityNameDisplay = $('#city');
+          var coordDisplay = $('#coord');
           var weatherDisplay = $('#weather');
           var weatherHtml = '';
 
           var currentWeather = $.ajax('http://api.openweathermap.org/data/2.5/weather?q=San+Antonio,TX');
 
           currentWeather.done(function(data){
-            console.log(data);
-            var currentTemp = '<hr /><h3>Current temp: ' + parseInt((data.main.temp -273.15) * 1.8 + 32) + '&#176;F</h3>';
-            var icon = '<img src="http://openweathermap.org/img/w/' + data.weather[0].icon + '.png">'
-            var weatherToDisplay = currentTemp + icon; 
+              console.log(data);
+            
+              var panelStart = '<div class="panel">';
+              var currentTemp = '<h3>' + Math.round((data.main.temp -273.15) * 1.8 + 32) + '<span class="text-top">&#176;F</span>' + '<span class="lighter-weight">/</span>' + Math.round(data.main.temp -273.15) + '<span class="text-top">&#176;C</span></h3>';
+              var icon = '<img class="weather-icon" src="http://openweathermap.org/img/w/' + data.weather[0].icon + '.png">';
+              var humidity = '<ul><li><span class="heavy-weight">Humidity: </span>' + data.main.humidity + ' %</li>';
+              var windSpeed = '<li><span class="heavy-weight">Wind: </span>' + data.wind.speed + ' m/s</li>';
+              var pressure = '<li><span class="heavy-weight">Pressure: </span>' + data.main.pressure + ' hPa</li></ul>';
+              var panelEnd = '</div>';
 
-            // windSpeed + humidity + pressure;
+              var weatherToDisplay = panelStart + currentTemp + icon + humidity + windSpeed + pressure + panelEnd; 
+              // pressure;
 
-            weatherDisplay.html(weatherToDisplay);
+              cityNameDisplay.html(data.name);
+              weatherDisplay.html(weatherToDisplay);
           });
 
           currentWeather.fail(function(){
-            console.log('500, error connecting to openweathermap API');
+              console.log('500, error connecting to openweathermap API');
           });
 
           // 3-day Weather
