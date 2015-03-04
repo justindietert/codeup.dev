@@ -47,7 +47,7 @@
     
     <div class="row top-row">
       <div class="small-12 columns">
-        <h2 class="tag-line">Weather Forecast</h2>
+        <h2 class="tag-line">3-day Forecast</h2>
       </div>
     </div>
 
@@ -83,10 +83,14 @@
 
     <script>
       (function() {
+
+          // Current Weather
+          //---------------------------------//
+
           var weatherDisplay = $('#weather');
           var weatherHtml = '';
 
-          var currentWeather = $.ajax('http://api.openweathermap.org/data/2.5/forecast/daily?lat=29.423017&lon=-98.48527&cnt=3&mode=json');
+          var currentWeather = $.ajax('http://api.openweathermap.org/data/2.5/weather?q=San+Antonio,TX');
 
           currentWeather.done(function(data){
             console.log(data);
@@ -100,10 +104,14 @@
             weatherDisplay.html(weatherToDisplay);
           });
 
-
           currentWeather.fail(function(){
             console.log('500, error connecting to openweathermap API');
           });
+
+          // 3-day Weather
+          //---------------------------------//
+
+          var threeDayWeather = $.ajax('http://api.openweathermap.org/data/2.5/forecast/daily?lat=29.423017&lon=-98.48527&cnt=3&mode=json')
 
       })();
     </script>
