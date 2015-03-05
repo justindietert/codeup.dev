@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/css/foundation.css" />
 
     <!-- Custom Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:300,400|Source+Sans+Pro:200,300,400,400italic,600' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:300,400|Source+Sans+Pro:200,300,300italic,400,600' rel='stylesheet' type='text/css' />
 
     <!-- FontAwesome icons-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
@@ -162,7 +162,8 @@
                   } else {
                       var panelStart = '<div class="panel">';
                   }
-                  var currentTemp = '<h3>' + Math.round((this.temp.max -273.15) * 1.8 + 32) + '<span class="text-top">&#176;F</span>' + '<span class="lighter-weight">/</span>' + Math.round((this.temp.min -273.15) * 1.8 + 32) + '<span class="text-top">&#176;F</span></h3>';
+                  var highLowTemp = '<h3>' + Math.round((this.temp.max -273.15) * 1.8 + 32) + '<span class="text-top">&#176;F</span>' + '<span class="lighter-weight">/</span>' + Math.round((this.temp.min -273.15) * 1.8 + 32) + '<span class="text-top">&#176;F</span></h3>';
+                  var conditions = '<h5><em>' + this.weather[0].description + '</em></h5>'
                   var icon = '<img class="weather-icon" src="http://openweathermap.org/img/w/' + this.weather[0].icon + '.png">';
                   var humidity = '<ul><li><span class="heavy-weight">Humidity: </span>' + this.humidity + ' %</li>';
                   var windSpeed = '<li><span class="heavy-weight">Wind: </span>' + this.speed + ' m/s</li>';
@@ -170,7 +171,7 @@
                   var panelEnd = '</div>';
                   var containerEnd = '</div>';
 
-                  var weatherGrouping = containerStart + panelStart + currentTemp + icon + humidity + windSpeed + pressure + panelEnd + containerEnd; 
+                  var weatherGrouping = containerStart + panelStart + highLowTemp + conditions + icon + humidity + windSpeed + pressure + panelEnd + containerEnd; 
 
                   allPosts += weatherGrouping;
               });

@@ -89,7 +89,7 @@ h3 {
 h5 {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
-    color: #606064;
+    color: #606064 !important;
     /*margin-bottom: 1rem;*/
     /*font-size: 1rem;*/
 }
