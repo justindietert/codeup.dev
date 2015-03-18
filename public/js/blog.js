@@ -29,35 +29,6 @@ var blog = [
     }
 ]
 
-
-// ----------------------------------------------------
-
-// var postString = '';
-// var post = document.getElementById('blogPosts');
-
-
-// for (var i = 0; i < blog.length; i++) {
-
-//     var tags = '';
-//     for (var j = 0; j < blog[i].tags.length; j++) {
-//         tags += '<a href="#">' + blog[i].tags[j] + '</a>, ';
-//         //string split to take off last comma
-//     }
-   
-//     postString += '<article><hr /><h2><a href="#">' + blog[i].title + '</a></h2>';
-//     postString += '<h4>By <a href="#">' + blog[i].author + '</a></h4>';
-//     postString += '<h5>Posted on <a href="">' + blog[i].date + '</a> under <a href="">' + blog[i].category + '</a>.</h5>';
-//     postString += '<h5>Tags: ' + tags + '</h5>';
-//     postString += '<div class="row"><div class="medium-12 columns">';
-//     postString += '';
-
-//     postString += '</div></div></article>';
-// }
-
-// post.innerHTML = postString;
-
-// ----------------------------------------------------
-
 var allPosts = [];
 
 function populateExistingPost(post) {
@@ -81,18 +52,8 @@ function populateExistingPost(post) {
     return postHTML;
 }
 
-
-
-
 blog.forEach(function (element, index, array) {
     allPosts += populateExistingPost(element);
 });
 
 document.getElementById('blogPosts').innerHTML = allPosts;
-
-
-
-
-
-
-
