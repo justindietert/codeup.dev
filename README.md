@@ -1,5 +1,5 @@
 # Codeup Client-side Exercises
-A personal repo for server-side exercises I've completed during my amazing time at Codeup!
+A personal repo for client-side exercises I've completed during my amazing time at Codeup!
 
 ## Languages Used
 - HTML
