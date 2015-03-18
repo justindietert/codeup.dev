@@ -25,151 +25,65 @@
   </head>
 
   <body>
-      <div class="contain-to-grid fixed">
-        <nav class="top-bar" data-topbar>
-          <ul class="title-area">
-            <li class="name">
-              <h1 id="site-name"><a href="#">Justin Dietert <span class="lighter-weight">/</span><span class="medium-weight"> Calculator</span></a></h1>
-            </li>
-            <!-- <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li> -->
-          </ul>
-          
-          
-         <!-- <section class="top-bar-section">
-  
-            <ul class="right">
-              <li class="active"><a href="#">Featured posts</a></li>
-              <li class=""><a href="#">View all posts</a></li>
-              <li class=""><a href="#">Contact me</a></li>
-            </ul>
-          </section> -->
-        </nav>
-      </div>
-
-
-  <div class="row top-row"> <!-- Start of Calculator Container -->
-    <div class="small-12 columns">
-
-      <div class="row"> 
-        <div class="small-12 columns">
-          <!-- <input class="button medium-grey float-left" type="button" name="clear" value="C"> -->
-          <span class="button medium-grey float-left" id="clear">C</span>
-          <input type="text" value="" name="calcScreen" readonly>        
-        </div> 
-      </div>
-
-      <div class="row">
-          <div class="small-12 columns">
-                <span class="button medium-grey">7</span>  
-                <span class="button medium-grey">8</span> 
-                <span class="button medium-grey">9</span> 
-
-                <span class="button success" id="divide">/</span> 
-
-                <!-- <input class="button medium-grey" type="button" name="seven" value="7">
-                <input class="button medium-grey" type="button" name="eight" value="8">
-                <input class="button medium-grey" type="button" name="nine" value="9">
-
-                <input class="button success" type="button" name="divide" value="/"> -->
-          </div>
-      </div>
-
-      <div class="row">
-          <div class="small-12 columns">
-                <span class="button medium-grey">4</span>
-                <span class="button medium-grey">5</span>
-                <span class="button medium-grey">6</span>
-
-                <span class="button success" id="multiply">*</span>
-
-                <!-- <input class="button medium-grey" type="button" name="four" value="4">
-                <input class="button medium-grey" type="button" name="five" value="5">
-                <input class="button medium-grey" type="button" name="six" value="6">
-
-                <input class="button success" type="button" name="multiply" value="*"> -->
-          </div>
-      </div>
-      
-      <div class="row">
-          <div class="small-12 columns">
-                <span class="button medium-grey">1</span>
-                <span class="button medium-grey">2</span>
-                <span class="button medium-grey">3</span>
-
-                <span class="button success" id="subtract">-</span>
-
-                <!-- <input class="button medium-grey" type="button" name="one" value="1">
-                <input class="button medium-grey" type="button" name="two" value="2">
-                <input class="button medium-grey" type="button" name="three" value="3">
-
-                <input class="button success" type="button" name="subtract" value="-"> -->
-         </div>
-      </div>
-                
-      <div class="row">
-          <div class="small-12 columns"> 
-                <span class="button medium-grey">0</span>
-                <span class="button medium-grey">.</span>
-                <span class="button medium-grey">=</span>
-
-                <span class="button success" id="add">+</span>  
-
-                <!-- <input class="button medium-grey" type="button" name="zero" value="0">
-                <input class="button medium-grey" type="button" name="decimal" value=".">
-                <input class="button medium-grey" type="button" name="equals" value="=">
-                
-                <input class="button success" type="button" name="add" value="+"> -->
-         </div>
-      </div>
-
+    <div class="contain-to-grid fixed">
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1 id="site-name"><a href="#">Justin Dietert <span class="lighter-weight">/</span><span class="medium-weight"> Calculator</span></a></h1>
+          </li>
+        </ul>
+      </nav>
     </div>
-  </div>  <!-- End of Calculator Container -->        
-      
-       
-     
 
+    <div class="row top-row"> <!-- Start of Calculator Container -->
+      <div class="small-12 columns">
 
-
-      <!-- <aside class="medium-5 medium-offset-2 columns">
-
-          <hr/>
-     
-          <h5>Side bar</h5>
-          <ul class="side-nav">
-            <li><a href="#">What</a></li>
-            <li><a href="#">To</a></li>
-            <li><a href="#">Do</a></li>
-            <li><a href="#">Here</a></li>
-            <li><a href="#">?</a></li>
-          </ul>
-     
-      </aside> -->
-
-    
-
-
-
-     
-       
-     
-     
-       
-     
-    <!-- <footer class="row">
-      <div class="medium-12 columns">
-
-        <hr/>
+        <div class="row"> 
+          <div class="small-12 columns">
+            <span class="button medium-grey float-left" id="clear">C</span>
+            <input type="text" value="" name="calcScreen" readonly>        
+          </div> 
+        </div>
 
         <div class="row">
-          <div class="medium-12 columns">
-            <p class="footer-text">© Copyright 2015 Justin Dietert.</p>
-          </div>
+            <div class="small-12 columns">
+              <span class="button medium-grey">7</span>  
+              <span class="button medium-grey">8</span> 
+              <span class="button medium-grey">9</span> 
+              <span class="button success" id="divide">/</span> 
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-12 columns">
+              <span class="button medium-grey">4</span>
+              <span class="button medium-grey">5</span>
+              <span class="button medium-grey">6</span>
+              <span class="button success" id="multiply">*</span>
+            </div>
         </div>
         
+        <div class="row">
+            <div class="small-12 columns">
+              <span class="button medium-grey">1</span>
+              <span class="button medium-grey">2</span>
+              <span class="button medium-grey">3</span>
+              <span class="button success" id="subtract">-</span>
+           </div>
+        </div>
+                  
+        <div class="row">
+            <div class="small-12 columns"> 
+              <span class="button medium-grey">0</span>
+              <span class="button medium-grey">.</span>
+              <span class="button medium-grey">=</span>
+              <span class="button success" id="add">+</span>  
+           </div>
+        </div>
+
       </div>
-    </footer> -->
-    
-    
+    </div>  <!-- End of Calculator Container -->        
+
     <script src="/js/foundation/vendor/jquery.js"></script>
     <script src="/js/foundation/foundation.min.js"></script>
     <script>
