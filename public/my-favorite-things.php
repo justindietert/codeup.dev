@@ -1,5 +1,13 @@
-<?php 
-    $favs = ['typefaces', 'sushi', 'books', 'code', 'ramen'];
+<?php
+
+function pageController() {
+    $data['favs'] = ['typefaces', 'sushi', 'books', 'code', 'ramen'];
+
+    return $data;
+}
+
+extract(pageController());
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,14 +1,24 @@
 <?php 
-    $adjectives = ['exuberant', 'sly', 'bitter', 'fancy', 'nutty', 'juicy', 'icy', 'lavish', 'spicy', 'chunky'];
-    $nouns = ['face', 'dog', 'gherkin', 'typeface', 'cashew', 'tomato', 'asteroid', 'tree', 'taco', 'salsa'];
 
-    function getRandom($item) {
-        $randomItem = rand(0, count($item)-1);
-        return trim($item[$randomItem]);
-    }
+function getRandom($array) 
+{
+    $randomKey = array_rand($array);
+    return trim($array[$randomKey]);
+}
 
-    $randomAdj = getRandom($adjectives);
-    $randomNoun = getRandom($nouns);
+function pageController() 
+{
+    $data = [];
+    $data['adjectives'] = ['exuberant', 'sly', 'bitter', 'fancy', 'nutty', 'juicy', 'icy', 'lavish', 'spicy', 'chunky'];
+    $data['nouns'] = ['face', 'dog', 'gherkin', 'typeface', 'cashew', 'tomato', 'asteroid', 'tree', 'taco', 'salsa'];
+    $data['randomAdj'] = getRandom($data['adjectives']);
+    $data['randomNoun'] = getRandom($data['nouns']);
+
+    return $data;
+}
+
+extract(pageController());
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
