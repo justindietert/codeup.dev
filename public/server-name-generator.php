@@ -4,8 +4,11 @@
 
     function getRandom($item) {
         $randomItem = rand(0, count($item)-1);
-        return $item[$randomItem];
+        return trim($item[$randomItem]);
     }
+
+    $randomAdj = getRandom($adjectives);
+    $randomNoun = getRandom($nouns);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +41,7 @@
 </head>
 <body>
     <div class="container">
-        <h1><?= getRandom($adjectives); ?> <?= getRandom($nouns); ?></h1>
+        <h1><?= $randomAdj . '-' . $randomNoun; ?></h1>
     </div>
 </body>
 </html>
