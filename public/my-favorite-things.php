@@ -41,8 +41,8 @@
         <table>
             <th>My Favorite Things</th>
             <?php foreach($favs as $fav){ ?>
-                <tr><td><?php echo $fav; ?></td></tr>
-            <?php } ?>
+                <tr><td><?= $fav; ?></td></tr>
+            <?php endforeach; ?>
         </table>
     </div>
 
