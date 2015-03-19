@@ -38,7 +38,7 @@
 </head>
 <body>
     <div class="container">
-        <h1><?php echo getRandom($adjectives); ?> <?php echo getRandom($nouns); ?></h1>
+        <h1><?= getRandom($adjectives); ?> <?= getRandom($nouns); ?></h1>
     </div>
 </body>
 </html>
