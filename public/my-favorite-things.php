@@ -40,7 +40,7 @@
     <div class="container">
         <table>
             <th>My Favorite Things</th>
-            <?php foreach($favs as $fav){ ?>
+            <?php foreach($favs as $fav): ?>
                 <tr><td><?= $fav; ?></td></tr>
             <?php endforeach; ?>
         </table>
