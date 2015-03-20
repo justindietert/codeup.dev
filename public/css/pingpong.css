@@ -5,6 +5,15 @@
         background: #222233;
     }
 
+    h1 {
+        font-family: 'Source Sans Pro', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.0625rem;
+        font-weight: 400;
+        color: #3D9970;
+        font-size: 1.25rem;
+    }
+
     .large-number {
         font-family: 'Source Sans Pro', sans-serif;
         font-weight: 200;
@@ -45,13 +54,21 @@
     }
 
     .top {
-        padding-top: 4rem;
+        padding-top: 2rem;
+    }
+
+    .middle {
+        padding-top: 2rem;
     }
 }
 
 @media only screen and (min-width: 40.063em) {
     .large-number {
         font-size: 15rem;
+    }
+
+    h1 {
+        font-size: 2rem;
     }
 }
 

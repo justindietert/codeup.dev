@@ -15,6 +15,7 @@ function pageController()
 
     if(empty($_GET['counter'])) {
         $counter = 0;
+        $message = "Welcome to Ping Pong";
     } else {
 
         if($_GET['result'] == 'miss') {
@@ -55,7 +56,7 @@ extract(pageController());
     <link rel="stylesheet" href="/css/foundation.css" />
 
     <!-- Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400|Source+Sans+Pro:200,300,400' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,400|Source+Sans+Pro:200,300,400' rel='stylesheet' type='text/css' />
 
     <!-- FontAwesome icons-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
@@ -69,6 +70,12 @@ extract(pageController());
 
     <body>
         <div class="row top">
+            <div class="small-8 columns small-centered text-center">
+                <h1><?= $message; ?></h1>
+            </div>
+        </div>
+
+        <div class="row middle">
             <div class="small-8 columns small-centered text-center">
                 <div class="panel">
                     <!-- Shows current counter value -->
