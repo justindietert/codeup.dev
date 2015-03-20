@@ -1,0 +1,15 @@
+.controls {
+    list-style: none;
+    margin-left: 0;
+}
+
+.top {
+    margin-bottom: 0;
+}
+
+.large-number {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 200;
+    font-size: 15rem;
+    color: #e83944;
+}
