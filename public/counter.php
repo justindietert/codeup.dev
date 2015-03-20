@@ -13,7 +13,7 @@ function pageController()
     $data = array();
 
     // Add data to be used in the html view.
-    if(!isset($_GET['counter'])) {
+    if(empty($_GET['counter'])) {
         $counter = 0;
 
     } else {
