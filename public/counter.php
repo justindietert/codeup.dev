@@ -16,11 +16,8 @@ function pageController()
     if(!isset($_GET['counter'])) {
         $counter = 0;
 
-    } elseif ($_GET['direction'] == 'up') {
-        $counter = ++ $_GET['counter'];
-
-    } elseif ($_GET['direction'] == 'down') {
-        $counter = -- $_GET['counter'];
+    } else {
+        $counter = $_GET['counter'];
     }
 
     $data['counter'] = $counter;
@@ -69,8 +66,8 @@ extract(pageController());
                     <h2 class="large-number"><?= $counter; ?></h2>
 
                     <ul class="controls">
-                        <li><a href="?direction=up&counter=<?= $counter; ?>" class="button alert small top"><i class="fa fa-chevron-up"></i></a></li>
-                        <li><a href="?direction=down&counter=<?= $counter; ?>" class="button alert small"><i class="fa fa-chevron-down"></i></a></li>
+                        <li><a href="?direction=up&counter=<?= $counter+1; ?>" class="button alert small top"><i class="fa fa-chevron-up"></i></a></li>
+                        <li><a href="?direction=down&counter=<?= $counter-1; ?>" class="button alert small"><i class="fa fa-chevron-down"></i></a></li>
                     </ul>
                 </div>
             </div>
