@@ -1,0 +1,58 @@
+
+@media only screen {
+    body {
+        font-family: 'Source Sans Pro', sans-serif;
+        background: #222233;
+    }
+
+    .large-number {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 200;
+        font-size: 7rem;
+        color: #01FF70;
+    }
+
+    button, .button {
+        font-family: 'Source Code Pro', sans-serif;  
+        font-weight: normal;
+        background-color: none;
+        background: none;
+        border-color: #01FF70;
+        border-width: 1px;
+        color: #01FF70;
+        letter-spacing: 0.0625rem;
+    }
+
+    button:hover, button:focus, .button:hover, .button:focus {
+        background-color: #01FF70; 
+        color: #222233; 
+    }
+
+    .panel {
+        background: none;
+        border-bottom: none;
+        border-top: none;
+        border-left-color: #01FF70;
+        border-right-color: #01FF70;
+    }
+
+    .panel h2 {
+        color: #01FF70;
+    }
+
+    .controls {
+        padding-top: 5rem;
+    }
+
+    .top {
+        padding-top: 4rem;
+    }
+}
+
+@media only screen and (min-width: 40.063em) {
+    .large-number {
+        font-size: 15rem;
+    }
+}
+
+
