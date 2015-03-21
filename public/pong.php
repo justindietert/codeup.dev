@@ -20,7 +20,7 @@ function pageController()
 
         if($_GET['result'] == 'hit') {
             $counter = $_GET['counter'];
-            $message = "Ping Pong game in progress...";
+            $message = "Game in progress";
         }
 
         if($_GET['result'] == 'miss') {
@@ -83,8 +83,10 @@ extract(pageController());
                 </div>
                 
                 <div class="controls">
-                    <a href="ping.php?result=hit&counter=<?= $counter+1; ?>" class="button small">HIT!</a>&nbsp;
-                    <a href="ping.php?result=miss&counter=<?= $counter=0; ?>" class="button small">MISS</a>               
+                    <a href="pong.php?result=hit&counter=<?= $counter+1; ?>" class="button small">HIT!</a><span class="hide-for-small-only inline">&nbsp;&nbsp;<a href="pong.php?result=miss&counter=<?= $counter=0; ?>" class="button small">MISS</a></span>
+                    <div class="show-for-small-only">
+                        <a href="pong.php?result=miss&counter=<?= $counter=0; ?>" class="button small">MISS</a>
+                    </div>        
                 </div>
             </div>
         </div>

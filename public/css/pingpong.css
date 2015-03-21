@@ -1,17 +1,17 @@
 
 @media only screen {
     body {
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Source Code Pro', sans-serif;
         background: #222233;
     }
 
     h1 {
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: 'Source Code Pro', sans-serif;
         text-transform: uppercase;
         letter-spacing: 0.0625rem;
         font-weight: 400;
         color: #3D9970;
-        font-size: 1.25rem;
+        font-size: 1rem;
     }
 
     .large-number {
@@ -54,7 +54,7 @@
     }
 
     .top {
-        padding-top: 2rem;
+        padding-top: 3rem;
     }
 
     .middle {
@@ -68,7 +68,12 @@
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .inline {
+        white-space: nowrap;
+        display: inline-block !important;
     }
 }
 
