@@ -6,6 +6,7 @@
 
     if ($username == 'guest' && $password == 'password') {
         header('Location: authorized.php');
+        exit();
     } else {
         $message = 'Login failed.';
     }
