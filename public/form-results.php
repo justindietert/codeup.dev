@@ -1,6 +1,8 @@
 <?php
 $name = isset($_POST['name']) ? $_POST['name'] : '';
 $number = isset($_POST['number']) ? $_POST['number'] : '';
+$name = htmlspecialchars(strip_tags($name));
+$number = htmlspecialchars(strip_tags($number));
 ?>
 <!DOCTYPE html>
 <html>
