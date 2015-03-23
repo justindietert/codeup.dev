@@ -1,14 +1,30 @@
 <?php
+    // start the session (or resume an existing one)
+    // this function must be called before trying to set or get any session data!
+    session_start();
+
+    // if user already logged in and the user is 'guest', redirect to the authorized page.
+    if(isset($_SESSION['LOGGED_IN_USER']) && $_SESSION['LOGGED_IN_USER'] == 'guest') {
+        header('Location: /authorized.php');
+        exit();
+    }
+
+    // set POST['keyValue'] as needed
     $username = isset($_POST['username']) ? $_POST['username'] : '';
     $password = isset($_POST['password']) ? $_POST['password'] : '';
 
+    // initialize $message as a blank string
     $message = '';
 
-    if ($username == 'guest' && $password == 'password') {
-        header('Location: authorized.php');
-        exit();
+    if ($username != 'guest' && $password != 'password') {
+
+        $message = ($username == '' && $password == '') ? "Please login." : "Login failed. Please try again.";
+        // otherwise, display the login failed message.
     } else {
-        $message = 'Login failed.';
+        // set session variable to username;
+        $_SESSION['LOGGED_IN_USER'] = $username;
+        header('Location: /authorized.php');      
+        exit();
     }
 ?>
 <!DOCTYPE html>
@@ -19,18 +35,16 @@
 </head>
 <body>
     <form method="POST" action="login.php">
+        <br>
         <label for="username">Username: </label>
-        <input type="text" name="username"><br>
+        <input type="text" name="username" id="username"><br><br>
 
         <label for="password">Password: </label>
-        <input type="password" name="password"><br>
+        <input type="password" name="password" id="password"><br><br>
 
         <input type="submit">
     </form>
     
-    <? if ($_POST && strlen($message) > 1): ?>
-        <p><?= $message; ?></p>
-    <? endif; ?>
-
+    <p><?= $message; ?></p>
 </body>
 </html>
