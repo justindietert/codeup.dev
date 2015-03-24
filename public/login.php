@@ -1,4 +1,5 @@
 <?php
+    require_once 'functions.php';
     // start the session (or resume an existing one)
     // this function must be called before trying to set or get any session data!
     session_start();
@@ -10,8 +11,8 @@
     }
 
     // set POST['keyValue'] as needed
-    $username = isset($_POST['username']) ? $_POST['username'] : '';
-    $password = isset($_POST['password']) ? $_POST['password'] : '';
+    $username = inputHas('username') ? escape(inputGet('username')) : '';
+    $password = inputHas('password') ? escape(inputGet('password')) : '';
 
     // initialize $message as a blank string
     $message = '';
