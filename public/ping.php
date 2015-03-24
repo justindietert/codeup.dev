@@ -1,47 +1,10 @@
 <?php
 
-// Require or include statements are allowed here. All other code goes in the pageController function.
-
-/**
- * The pageController function handles all processing for this page.
- * @return array An associative array of data to be used in rendering the html view.
- */
-
-function pageController()
-{
-    // Initialize an empty data array.
-    $data = array();
-    $message = '';
-
-    if(empty($_GET['counter'])) {
-        $counter = 0;
-        $message = "Welcome to Ping Pong";
-    } else {
-        
-        if($_GET['result'] == 'hit') {
-            $counter = $_GET['counter'];
-            $message = "Game in progress";
-        }
-
-        if($_GET['result'] == 'miss') {
-            // end game
-            $counter = 0;
-        }
-    }
-
-    $data['counter'] = $counter;
-    $data['message'] = $message;
-
-    // Return the completed data array.
-    return $data;    
-}
-
-// Call the pageController function and extract all the returned array as local variables.
-extract(pageController());
+require_once 'functions.php';
+require_once 'ping-pong-page-control.php';
 
 // Only use echo, conditionals, and loops anywhere within the HTML.
 ?>
-
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
