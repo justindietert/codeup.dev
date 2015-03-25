@@ -1,6 +1,5 @@
 <?php
 
-require_once 'functions.php';
 require_once 'ping-pong-page-control.php';
 
 // Only use echo, conditionals, and loops anywhere within the HTML.
