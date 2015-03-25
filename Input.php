@@ -25,6 +25,12 @@ class Input
         return self::has($key) ? $_REQUEST[$key] : $default;
     }
 
+    /* Strip any tags from user input and convert special characters to HTML entities */
+    public static function escape($input) 
+    {
+        return htmlentities(strip_tags($input));
+    }
+
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //
     // The Input class should not ever be instantiated, so we prevent the    //
