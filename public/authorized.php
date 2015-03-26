@@ -1,14 +1,17 @@
 <?php
+    require_once 'functions.php';
+    require_once '../Auth.php';
+    require_once '../Input.php';
     // start the session (or resume an existing one)
     session_start();
 
     // If the user is not logged in, redirect back to the login page
-    if (!isset($_SESSION['LOGGED_IN_USER'])) {
+    if (!Auth::check()) {
         header('Location: /login.php');      
         exit();
     } else {
         // Set username to the current name of the logged in user
-        $username = $_SESSION['LOGGED_IN_USER'];
+        $username = Auth::user();
     }
 ?>
 <!DOCTYPE html>
@@ -19,7 +22,7 @@
 </head>
 <body>
     <h3>AUTHORIZED</h3>
-    <p><?= $username; ?></p>
+    <p><strong>Username: </strong><?= $username; ?></p>
     <a href="/logout.php">Logout</a>
 </body>
 </html>

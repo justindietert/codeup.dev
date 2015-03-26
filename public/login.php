@@ -1,31 +1,28 @@
 <?php
     require_once 'functions.php';
+    require_once '../Auth.php';
+    require_once '../Input.php';
     // start the session (or resume an existing one)
     // this function must be called before trying to set or get any session data!
     session_start();
 
     // if user already logged in and the user is 'guest', redirect to the authorized page.
-    if(isset($_SESSION['LOGGED_IN_USER']) && $_SESSION['LOGGED_IN_USER'] == 'guest') {
+    if(Auth::check() && Auth::user() == 'guest') {
         header('Location: /authorized.php');
         exit();
     }
-
     // set POST['keyValue'] as needed
-    $username = inputHas('username') ? escape(inputGet('username')) : '';
-    $password = inputHas('password') ? escape(inputGet('password')) : '';
-
+    $username = Input::has('username') ? Input::escape(Input::get('username')) : '';
+    $password = Input::has('password') ? Input::escape(Input::get('password')) : '';
     // initialize $message as a blank string
     $message = '';
-
-    if ($username != 'guest' && $password != 'password') {
-
-        $message = ($username == '' && $password == '') ? "Please login." : "Login failed. Please try again.";
-        // otherwise, display the login failed message.
-    } else {
-        // set session variable to username;
-        $_SESSION['LOGGED_IN_USER'] = $username;
+    // Check for correct user input
+    if (Auth::attempt($username, $password)) {
         header('Location: /authorized.php');      
         exit();
+        // otherwise, display the login failed message.
+    } else {
+        $message = ($username == '' && $password == '') ? "Please login." : "Login failed. Please try again.";
     }
 ?>
 <!DOCTYPE html>
