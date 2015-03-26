@@ -3,39 +3,44 @@ require_once 'Log.php';
 
 class Auth
 {
-    public static $hash = '$2y$10$SLjwBwdOVvnMgWxvTI4Gb.YVcmDlPTpQystHMO2Kfyi/DS8rgA0Fm';
+    public static $users = [
+        'guest' => '$2y$10$RQsCYHpDXINqFkjWabinD.8gDgHFssg3mFxE2iEnfA295YIeFCLEO',
+        'justin' => '$2y$10$UNSNJD43kQBtkSTF.Upj9.d2uxqRm6OOiv0MVKDUPu5F7AnMlDExC',
+        'kenny' => '$2y$10$dPwUglqJ3UoeP1riRdnLXetMm1yBCeCPFDNG.NiKX3yJQf3oYO9xS'
+    ];
 
     public static function logUser($access, $username)
     {
+        // create a new log with the prefix 'auth'
         $authLog = new Log('auth');
-
-        if ($access == false && $username == '') {
-            return false;
+        // if login was successful, log this message:
+        if ($access == true) {
+            $authLog->logInfo("User $username logged in.");
+        // otherwise, log this message:
         } else {
-
-            if ($access == true) {
-                $authLog->logInfo("User $username logged in.");
-            } else {
-                $authLog->logInfo("User $username failed to log in.");
-            }
+            $authLog->logInfo("User $username failed to log in.");
         }
     }
 
     public static function attempt($username, $password) 
     {
-        if ($username == 'guest' && password_verify($password, self::$hash)) {
-            // set session variable to username;
-            $_SESSION['LOGGED_IN_USER'] = $username;
-
-            self::logUser(true, $username);
-
-            return true;
-
-        } else {
-
-            self::logUser(false, $username);
-
-            return false;
+        // if username is not an empty string and the entered username exists in $users array
+        if(!empty($username) && isset(self::$users[$username])) {
+            // if the user's password matches the hash associated with their username
+            if (password_verify($password, self::$users[$username])) {
+                // set session variable to username
+                $_SESSION['LOGGED_IN_USER'] = $username;
+                // log a message that the user logged in successfully
+                self::logUser(true, $username);
+                // return true (needed for redirect to authorized.php from login.php)
+                return true;
+            // otherwise
+            } else {
+                // log a message that the user failed to log in successfully
+                self::logUser(false, $username);
+                // return false so the appropriate message can be displayed in login.php
+                return false;
+            }
         }
     }
 
