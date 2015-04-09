@@ -3,13 +3,6 @@
     require_once '../db_connect.php';
     require_once '../Input.php';
 
-    // function getParks($dbc)
-    // {
-    //     return $dbc->query("SELECT * FROM national_parks LIMIT $limit OFFSET $start")->fetchAll(PDO::FETCH_ASSOC);
-    // }
-
-    // $parks = getParks($dbc);
-
     $start = 0;
     $limit = 4;
     $id = 1;
@@ -22,10 +15,13 @@
         } 
     }
 
-    // re-write to use prepared statement
-    $parks = $dbc->query("SELECT * FROM national_parks LIMIT $limit OFFSET $start")->fetchAll(PDO::FETCH_ASSOC);
+    $stmt = $dbc->prepare("SELECT * FROM national_parks LIMIT :limit OFFSET :start");
+    $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+    $stmt->bindValue(':start', $start, PDO::PARAM_INT);
+    $stmt->execute();
 
-    // okay to use query
+    $parks = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
     $rows = $dbc->query("SELECT COUNT(*) FROM national_parks")->fetchColumn();
     $total = ceil($rows/$limit);
 
