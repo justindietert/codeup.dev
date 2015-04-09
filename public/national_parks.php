@@ -213,34 +213,36 @@
         </section>
         
         <nav>
-            <?php
 
-                echo "<ul class='page'>";
+            <ul class='page'>
+                
+                <?php if ($id > $total || !is_numeric($id)) { ?>
 
-                if ($id > $total || !is_numeric($id)) {
-                        echo "<li><a href='?id=1'>Back</a></li>"; 
-                } else {
+                        <li><a href="?id=1">Back</a></li>
 
-                    if($id > 1) {
-                        echo "<li><span id='prev'><a href='?id=".($id-1)."'>Previous</a></span></li>";
-                    }
+                    <?php } else { ?>
 
-                    for ($i = 1; $i <= $total; $i++) {
+                        <?php if($id > 1) { ?>
+                            <li><span id="prev"><a href="?id=<?php echo $id-1; ?>">Previous</a></span></li>
+                        <?php } ?>
 
-                        if($i == $id) { 
-                            echo "<li class='current'>".$i."</li>"; 
-                        } else { 
-                            echo "<li><a href='?id=".$i."'>".$i."</a></li>"; 
-                        }
-                    }
+                        <?php for ($i = 1; $i <= $total; $i++) { ?>
 
-                    if($id != $total) {
-                        echo "<li><span id='next'><a href='?id=".($id+1)."'>Next</a></span></li>";
-                    }
-                }
+                            <?php if($i == $id) { ?>
+                                <li class="current"><?php echo $i; ?></li>
+                            <?php } else { ?>
+                                <li><a href="?id=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                            <?php } ?>
+                        <?php } ?>
 
-                echo "</ul>";
-            ?>
+                        <?php if($id != $total) { ?>
+                            <li><span id='next'><a href="?id=<?php echo $id+1; ?>">Next</a></span></li>
+                        <?php } ?>
+                        
+                <?php } ?>
+
+            </ul>
+
         </nav>
     </div>
 
