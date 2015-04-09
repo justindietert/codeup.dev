@@ -22,8 +22,10 @@
         } 
     }
 
+    // re-write to use prepared statement
     $parks = $dbc->query("SELECT * FROM national_parks LIMIT $limit OFFSET $start")->fetchAll(PDO::FETCH_ASSOC);
 
+    // okay to use query
     $rows = $dbc->query("SELECT COUNT(*) FROM national_parks")->fetchColumn();
     $total = ceil($rows/$limit);
 
@@ -39,6 +41,7 @@
         html, body {
             margin: 0;
             padding: 0;
+            height: 100%;
         }
 
         body {
@@ -59,35 +62,49 @@
         }
 
         .container {
-            width: 80%;
+            width: 95%;
             margin: 0 auto;
-            padding-top: 1em;
+            min-height: 100%;
+            position: relative;
+        }
+
+        section#main {
+            padding-top: 0.5em;
+            padding-bottom: 5em;
+        }
+
+        section h1 {
+            font-size: 2em;
         }
 
         table {
             border-collapse: collapse;
             border-spacing: 0;
             width: 100%;
+            min-width: 62.5em;
         }
 
         tbody tr:first-child {
             border-top: 1px solid #ccc;
         }
 
+        tbody tr {
+            border-bottom: 1px solid #D5E9E0;
+        }
+
+        tbody tr:last-child {
+            border-bottom: none;
+        }
+
         td, 
         th {
-            padding: 0.75em 1em;
+            padding: 0.75em 1em 0.875em 1em;
             border-right: 1px dotted #aaa;
         }
 
         td:last-child,
         th:last-child {
             border-right: none;
-        }
-
-        th:first-child,
-        td:first-child {
-            text-align: right;
         }
 
         th {
@@ -102,8 +119,12 @@
         }
 
         nav {
-            float: right;
-            padding-top: 1.5em;
+            height: 5em;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            text-align: center;
         }
 
         ul, ol {
@@ -114,6 +135,10 @@
         #next:before {
             content: ' | ';
             color: #222;
+        }
+
+        ul.page {
+            padding-top: 1.5em;
         }
 
         .page {
@@ -155,37 +180,41 @@
     <div class="bar"></div>
 
     <div class="container">
-        <h1>National Parks</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Location</th>
-                    <th>Date Established</th>
-                    <th>Area in Acres</th> 
-                </tr>
-            </thead>
-            <tbody>
-                <?php if($id > $total || !is_numeric($id)) { ?>
-                    <tr>
-                        <td class="no-results" colspan="5">No results to display.</td>
-                    </tr>
-                <?php } else { ?>
 
-                <?php foreach ($parks as $park): ?>
-                    <tr>
-                        <td><?php echo $park['id']; ?></td>
-                        <td><?php echo $park['name']; ?></td>
-                        <td><?php echo $park['location']; ?></td>
-                        <td><?php echo $park['date_established']; ?></td>
-                        <td><?php echo $park['area_in_acres']; ?></td>
-                    </tr>
-                <?php endforeach; ?>
+        <section id="main">
+            <h1>National Parks</h1>
 
-                <?php } ?>
-            </tbody>
-        </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Date&nbsp;Est.</th>
+                        <th>Area&nbsp;in&nbsp;Acres</th> 
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if($id > $total || !is_numeric($id)) { ?>
+                        <tr>
+                            <td class="no-results" colspan="5">No results to display.</td>
+                        </tr>
+                    <?php } else { ?>
+
+                    <?php foreach ($parks as $park): ?>
+                        <tr>
+                            <td><?php echo $park['name']; ?></td>
+                            <td><?php echo $park['location']; ?></td>
+                            <td><?php echo $park['date_established']; ?></td>
+                            <td><?php echo $park['area_in_acres']; ?></td>
+                            <td><?php echo $park['description']; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+
+                    <?php } ?>
+                </tbody>
+            </table>
+        </section>
         
         <nav>
             <?php
