@@ -1,0 +1,135 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    font-family: Georgia;
+    font-size: 100%;
+    line-height: 1.5;
+    position: relative;
+    color: #222;
+    background: #EAF4F0;
+}
+
+.bar {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    height: 0.5em;
+    background: #222;
+}
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+    min-height: 100%;
+    position: relative;
+}
+
+section#main {
+    padding-top: 0.5em;
+    padding-bottom: 5em;
+}
+
+section h1 {
+    font-size: 2em;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    min-width: 62.5em;
+}
+
+tbody tr:first-child {
+    border-top: 1px solid #ccc;
+}
+
+tbody tr {
+    border-bottom: 1px solid #D5E9E0;
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+td, 
+th {
+    padding: 0.75em 1em 0.875em 1em;
+    border-right: 1px dotted #aaa;
+}
+
+td:last-child,
+th:last-child {
+    border-right: none;
+}
+
+th {
+    text-transform: uppercase;
+    letter-spacing: 0.125em;
+    font-weight: normal;
+    text-align: left;
+}
+
+.stripe {
+    background-color: #D5E9E0;
+}
+
+nav {
+    height: 5em;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+#prev:after,
+#next:before {
+    content: ' | ';
+    color: #222;
+}
+
+ul.page {
+    padding-top: 1.5em;
+}
+
+.page {
+    margin: 0;
+    padding: 0;
+}
+
+.page li {
+    list-style: none;
+    display: inline-block;
+}
+
+.page li a, .current {
+    padding: 0 0.313em 0 0.313em;
+}
+
+.page li a:link,
+.page li a:visited {
+    text-decoration: none;
+    color: #3D9970;
+}
+
+.page li a:hover {
+    color: #444;
+}
+
+.current {
+    font-weight:bold;
+    color: #222;
+}
+
+.no-results:first-child {
+    text-align: left;
+}
