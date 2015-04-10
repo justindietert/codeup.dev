@@ -157,32 +157,37 @@
         <section id="form">
             <h2 id="add">Add a Park</h2>
             <form method="POST" action="national_parks.php#add">
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name">
-                <span class="error">* <?php echo $nameErr; ?></span>
-                <br>
+                <div class="inputs">
+                    <!-- <label for="name">Name</label> -->
+                    <input type="text" name="name" id="name" placeholder="Name">
+                    <span class="error">* <?php echo $nameErr; ?></span>
+                    <br>
 
-                <label for="location">Location</label>
-                <input type="text" name="location" id="location">
-                <span class="error">* <?php echo $locationErr; ?></span>
-                <br>
+                    <!-- <label for="location">Location</label> -->
+                    <input type="text" name="location" id="location" placeholder="Location">
+                    <span class="error">* <?php echo $locationErr; ?></span>
+                    <br>
 
-                <label for="date">Date Est.</label>
-                <input type="text" name="date" id="date">
-                <span class="error">* <?php echo $dateErr; ?></span>
-                <br>
+                    <!-- <label for="date">Date Est.</label> -->
+                    <input type="text" name="date" id="date" placeholder="Date Established">
+                    <span class="error">* <?php echo $dateErr; ?></span>
+                    <br>
 
-                <label for="area">Area (in acres)</label>
-                <input type="text" name="area" id="area">
-                <span class="error">* <?php echo $areaErr; ?></span>
-                <br>
-
-                <label for="description">Description</label>
-                <textarea name="description" id="description" rows="10" cols="125"></textarea>
-                <span class="error">* <?php echo $descriptionErr; ?></span>
-                <br>
-
-                <input type="submit" value="Submit" class="submit">
+                    <!-- <label for="area">Area (in acres)</label> -->
+                    <input type="text" name="area" id="area" placeholder="Area (in acres)">
+                    <span class="error">* <?php echo $areaErr; ?></span>
+                    <br>
+                </div>
+                
+                <div id="textarea">
+                    <!-- <label for="description">Description</label> -->
+                    <textarea name="description" id="description" rows="10" cols="75" placeholder="Description"></textarea>
+                    <div class="error" id="descErr">* <?php echo $descriptionErr; ?></div>
+                </div>
+                
+                <div id="submit">
+                    <input type="submit" value="Submit" class="submit">
+                </div>
             </form>
         </section>
     </div>

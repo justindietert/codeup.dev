@@ -36,6 +36,16 @@ body {
     color: #222;
 }
 
+#descErr {
+    float: left;
+    display: block;
+    margin-top: .3875em;
+}
+
+#textarea {
+    overflow: hidden;
+}
+
 .bar {
     border: none;
     padding: 0;
@@ -56,12 +66,13 @@ body {
 
 section#main {
     padding-top: 0.5em;
-    padding-bottom: 28em;
+    padding-bottom: 40em;
 }
 
 section#form {
-    height: 28em;
+    height: 40em;
     position: absolute;
+    width: 100%;
     bottom: 0;
     left: 0;
     overflow: hidden;
@@ -80,12 +91,18 @@ input {
 }
 
 textarea {
-    display: block;
+    display: inline-block;
     resize: none;
+    float: left;
+    margin-right: 0.325em;
 }
 
 input, textarea {
     border: 1px solid #C2DFD2;
+    font-family: Georgia, serif;
+    font-size: 1em;
+    padding: 0.5em;
+    margin-bottom: 1em;
 }
 
 form input[type=text]:focus, textarea:focus {
