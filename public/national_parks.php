@@ -6,7 +6,6 @@
     $start = 0;
     $limit = 4;
     $page = 1;
-    $message = '';
 
     if (Input::has('page')) {
         $page = Input::get('page');
@@ -26,29 +25,56 @@
     $rows = $dbc->query("SELECT COUNT(*) FROM national_parks")->fetchColumn();
     $total = ceil($rows/$limit);
 
-if(!empty($_POST)) {
-    if (Input::has('name') && Input::has('location') && Input::has('date') && Input::has('area') && Input::has('description')) {
+    $nameErr = $locationErr = $dateErr = $areaErr = $descriptionErr = "";
+    $name = $location = $date_established = $area = $description = "";
 
-        $name = Input::get('name');
-        $location = Input::get('location'); 
-        $date_established = date('Y-m-d', strtotime(Input::get('date')));
-        $area = floatval(Input::get('area'));
-        $description = Input::get('description');
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        $sql = "INSERT INTO national_parks (name, location, date_established, area_in_acres, description) 
-                     VALUES (:name, :location, :date_established, :area, :description)";
+        if (empty($_POST["name"])) {
+            $nameErr = "Name is required";
+        } else {
+            $name = Input::get('name');
+        }
 
-        $query = $dbc->prepare($sql);
-        $query->bindValue(':name', $name, PDO::PARAM_STR);
-        $query->bindValue(':location', $location, PDO::PARAM_STR);
-        $query->bindValue(':date_established', $date_established, PDO::PARAM_STR);
-        $query->bindValue(':area', $area, PDO::PARAM_STR);
-        $query->bindValue(':description', $description, PDO::PARAM_STR);
-        $query->execute();  
+        if (empty($_POST["location"])) {
+            $locationErr = "Location is required";
+        } else {
+            $location = Input::get('location'); 
+        }
+
+        if (empty($_POST["date"])) {
+            $dateErr = "Date is required";
+        } else {
+            $date_established = date('Y-m-d', strtotime(Input::get('date')));
+        }
+
+        if (empty($_POST["area"])) {
+            $areaErr = "Area is required";
+        } else {
+            $area = floatval(Input::get('area'));
+        }
+
+        if (empty($_POST["description"])) {
+            $descriptionErr = "Description is required";
+        } else {
+            $description = Input::get('description');
+        }
+        
+        if (!empty($_POST["name"]) && !empty($_POST["location"]) && !empty($_POST["date"]) && !empty($_POST["area"]) && !empty($_POST["description"])) {
+
+            $sql = "INSERT INTO national_parks (name, location, date_established, area_in_acres, description) 
+                         VALUES (:name, :location, :date_established, :area, :description)";
+
+            $query = $dbc->prepare($sql);
+            $query->bindValue(':name', $name, PDO::PARAM_STR);
+            $query->bindValue(':location', $location, PDO::PARAM_STR);
+            $query->bindValue(':date_established', $date_established, PDO::PARAM_STR);
+            $query->bindValue(':area', $area, PDO::PARAM_STR);
+            $query->bindValue(':description', $description, PDO::PARAM_STR);
+            $query->execute();  
+        }
     }
 
-}
-    
 ?>
 
 <!DOCTYPE html>
@@ -133,24 +159,30 @@ if(!empty($_POST)) {
             <form method="POST" action="national_parks.php">
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name">
+                <span class="error">* <?php echo $nameErr; ?></span>
+                <br>
 
                 <label for="location">Location</label>
                 <input type="text" name="location" id="location">
+                <span class="error">* <?php echo $locationErr; ?></span>
+                <br>
 
                 <label for="date">Date Est.</label>
                 <input type="text" name="date" id="date">
+                <span class="error">* <?php echo $dateErr; ?></span>
+                <br>
 
                 <label for="area">Area (in acres)</label>
                 <input type="text" name="area" id="area">
-                
+                <span class="error">* <?php echo $areaErr; ?></span>
                 <br>
 
                 <label for="description">Description</label>
                 <textarea name="description" id="description" rows="10" cols="125"></textarea>
-                
+                <span class="error">* <?php echo $descriptionErr; ?></span>
                 <br>
 
-                <input type="submit" value="Submit"><span> <?php echo $message; ?></span>
+                <input type="submit" value="Submit">
             </form>
         </section>
     </div>

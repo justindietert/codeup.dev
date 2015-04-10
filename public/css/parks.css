@@ -33,11 +33,11 @@ body {
 
 section#main {
     padding-top: 0.5em;
-    padding-bottom: 25em;
+    padding-bottom: 28em;
 }
 
 section#form {
-    height: 25em;
+    height: 28em;
     position: absolute;
     bottom: 0;
     left: 0;
