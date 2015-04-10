@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-    font-family: Georgia;
+    font-family: Georgia, serif;
     font-size: 100%;
     line-height: 1.5;
     position: relative;
@@ -15,6 +15,25 @@ body {
 
 .error {
     color: #85144b;
+}
+
+.submit {
+    background: none;
+    font-family: Georgia, serif;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.125em;
+    padding: 0.75em;
+    border: 1px solid #3D9970;
+    color: #3D9970;
+    cursor: pointer;
+}
+
+.submit:hover,
+.submit:active,
+.submit:focus {
+    border-color: #222;
+    color: #222;
 }
 
 .bar {

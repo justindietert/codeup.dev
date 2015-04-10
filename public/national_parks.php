@@ -182,7 +182,7 @@
                 <span class="error">* <?php echo $descriptionErr; ?></span>
                 <br>
 
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" class="submit">
             </form>
         </section>
     </div>
