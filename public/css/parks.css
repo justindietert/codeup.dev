@@ -13,6 +13,10 @@ body {
     background: #EAF4F0;
 }
 
+.error {
+    color: #85144b;
+}
+
 .bar {
     border: none;
     padding: 0;
