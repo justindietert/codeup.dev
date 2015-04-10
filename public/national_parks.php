@@ -31,31 +31,31 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (empty($_POST["name"])) {
-            $nameErr = "Name is required";
+            $nameErr = "Name is required.";
         } else {
             $name = Input::get('name');
         }
 
         if (empty($_POST["location"])) {
-            $locationErr = "Location is required";
+            $locationErr = "Location is required.";
         } else {
             $location = Input::get('location'); 
         }
 
         if (empty($_POST["date"])) {
-            $dateErr = "Date is required";
+            $dateErr = "Date is required.";
         } else {
             $date_established = date('Y-m-d', strtotime(Input::get('date')));
         }
 
         if (empty($_POST["area"])) {
-            $areaErr = "Area is required";
+            $areaErr = "Area is required.";
         } else {
             $area = floatval(Input::get('area'));
         }
 
         if (empty($_POST["description"])) {
-            $descriptionErr = "Description is required";
+            $descriptionErr = "Description is required.";
         } else {
             $description = Input::get('description');
         }
