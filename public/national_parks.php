@@ -155,8 +155,8 @@
         </nav>
 
         <section id="form">
-            <h2>Add a Park</h2>
-            <form method="POST" action="national_parks.php">
+            <h2 id="add">Add a Park</h2>
+            <form method="POST" action="national_parks.php#add">
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name">
                 <span class="error">* <?php echo $nameErr; ?></span>
