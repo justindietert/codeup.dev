@@ -5,13 +5,14 @@
 
     $start = 0;
     $limit = 4;
-    $id = 1;
+    $page = 1;
+    $message = '';
 
-    if (Input::has('id')) {
-        $id = Input::get('id');
+    if (Input::has('page')) {
+        $page = Input::get('page');
 
-        if (is_numeric($id)) {
-            $start = ($id - 1) * $limit;
+        if (is_numeric($page)) {
+            $start = ($page - 1) * $limit;
         } 
     }
 
@@ -25,6 +26,29 @@
     $rows = $dbc->query("SELECT COUNT(*) FROM national_parks")->fetchColumn();
     $total = ceil($rows/$limit);
 
+if(!empty($_POST)) {
+    if (Input::has('name') && Input::has('location') && Input::has('date') && Input::has('area') && Input::has('description')) {
+
+        $name = Input::get('name');
+        $location = Input::get('location'); 
+        $date_established = date('Y-m-d', strtotime(Input::get('date')));
+        $area = floatval(Input::get('area'));
+        $description = Input::get('description');
+
+        $sql = "INSERT INTO national_parks (name, location, date_established, area_in_acres, description) 
+                     VALUES (:name, :location, :date_established, :area, :description)";
+
+        $query = $dbc->prepare($sql);
+        $query->bindValue(':name', $name, PDO::PARAM_STR);
+        $query->bindValue(':location', $location, PDO::PARAM_STR);
+        $query->bindValue(':date_established', $date_established, PDO::PARAM_STR);
+        $query->bindValue(':area', $area, PDO::PARAM_STR);
+        $query->bindValue(':description', $description, PDO::PARAM_STR);
+        $query->execute();  
+    }
+
+}
+    
 ?>
 
 <!DOCTYPE html>
@@ -33,10 +57,11 @@
     <meta charset="UTF-8">
     <title>National Parks</title>
     <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="css/parks.css">
 </head>
 <body>
-    <div class="bar"></div>
+    <hr class="bar">
 
     <div class="container">
 
@@ -48,13 +73,13 @@
                     <tr>
                         <th>Name</th>
                         <th>Location</th>
-                        <th>Date&nbsp;Est.</th>
-                        <th>Area&nbsp;in&nbsp;Acres</th> 
+                        <th>Date Est.</th>
+                        <th>Area in Acres</th> 
                         <th>Description</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if($id > $total || !is_numeric($id)) { ?>
+                    <?php if($page > $total || !is_numeric($page)) { ?>
                         <tr>
                             <td class="no-results" colspan="5">No results to display.</td>
                         </tr>
@@ -76,43 +101,65 @@
         </section>
         
         <nav>
+            <ul class='page'>    
+                <?php if ($page > $total || !is_numeric($page)): ?>
 
-            <ul class='page'>
-                
-                <?php if ($id > $total || !is_numeric($id)) { ?>
+                        <li><a href="?page=1">Back</a></li>
 
-                        <li><a href="?id=1">Back</a></li>
+                    <?php else: ?>
 
-                    <?php } else { ?>
+                        <?php if($page > 1): ?>
+                            <li><span id="prev"><a href="?page=<?php echo $page-1; ?>">Previous</a></span></li>
+                        <?php endif; ?>
 
-                        <?php if($id > 1) { ?>
-                            <li><span id="prev"><a href="?id=<?php echo $id-1; ?>">Previous</a></span></li>
-                        <?php } ?>
-
-                        <?php for ($i = 1; $i <= $total; $i++) { ?>
-
-                            <?php if($i == $id) { ?>
+                        <?php for ($i = 1; $i <= $total; $i++): ?>
+                            <?php if($i == $page): ?>
                                 <li class="current"><?php echo $i; ?></li>
-                            <?php } else { ?>
-                                <li><a href="?id=<?php echo $i; ?>"><?php echo $i; ?></a></li>
-                            <?php } ?>
-                        <?php } ?>
+                            <?php else: ?>
+                                <li><a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                            <?php endif; ?>
+                        <?php endfor; ?>
 
-                        <?php if($id != $total) { ?>
-                            <li><span id='next'><a href="?id=<?php echo $id+1; ?>">Next</a></span></li>
-                        <?php } ?>
+                        <?php if($page != $total): ?>
+                            <li><span id='next'><a href="?page=<?php echo $page+1; ?>">Next</a></span></li>
+                        <?php endif; ?>
 
-                <?php } ?>
-
+                <?php endif; ?>
             </ul>
-
         </nav>
+
+        <section id="form">
+            <h2>Add a Park</h2>
+            <form method="POST" action="national_parks.php">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name">
+
+                <label for="location">Location</label>
+                <input type="text" name="location" id="location">
+
+                <label for="date">Date Est.</label>
+                <input type="text" name="date" id="date">
+
+                <label for="area">Area (in acres)</label>
+                <input type="text" name="area" id="area">
+                
+                <br>
+
+                <label for="description">Description</label>
+                <textarea name="description" id="description" rows="10" cols="125"></textarea>
+                
+                <br>
+
+                <input type="submit" value="Submit"><span> <?php echo $message; ?></span>
+            </form>
+        </section>
     </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script>
         $(document).ready(function(){
-            $("tr:odd").addClass("stripe");
+            $("#date").datepicker();
         });
     </script>
 </body>
