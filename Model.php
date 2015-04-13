@@ -23,6 +23,12 @@ class Model
 
         return null;
     }
+
+    public static function getTableName()
+    {
+        return static::$table;
+    }
+
 }
 
 
