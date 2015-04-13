@@ -60,15 +60,14 @@ class Model {
     public function save()
     {
         // Ensure there are attributes before attempting to save
-        if (isset($this->attributes)) {
+        if (!empty($this->attributes)) {
         // if the `id` is set, this is an update, if not it is a insert
             if (isset($this->attributes['id'])) {
-                $query = "UPDATE ";
+                $query = "UPDATE " . static::$table;
             } else {
-                $query = "INSERT INTO ";
+                $query = "INSERT INTO " . static::$table;
             }
         
-
         // @TODO: Ensure that update is properly handled with the id key
 
         // @TODO: After insert, add the id back to the attributes array so the object can properly reflect the id
@@ -116,22 +115,8 @@ class Model {
     {
         self::dbConnect();
 
-        // @TODO: Learning from the previous method, return all the matching records
-        // Create select statement using prepared statements
-        $stmt = self::$dbc->prepare("SELECT * FROM " . static::$table);
-        $stmt->execute();
-
-        // Store the result set in a variable named $result
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        // The following code will set the attributes on the calling object based on the result variable's contents
-        $instance = null;
-        if ($result)
-        {
-            $instance = new static;
-            $instance->attributes = $result;
-        }
-        return $instance;        
+        // Learning from the previous method, return all the matching records
+        return self::$dbc->query("SELECT * FROM " . static::$table)->fetchAll(PDO::FETCH_ASSOC);  
     }
 
 }
