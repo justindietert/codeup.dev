@@ -2,11 +2,8 @@
 
 require_once 'Model.php';
 
-class User extends Model 
-{
-    protected static $table = 'users';
+class User extends Model {
+
+    protected static $table = 'contacts';
+
 }
-
-//------ TEST ------//
-
-echo User::getTableName() . PHP_EOL;
