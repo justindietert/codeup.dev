@@ -1,4 +1,5 @@
 <?php
+require_once 'park_logins.php';
 
 class Model {
 
@@ -20,9 +21,15 @@ class Model {
      */
     private static function dbConnect()
     {
+        // if the static property $dbc has not been set, then assign it
         if (!self::$dbc)
         {
-            // @TODO: Connect to database
+            // Get new instance of PDO object
+            self::$dbc = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
+            // Tell PDO to throw exceptions on error
+            self::$dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            echo "You are connected to the database. \n";
         }
     }
 
@@ -31,7 +38,12 @@ class Model {
      */
     public function __get($name)
     {
-        // @TODO: Return the value from attributes with a matching $name, if it exists
+        // Return the value from attributes with a matching $name, if it exists
+        if (array_key_exists($name, $this->attributes)) {
+            return $this->attributes[$name];
+        }
+
+        return null;
     }
 
     /*
@@ -39,7 +51,7 @@ class Model {
      */
     public function __set($name, $value)
     {
-        // @TODO: Store name/value pair in attributes array
+        $this->attributes[$name] = $value;       
     }
 
     /*
@@ -47,17 +59,29 @@ class Model {
      */
     public function save()
     {
-        // @TODO: Ensure there are attributes before attempting to save
-
-        // @TODO: Perform the proper action - if the `id` is set, this is an update, if not it is a insert
+        // Ensure there are attributes before attempting to save
+        if (isset($this->attributes)) {
+        // if the `id` is set, this is an update, if not it is a insert
+            if (isset($this->attributes['id'])) {
+                $query = "UPDATE ";
+            } else {
+                $query = "INSERT INTO ";
+            }
+        
 
         // @TODO: Ensure that update is properly handled with the id key
 
         // @TODO: After insert, add the id back to the attributes array so the object can properly reflect the id
 
         // @TODO: You will need to iterate through all the attributes to build the prepared query
+            foreach($this->attributes as $attribute) {
+
+            }
 
         // @TODO: Use prepared statements to ensure data security
+
+        }
+    }
 
     /*
      * Find a record based on an id
@@ -67,12 +91,15 @@ class Model {
         // Get connection to the database
         self::dbConnect();
 
-        // @TODO: Create select statement using prepared statements
+        // Create select statement using prepared statements
+        $stmt = self::$dbc->prepare("SELECT * FROM " . static::$table . " WHERE id = :id");
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
 
-        // @TODO: Store the resultset in a variable named $result
+        // Store the result set in a variable named $result
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         // The following code will set the attributes on the calling object based on the result variable's contents
-
         $instance = null;
         if ($result)
         {
@@ -90,6 +117,25 @@ class Model {
         self::dbConnect();
 
         // @TODO: Learning from the previous method, return all the matching records
+        // Create select statement using prepared statements
+        $stmt = self::$dbc->prepare("SELECT * FROM " . static::$table);
+        $stmt->execute();
+
+        // Store the result set in a variable named $result
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // The following code will set the attributes on the calling object based on the result variable's contents
+        $instance = null;
+        if ($result)
+        {
+            $instance = new static;
+            $instance->attributes = $result;
+        }
+        return $instance;        
     }
 
 }
+
+
+$model = new Model();
+
