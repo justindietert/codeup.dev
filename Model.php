@@ -4,6 +4,7 @@ class Model
 {
     // array to store key/value data
     private $attributes = [];
+    protected static $table;
 
     // magic setter to populate $attributes array
     public function __set($name, $value)
