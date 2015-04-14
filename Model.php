@@ -1,5 +1,5 @@
 <?php
-require_once 'park_logins.php';
+require_once 'adlister_logins.php';
 
 class Model {
 
@@ -62,22 +62,43 @@ class Model {
         // Ensure there are attributes before attempting to save
         if (!empty($this->attributes)) {
         // if the `id` is set, this is an update, if not it is a insert
-            if (isset($this->attributes['id'])) {
-                $query = "UPDATE " . static::$table;
-            } else {
-                $query = "INSERT INTO " . static::$table;
-            }
-        
-        // @TODO: Ensure that update is properly handled with the id key
+                if (isset($this->attributes['id'])) {
+                    $stmt = self::$dbc->prepare("UPDATE " . static::$table . 
+                                                   "SET first_name = :first_name,
+                                                        last_name  = :last_name,
+                                                        email      = :email,
+                                                        birth_date = cast(:birth_date as DATE)
+                                                        WHERE id   = :id");
+               
+                        $stmt->bindValue(':first_name', $this->attributes['first_name'], PDO::PARAM_STR);
+                        $stmt->bindValue(':last_name', $this->attributes['last_name'], PDO::PARAM_STR);
+                        $stmt->bindValue(':email', $this->attributes['email'], PDO::PARAM_STR);
+                        $stmt->bindValue(':birth_date', $this->attributes['birth_date'], PDO::PARAM_STR);
+                        $stmt->bindValue(':id', $this->attributes['id'], PDO::PARAM_INT);
+                        $stmt->execute();
+                        echo 'Updated ID: ' . self::$dbc->lastInsertId() . PHP_EOL;
 
-        // @TODO: After insert, add the id back to the attributes array so the object can properly reflect the id
+                } else {
+                    $stmt = self::$dbc->prepare("INSERT INTO " . static::$table .
+                                             " (  first_name,  last_name,  email,  birth_date ) 
+                                        VALUES ( :first_name, :last_name, :email, :birth_date )");
 
-        // @TODO: You will need to iterate through all the attributes to build the prepared query
-            foreach($this->attributes as $attribute) {
+                        $stmt->bindValue(':first_name', $this->attributes['first_name'], PDO::PARAM_STR);
+                        $stmt->bindValue(':last_name', $this->attributes['last_name'], PDO::PARAM_STR);
+                        $stmt->bindValue(':email', $this->attributes['email'], PDO::PARAM_STR);
+                        $stmt->bindValue(':birth_date', $this->attributes['birth_date'], PDO::PARAM_STR);
+                        $stmt->execute();
+                        $this->attributes['id'] = self::$dbc->lastInsertId();
+                        echo 'Inserted ID: ' . self::$dbc->lastInsertId() . PHP_EOL;
+                }
 
-            }
+        // Ensure that update is properly handled with the id key
 
-        // @TODO: Use prepared statements to ensure data security
+        // After insert, add the id back to the attributes array so the object can properly reflect the id
+
+        // You will need to iterate through all the attributes to build the prepared query
+
+        // Use prepared statements to ensure data security
 
         }
     }
@@ -120,7 +141,4 @@ class Model {
     }
 
 }
-
-
-$model = new Model();
 
