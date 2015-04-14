@@ -59,38 +59,17 @@ class Model {
      */
     public function save()
     {
+        var_dump($this);
         // Ensure there are attributes before attempting to save
-        if (!empty($this->attributes)) {
-        // if the `id` is set, this is an update, if not it is a insert
-                if (isset($this->attributes['id'])) {
-                    $stmt = self::$dbc->prepare("UPDATE " . static::$table . 
-                                                   "SET first_name = :first_name,
-                                                        last_name  = :last_name,
-                                                        email      = :email,
-                                                        birth_date = cast(:birth_date as DATE)
-                                                        WHERE id   = :id");
-               
-                        $stmt->bindValue(':first_name', $this->attributes['first_name'], PDO::PARAM_STR);
-                        $stmt->bindValue(':last_name', $this->attributes['last_name'], PDO::PARAM_STR);
-                        $stmt->bindValue(':email', $this->attributes['email'], PDO::PARAM_STR);
-                        $stmt->bindValue(':birth_date', $this->attributes['birth_date'], PDO::PARAM_STR);
-                        $stmt->bindValue(':id', $this->attributes['id'], PDO::PARAM_INT);
-                        $stmt->execute();
-                        echo 'Updated ID: ' . self::$dbc->lastInsertId() . PHP_EOL;
+        // if the `key` is set, this is an update, if not it is a insert
+        if (!empty($this->attributes['id'])) {
+            
+            $this->update();
 
-                } else {
-                    $stmt = self::$dbc->prepare("INSERT INTO " . static::$table .
-                                             " (  first_name,  last_name,  email,  birth_date ) 
-                                        VALUES ( :first_name, :last_name, :email, :birth_date )");
+        } else {
 
-                        $stmt->bindValue(':first_name', $this->attributes['first_name'], PDO::PARAM_STR);
-                        $stmt->bindValue(':last_name', $this->attributes['last_name'], PDO::PARAM_STR);
-                        $stmt->bindValue(':email', $this->attributes['email'], PDO::PARAM_STR);
-                        $stmt->bindValue(':birth_date', $this->attributes['birth_date'], PDO::PARAM_STR);
-                        $stmt->execute();
-                        $this->attributes['id'] = self::$dbc->lastInsertId();
-                        echo 'Inserted ID: ' . self::$dbc->lastInsertId() . PHP_EOL;
-                }
+            $this->insert();
+        }
 
         // Ensure that update is properly handled with the id key
 
@@ -98,9 +77,40 @@ class Model {
 
         // You will need to iterate through all the attributes to build the prepared query
 
-        // Use prepared statements to ensure data security
+        // Use prepared statements to ensure data security    
+    }
 
-        }
+    protected function update()
+    {
+        echo "update method called";
+        $stmt = self::$dbc->prepare("UPDATE " . static::$table . 
+                                       "SET first_name  = :first_name,
+                                            last_name   = :last_name,
+                                            email       = :email,
+                                            birth_date  = cast(:birth_date as DATE)
+                                            WHERE email = :email");
+   
+            $stmt->bindValue(':first_name', $this->first_name, PDO::PARAM_STR);
+            $stmt->bindValue(':last_name', $this->last_name, PDO::PARAM_STR);
+            $stmt->bindValue(':email', $this->email, PDO::PARAM_STR);
+            $stmt->bindValue(':birth_date', $this->birth_date, PDO::PARAM_STR);
+            $stmt->execute();
+            echo 'Updated ID: ' . self::$dbc->lastInsertId() . PHP_EOL;
+    }
+
+    protected function insert()
+    {
+        $stmt = self::$dbc->prepare("INSERT INTO " . static::$table .
+                                 " (  first_name,  last_name,  email,  birth_date ) 
+                            VALUES ( :first_name, :last_name, :email, :birth_date )");
+
+            $stmt->bindValue(':first_name', $this->first_name, PDO::PARAM_STR);
+            $stmt->bindValue(':last_name', $this->last_name, PDO::PARAM_STR);
+            $stmt->bindValue(':email', $this->email, PDO::PARAM_STR);
+            $stmt->bindValue(':birth_date', $this->birth_date, PDO::PARAM_STR);
+            $stmt->execute();
+            // $this->attributes['id'] = self::$dbc->lastInsertId();
+            echo 'Inserted ID: ' . self::$dbc->lastInsertId() . PHP_EOL;
     }
 
     /*
