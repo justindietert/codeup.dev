@@ -84,35 +84,40 @@ class Model {
     {
         echo "\n>> UPDATE METHOD CALLED.\n\n";
 
-        $stmt = self::$dbc->prepare("UPDATE " . static::$table . 
-                                       " SET first_name  = :first_name,
-                                            last_name   = :last_name,
-                                            email       = :email,
-                                            birth_date  = cast(:birth_date as DATE)
-                                            WHERE id    = :id");
+        $query = "UPDATE " . static::$table . 
+                   " SET first_name  = :first_name,
+                        last_name   = :last_name,
+                        email       = :email,
+                        birth_date  = cast(:birth_date as DATE)
+                        WHERE id    = :id";
+
+        $stmt = self::$dbc->prepare($query);
    
-            $stmt->bindValue(':first_name', $this->first_name, PDO::PARAM_STR);
-            $stmt->bindValue(':last_name', $this->last_name, PDO::PARAM_STR);
-            $stmt->bindValue(':email', $this->email, PDO::PARAM_STR);
-            $stmt->bindValue(':birth_date', $this->birth_date, PDO::PARAM_STR);
-            $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
-            $stmt->execute();
+        $stmt->bindValue(':first_name', $this->first_name, PDO::PARAM_STR);
+        $stmt->bindValue(':last_name', $this->last_name, PDO::PARAM_STR);
+        $stmt->bindValue(':email', $this->email, PDO::PARAM_STR);
+        $stmt->bindValue(':birth_date', $this->birth_date, PDO::PARAM_STR);
+        $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $stmt->execute();
     }
 
     protected function insert()
     {
+        $query = "INSERT INTO " . static::$table .
+                         " (  first_name,  last_name,  email,  birth_date ) 
+                    VALUES ( :first_name, :last_name, :email, :birth_date )";
 
-        $stmt = self::$dbc->prepare("INSERT INTO " . static::$table .
-                                 " (  first_name,  last_name,  email,  birth_date ) 
-                            VALUES ( :first_name, :last_name, :email, :birth_date )");
+        $stmt = self::$dbc->prepare($query);
 
-            $stmt->bindValue(':first_name', $this->first_name, PDO::PARAM_STR);
-            $stmt->bindValue(':last_name', $this->last_name, PDO::PARAM_STR);
-            $stmt->bindValue(':email', $this->email, PDO::PARAM_STR);
-            $stmt->bindValue(':birth_date', $this->birth_date, PDO::PARAM_STR);
-            $stmt->execute();
-            $this->attributes['id'] = self::$dbc->lastInsertId();
-            echo 'Inserted ID: ' . self::$dbc->lastInsertId() . PHP_EOL;
+        $stmt->bindValue(':first_name', $this->first_name, PDO::PARAM_STR);
+        $stmt->bindValue(':last_name', $this->last_name, PDO::PARAM_STR);
+        $stmt->bindValue(':email', $this->email, PDO::PARAM_STR);
+        $stmt->bindValue(':birth_date', $this->birth_date, PDO::PARAM_STR);
+        $stmt->execute();
+        
+        $this->attributes['id'] = self::$dbc->lastInsertId();
+
+        echo 'Inserted ID: ' . self::$dbc->lastInsertId() . PHP_EOL;
     }
 
     /*
