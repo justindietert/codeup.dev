@@ -31,6 +31,30 @@ class Input
         return htmlentities(strip_tags($input));
     }
 
+    public static function getString($key) 
+    {
+        $string = self::get($key);
+
+        if(!is_string($string)) {
+
+            throw new Exception('Input must be a string!'); 
+        } 
+
+        return $string;
+    }
+
+    public static function getNumber($key)
+    {
+        $number = self::get($key);
+
+        if(!is_numeric($number)) {
+
+            throw new Exception('Input must be a number!');
+        }
+
+        return floatval($number);
+    }
+
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //
     // The Input class should not ever be instantiated, so we prevent the    //
