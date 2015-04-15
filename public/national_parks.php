@@ -33,31 +33,31 @@
         if (empty($_POST["name"])) {
             $nameErr = "Name is required.";
         } else {
-            $name = Input::get('name');
+            $name = Input::getString('name');
         }
 
         if (empty($_POST["location"])) {
             $locationErr = "Location is required.";
         } else {
-            $location = Input::get('location'); 
+            $location = Input::getString('location'); 
         }
 
         if (empty($_POST["date"])) {
             $dateErr = "Date is required.";
         } else {
-            $date_established = date('Y-m-d', strtotime(Input::get('date')));
+            $date_established = date('Y-m-d', strtotime(Input::getString('date')));
         }
 
         if (empty($_POST["area"])) {
             $areaErr = "Area is required.";
         } else {
-            $area = floatval(Input::get('area'));
+            $area = Input::getNumber('area');
         }
 
         if (empty($_POST["description"])) {
             $descriptionErr = "Description is required.";
         } else {
-            $description = Input::get('description');
+            $description = Input::getString('description');
         }
         
         if (!empty($_POST["name"]) && !empty($_POST["location"]) && !empty($_POST["date"]) && !empty($_POST["area"]) && !empty($_POST["description"])) {
@@ -156,7 +156,7 @@
 
         <section id="form">
             <h2 id="add">Add a Park</h2>
-            <form method="POST" action="national_parks.php#add">
+            <form method="POST" action="#add">
                 <div class="inputs">
                     <!-- <label for="name">Name</label> -->
                     <input type="text" name="name" id="name" placeholder="Name">
