@@ -29,7 +29,7 @@ class Model {
             // Tell PDO to throw exceptions on error
             self::$dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            echo "You are connected to the database. \n";
+            echo "\n>> YOU ARE CONNECTED TO THE DATABASE. \n\n";
         }
     }
 
@@ -82,24 +82,26 @@ class Model {
 
     protected function update()
     {
-        echo "update method called";
+        echo "\n>> UPDATE METHOD CALLED.\n\n";
+
         $stmt = self::$dbc->prepare("UPDATE " . static::$table . 
-                                       "SET first_name  = :first_name,
+                                       " SET first_name  = :first_name,
                                             last_name   = :last_name,
                                             email       = :email,
                                             birth_date  = cast(:birth_date as DATE)
-                                            WHERE email = :email");
+                                            WHERE id    = :id");
    
             $stmt->bindValue(':first_name', $this->first_name, PDO::PARAM_STR);
             $stmt->bindValue(':last_name', $this->last_name, PDO::PARAM_STR);
             $stmt->bindValue(':email', $this->email, PDO::PARAM_STR);
             $stmt->bindValue(':birth_date', $this->birth_date, PDO::PARAM_STR);
+            $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
             $stmt->execute();
-            echo 'Updated ID: ' . self::$dbc->lastInsertId() . PHP_EOL;
     }
 
     protected function insert()
     {
+
         $stmt = self::$dbc->prepare("INSERT INTO " . static::$table .
                                  " (  first_name,  last_name,  email,  birth_date ) 
                             VALUES ( :first_name, :last_name, :email, :birth_date )");
@@ -109,7 +111,7 @@ class Model {
             $stmt->bindValue(':email', $this->email, PDO::PARAM_STR);
             $stmt->bindValue(':birth_date', $this->birth_date, PDO::PARAM_STR);
             $stmt->execute();
-            // $this->attributes['id'] = self::$dbc->lastInsertId();
+            $this->attributes['id'] = self::$dbc->lastInsertId();
             echo 'Inserted ID: ' . self::$dbc->lastInsertId() . PHP_EOL;
     }
 
@@ -127,7 +129,7 @@ class Model {
         $stmt->execute();
 
         // Store the result set in a variable named $result
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         // The following code will set the attributes on the calling object based on the result variable's contents
         $instance = null;
@@ -148,6 +150,18 @@ class Model {
 
         // Learning from the previous method, return all the matching records
         return self::$dbc->query("SELECT * FROM " . static::$table)->fetchAll(PDO::FETCH_ASSOC);  
+    }
+
+    /*
+     * Delete a record in a table
+     */
+    public static function delete($id)
+    {
+        self::dbConnect();
+
+        $stmt = self::$dbc->prepare("DELETE FROM " . static::$table . " WHERE id = :id");
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
     }
 
 }
