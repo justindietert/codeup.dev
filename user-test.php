@@ -2,6 +2,13 @@
 
 require_once 'User.php';
 
+$pabs = new User();
+$pabs->first_name = "Pablo";
+$pabs->last_name = "Pabs";
+$pabs->email = "pabs@email.com";
+$pabs->birth_date = "1969-05-20";
+$pabs->save();
+
 // $justin = new User();
 // $justin->first_name = "Justin";
 // $justin->last_name = "J-da";
@@ -36,6 +43,6 @@ require_once 'User.php';
 
 // User::delete(12);
 
-$kenny = User::find(15);
-$kenny->last_name = 'P';
-$kenny->save();
+// $kenny = User::find(15);
+// $kenny->last_name = 'Patt';
+// $kenny->save();
