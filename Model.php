@@ -59,9 +59,8 @@ class Model {
      */
     public function save()
     {
-        var_dump($this);
         // Ensure there are attributes before attempting to save
-        // if the `key` is set, this is an update, if not it is a insert
+        // if the `id` is set, this is an update, if not it is a insert
         if (!empty($this->attributes['id'])) {
             
             $this->update();
@@ -71,13 +70,6 @@ class Model {
             $this->insert();
         }
 
-        // Ensure that update is properly handled with the id key
-
-        // After insert, add the id back to the attributes array so the object can properly reflect the id
-
-        // You will need to iterate through all the attributes to build the prepared query
-
-        // Use prepared statements to ensure data security    
     }
 
     protected function update()
@@ -85,11 +77,11 @@ class Model {
         echo "\n>> UPDATE METHOD CALLED.\n\n";
 
         $query = "UPDATE " . static::$table . 
-                   " SET first_name  = :first_name,
-                        last_name   = :last_name,
-                        email       = :email,
-                        birth_date  = cast(:birth_date as DATE)
-                        WHERE id    = :id";
+                         " SET first_name  = :first_name,
+                               last_name   = :last_name,
+                               email       = :email,
+                               birth_date  = cast(:birth_date as DATE)
+                               WHERE id    = :id";
 
         $stmt = self::$dbc->prepare($query);
    
@@ -104,8 +96,8 @@ class Model {
     protected function insert()
     {
         $query = "INSERT INTO " . static::$table .
-                         " (  first_name,  last_name,  email,  birth_date ) 
-                    VALUES ( :first_name, :last_name, :email, :birth_date )";
+                              " (  first_name,  last_name,  email,  birth_date ) 
+                         VALUES ( :first_name, :last_name, :email, :birth_date )";
 
         $stmt = self::$dbc->prepare($query);
 
@@ -114,7 +106,7 @@ class Model {
         $stmt->bindValue(':email', $this->email, PDO::PARAM_STR);
         $stmt->bindValue(':birth_date', $this->birth_date, PDO::PARAM_STR);
         $stmt->execute();
-        
+        // After insert, add the id back to the attributes array so the object can properly reflect the id
         $this->attributes['id'] = self::$dbc->lastInsertId();
 
         echo 'Inserted ID: ' . self::$dbc->lastInsertId() . PHP_EOL;
