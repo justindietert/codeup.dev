@@ -3,6 +3,10 @@
     require_once '../db_connect.php';
     require_once '../Input.php';
 
+
+    // PAGINATION
+    //-------------------------------------------//
+
     $start = 0;
     $limit = 4;
     $page = 1;
@@ -25,54 +29,83 @@
     $rows = $dbc->query("SELECT COUNT(*) FROM national_parks")->fetchColumn();
     $total = ceil($rows/$limit);
 
-    $nameErr = $locationErr = $dateErr = $areaErr = $descriptionErr = "";
-    $name = $location = $date_established = $area = $description = "";
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // FORM
+    //-------------------------------------------//
 
-        if (empty($_POST["name"])) {
-            $nameErr = "Name is required.";
-        } else {
+    $errors = [];
+
+    if (!empty($_POST)) {
+
+        try {
             $name = Input::getString('name');
+        } catch (Exception $e) {
+            $errors['name'] = $e->getMessage();
         }
 
-        if (empty($_POST["location"])) {
-            $locationErr = "Location is required.";
-        } else {
-            $location = Input::getString('location'); 
+        // if (empty(trim(Input::get('location')))) {
+        //     $locationErr = "Location is required.";
+        // } else {
+        //     $location = Input::getString('location'); 
+        // }
+
+        try {
+            $location = Input::getString('location');
+        } catch (Exception $e) {
+            $errors['location'] = $e->getMessage();
         }
 
-        if (empty($_POST["date"])) {
-            $dateErr = "Date is required.";
-        } else {
+        // if (empty(trim(Input::get('date')))) {
+        //     $dateErr = "Date is required.";
+        // } else {
+        //     $date_established = date('Y-m-d', strtotime(Input::getString('date')));
+        // }
+
+        try {
             $date_established = date('Y-m-d', strtotime(Input::getString('date')));
+        } catch (Exception $e) {
+            $errors['date'] = $e->getMessage();
         }
 
-        if (empty($_POST["area"])) {
-            $areaErr = "Area is required.";
-        } else {
+        // if (empty(trim(Input::get('area')))) {
+        //     $errors['area'] = "Area required.";
+        // } else {
+        //     $area = Input::getNumber('area');
+        // }
+
+        try {
             $area = Input::getNumber('area');
+        } catch (Exception $e) {
+            $errors['area'] = $e->getMessage();
         }
 
-        if (empty($_POST["description"])) {
-            $descriptionErr = "Description is required.";
-        } else {
+        // if (empty(trim(Input::get('description')))) {
+        //     $descriptionErr = "Description is required.";
+        // } else {
+        //     $description = Input::getString('description');
+        // }
+
+        try {
             $description = Input::getString('description');
+        } catch (Exception $e) {
+            $errors['description'] = $e->getMessage();
         }
+
         
-        if (!empty($_POST["name"]) && !empty($_POST["location"]) && !empty($_POST["date"]) && !empty($_POST["area"]) && !empty($_POST["description"])) {
+        if (empty($errors)) {
 
             $sql = "INSERT INTO national_parks (name, location, date_established, area_in_acres, description) 
-                         VALUES (:name, :location, :date_established, :area, :description)";
+                         VALUES (:name, :location, :date_established, :area_in_acres, :description)";
 
             $query = $dbc->prepare($sql);
             $query->bindValue(':name', $name, PDO::PARAM_STR);
             $query->bindValue(':location', $location, PDO::PARAM_STR);
             $query->bindValue(':date_established', $date_established, PDO::PARAM_STR);
-            $query->bindValue(':area', $area, PDO::PARAM_STR);
+            $query->bindValue(':area_in_acres', $area, PDO::PARAM_STR);
             $query->bindValue(':description', $description, PDO::PARAM_STR);
             $query->execute();  
         }
+
     }
 
 ?>
@@ -160,29 +193,29 @@
                 <div class="inputs">
                     <!-- <label for="name">Name</label> -->
                     <input type="text" name="name" id="name" placeholder="Name">
-                    <span class="error">* <?php echo $nameErr; ?></span>
-                    <br>
+                    <span class="error">* <?php if(array_key_exists('name', $errors)) { echo $errors['name']; } ?></span>
+                    
 
                     <!-- <label for="location">Location</label> -->
                     <input type="text" name="location" id="location" placeholder="Location">
-                    <span class="error">* <?php echo $locationErr; ?></span>
-                    <br>
+                    <span class="error">* <?php if(array_key_exists('location', $errors)) { echo $errors['location']; } ?></span>
+                    
 
                     <!-- <label for="date">Date Est.</label> -->
                     <input type="text" name="date" id="date" placeholder="Date Established">
-                    <span class="error">* <?php echo $dateErr; ?></span>
-                    <br>
+                    <span class="error">* <?php if(array_key_exists('date', $errors)) { echo $errors['date']; } ?></span>
+                    
 
                     <!-- <label for="area">Area (in acres)</label> -->
                     <input type="text" name="area" id="area" placeholder="Area (in acres)">
-                    <span class="error">* <?php echo $areaErr; ?></span>
-                    <br>
+                    <span class="error">* <?php if(array_key_exists('area', $errors)) { echo $errors['area']; } ?></span>
+                    
                 </div>
                 
                 <div id="textarea">
                     <!-- <label for="description">Description</label> -->
                     <textarea name="description" id="description" rows="10" cols="75" placeholder="Description"></textarea>
-                    <div class="error" id="descErr">* <?php echo $descriptionErr; ?></div>
+                    <div class="error" id="descErr">* <?php if(array_key_exists('description', $errors)) { echo $errors['description']; } ?></div>
                 </div>
                 
                 <div id="submit">
