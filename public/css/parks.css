@@ -17,6 +17,12 @@ body {
     color: #85144b;
 }
 
+.error:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 .submit {
     background: none;
     font-family: Georgia, serif;
@@ -42,8 +48,10 @@ body {
     margin-top: .3875em;
 }
 
-#textarea {
-    overflow: hidden;
+#textarea:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .bar {
@@ -88,6 +96,10 @@ section#form h2 {
 
 input {
     border: none;
+}
+
+input[type="text"] {
+    width: 15em;
 }
 
 textarea {
