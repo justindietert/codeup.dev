@@ -17,6 +17,10 @@ body {
     color: #85144b;
 }
 
+.success {
+    color: #3D9970;
+}
+
 .error:after {
     content: "";
     display: table;
@@ -83,7 +87,12 @@ section#form {
     width: 100%;
     bottom: 0;
     left: 0;
-    overflow: hidden;
+}
+
+section#form:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 section#form h2 {
@@ -224,6 +233,7 @@ ul.page {
 .no-results:first-child {
     text-align: left;
 }
+
 
 /* Date Picker
 ----------------------------------------------- */
