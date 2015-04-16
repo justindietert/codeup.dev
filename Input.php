@@ -55,6 +55,16 @@ class Input
         return floatval($number);
     }
 
+    public static function notZero($key)
+    {
+        if ($key == 0) {
+
+            throw new Exception('Input cannot be zero.');
+        }
+
+        return $key;
+    }
+
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //
     // The Input class should not ever be instantiated, so we prevent the    //
