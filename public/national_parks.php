@@ -34,51 +34,74 @@
     //-------------------------------------------//
 
     $errors = [];
+    $userInputs = [];
+    $saveValues = [
+        'name'        => '',
+        'location'    => '',
+        'date'        => '',
+        'area'        => '',
+        'description' => ''
+    ];
+
+    if(isset($_POST['submit'])) {
+        $saveValues = array_replace($saveValues, $_POST);
+    }
 
     if (!empty($_POST)) {
 
         try {
-            $name = Input::getString('name');
+            $userInputs['name'] = Input::getString('name');
         } catch (Exception $e) {
             $errors['name'] = $e->getMessage();
         }
 
         try {
-            $location = Input::getString('location');
+            $userInputs['location'] = Input::getString('location');
         } catch (Exception $e) {
             $errors['location'] = $e->getMessage();
         }
 
         try {
-            $date_established = date('Y-m-d', strtotime(Input::getString('date')));
+            $userInputs['date_established'] = date('Y-m-d', strtotime(Input::getString('date')));
         } catch (Exception $e) {
             $errors['date'] = $e->getMessage();
         }
 
         try {
-            $area = Input::notZero(Input::getNumber('area'));
+            $userInputs['area'] = Input::notZero(Input::getNumber('area'));
         } catch (Exception $e) {
             $errors['area'] = $e->getMessage();
         }
 
         try {
-            $description = Input::getString('description');
+            $userInputs['description'] = Input::getString('description');
         } catch (Exception $e) {
             $errors['description'] = $e->getMessage();
         }
 
+        // If there are no errors, submit the data
         if (empty($errors)) {
 
             $sql = "INSERT INTO national_parks (  name,  location,  date_established,  area_in_acres,  description  ) 
                                         VALUES ( :name, :location, :date_established, :area_in_acres, :description  )";
 
             $query = $dbc->prepare($sql);
-            $query->bindValue(':name', $name, PDO::PARAM_STR);
-            $query->bindValue(':location', $location, PDO::PARAM_STR);
-            $query->bindValue(':date_established', $date_established, PDO::PARAM_STR);
-            $query->bindValue(':area_in_acres', $area, PDO::PARAM_STR);
-            $query->bindValue(':description', $description, PDO::PARAM_STR);
-            $query->execute();  
+            $query->bindValue(':name', $userInputs['name'], PDO::PARAM_STR);
+            $query->bindValue(':location', $userInputs['location'], PDO::PARAM_STR);
+            $query->bindValue(':date_established', $userInputs['date_established'], PDO::PARAM_STR);
+            $query->bindValue(':area_in_acres', $userInputs['area'], PDO::PARAM_STR);
+            $query->bindValue(':description', $userInputs['description'], PDO::PARAM_STR);
+            $query->execute();
+
+            // Clear form fields when submit is successful
+            $saveValues = [
+                'name'        => '',
+                'location'    => '',
+                'date'        => '',
+                'area'        => '',
+                'description' => ''
+            ];
+
         }
 
     }
@@ -167,34 +190,34 @@
             <form method="POST" action="#add">
                 <div class="inputs">
                     <!-- <label for="name">Name</label> -->
-                    <input type="text" name="name" id="name" placeholder="Name">
+                    <input type="text" name="name" id="name" placeholder="Name" value="<?php echo $saveValues['name']; ?>">
                     <span class="error">* <?php if(array_key_exists('name', $errors)) { echo $errors['name']; } ?></span>
                     
 
                     <!-- <label for="location">Location</label> -->
-                    <input type="text" name="location" id="location" placeholder="Location">
+                    <input type="text" name="location" id="location" placeholder="Location" value="<?php echo $saveValues['location']; ?>">
                     <span class="error">* <?php if(array_key_exists('location', $errors)) { echo $errors['location']; } ?></span>
                     
 
                     <!-- <label for="date">Date Est.</label> -->
-                    <input type="text" name="date" id="date" placeholder="Date Established">
+                    <input type="text" name="date" id="date" placeholder="Date Established" value="<?php echo $saveValues['date']; ?>">
                     <span class="error">* <?php if(array_key_exists('date', $errors)) { echo $errors['date']; } ?></span>
                     
 
                     <!-- <label for="area">Area (in acres)</label> -->
-                    <input type="text" name="area" id="area" placeholder="Area (in acres)">
+                    <input type="text" name="area" id="area" placeholder="Area (in acres)" value="<?php echo $saveValues['area']; ?>">
                     <span class="error">* <?php if(array_key_exists('area', $errors)) { echo $errors['area']; } ?></span>
                     
                 </div>
                 
                 <div id="textarea">
                     <!-- <label for="description">Description</label> -->
-                    <textarea name="description" id="description" rows="10" cols="75" placeholder="Description"></textarea>
+                    <textarea name="description" id="description" rows="10" cols="75" placeholder="Description"><?php echo $saveValues['description']; ?></textarea>
                     <div class="error" id="descErr">* <?php if(array_key_exists('description', $errors)) { echo $errors['description']; } ?></div>
                 </div>
                 
                 <div id="submit">
-                    <input type="submit" value="Submit" class="submit">
+                    <input name="submit" type="submit" value="Submit" class="submit">
                 </div>
             </form>
         </section>
