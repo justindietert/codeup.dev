@@ -43,7 +43,7 @@
         'description' => ''
     ];
 
-    if(isset($_POST['submit'])) {
+    if(Input::get('submit')) {
         $saveValues = array_replace($saveValues, $_POST);
     }
 
