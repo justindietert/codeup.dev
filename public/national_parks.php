@@ -56,7 +56,7 @@
         }
 
         try {
-            $area = Input::getNumber('area');
+            $area = Input::notZero(Input::getNumber('area'));
         } catch (Exception $e) {
             $errors['area'] = $e->getMessage();
         }
@@ -67,11 +67,10 @@
             $errors['description'] = $e->getMessage();
         }
 
-        
         if (empty($errors)) {
 
-            $sql = "INSERT INTO national_parks (name, location, date_established, area_in_acres, description) 
-                         VALUES (:name, :location, :date_established, :area_in_acres, :description)";
+            $sql = "INSERT INTO national_parks (  name,  location,  date_established,  area_in_acres,  description  ) 
+                                        VALUES ( :name, :location, :date_established, :area_in_acres, :description  )";
 
             $query = $dbc->prepare($sql);
             $query->bindValue(':name', $name, PDO::PARAM_STR);
