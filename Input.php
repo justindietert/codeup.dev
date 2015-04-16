@@ -10,7 +10,7 @@ class Input
      */
     public static function has($key)
     {
-        return isset($_REQUEST[$key]);
+        return isset($_REQUEST[$key]) && !empty($_REQUEST[$key]) ? true : false;
     }
 
     /**
@@ -33,11 +33,11 @@ class Input
 
     public static function getString($key) 
     {
-        $string = self::get($key);
+        $string = trim(self::get($key));
 
-        if(!is_string($string)) {
+        if(!is_string($string) || empty($string)) {
 
-            throw new Exception('Input must be a string!'); 
+            throw new Exception('Input must be a string.'); 
         } 
 
         return $string;
@@ -45,11 +45,11 @@ class Input
 
     public static function getNumber($key)
     {
-        $number = self::get($key);
+        $number = trim(self::get($key));
 
         if(!is_numeric($number)) {
 
-            throw new Exception('Input must be a number!');
+            throw new Exception('Input must be a number.');
         }
 
         return floatval($number);
