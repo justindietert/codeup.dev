@@ -43,23 +43,11 @@
             $errors['name'] = $e->getMessage();
         }
 
-        // if (empty(trim(Input::get('location')))) {
-        //     $locationErr = "Location is required.";
-        // } else {
-        //     $location = Input::getString('location'); 
-        // }
-
         try {
             $location = Input::getString('location');
         } catch (Exception $e) {
             $errors['location'] = $e->getMessage();
         }
-
-        // if (empty(trim(Input::get('date')))) {
-        //     $dateErr = "Date is required.";
-        // } else {
-        //     $date_established = date('Y-m-d', strtotime(Input::getString('date')));
-        // }
 
         try {
             $date_established = date('Y-m-d', strtotime(Input::getString('date')));
@@ -67,23 +55,11 @@
             $errors['date'] = $e->getMessage();
         }
 
-        // if (empty(trim(Input::get('area')))) {
-        //     $errors['area'] = "Area required.";
-        // } else {
-        //     $area = Input::getNumber('area');
-        // }
-
         try {
             $area = Input::getNumber('area');
         } catch (Exception $e) {
             $errors['area'] = $e->getMessage();
         }
-
-        // if (empty(trim(Input::get('description')))) {
-        //     $descriptionErr = "Description is required.";
-        // } else {
-        //     $description = Input::getString('description');
-        // }
 
         try {
             $description = Input::getString('description');
