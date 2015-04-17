@@ -2,7 +2,7 @@
 
 class Input
 {
-    /**
+    /***********************************************************************************
      * Check if a given value was passed in the request
      *
      * @param string $key index to look for in request
@@ -13,7 +13,7 @@ class Input
         return isset($_REQUEST[$key]) ? true : false;
     }
 
-    /**
+    /***********************************************************************************
      * Get a requested value from either $_POST or $_GET
      *
      * @param string $key index to look for in index
@@ -25,13 +25,18 @@ class Input
         return self::has($key) ? $_REQUEST[$key] : $default;
     }
 
-    /* Strip any tags from user input and convert special characters to HTML entities */
+
+    /***********************************************************************************
+     * Strip any tags from user input and convert special characters to HTML entities
+     */
     public static function escape($input) 
     {
         return htmlentities(strip_tags($input));
     }
 
-    // Get string
+    /***********************************************************************************
+     * Get String
+     */
     public static function getString($key, $min = null, $max = null) 
     {
         $string = trim(self::get($key));
@@ -54,7 +59,9 @@ class Input
         return $string;
     }
 
-    // Get number
+    /***********************************************************************************
+     * Get Number
+     */
     public static function getNumber($key, $min = null, $max = null)
     {
         $number = trim(self::get($key));
@@ -67,7 +74,9 @@ class Input
         return floatval($number);
     }
 
-    // Check if zero
+    /***********************************************************************************
+     * Check for Zero
+     */
     public static function notZero($key)
     {
         if ($key == 0) {
@@ -78,7 +87,9 @@ class Input
         return $key;
     }
 
-    // Get date
+    /***********************************************************************************
+     * Get Date
+     */
     public static function getDate($key, $min = null, $max = null)
     {
         $userDate = trim(self::get($key));
@@ -90,7 +101,9 @@ class Input
         return $userDate;
     }
 
-    // Validate date
+    /***********************************************************************************
+     * Validate Date
+     */
     public static function validateDate($date, $format = 'Y-m-d')
     {   
         // Set $d to instance of DateTime class created from format and date passed in
