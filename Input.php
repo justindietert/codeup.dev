@@ -51,12 +51,12 @@ class Input
             throw new InvalidArgumentException('Input must be a string.'); 
         } 
 
-        if(!is_numeric($min)) {
+        if(!is_int($min) && !is_null($min)) {
 
             throw new InvalidArgumentException('$min must be a number.');
         }
 
-        if(!is_numeric($max)) {
+        if(!is_int($max) && !is_null($max)) {
 
             throw new InvalidArgumentException('$max must be a number.');
         }
@@ -125,7 +125,7 @@ class Input
         $d = DateTime::createFromFormat($format, $date);
 
         // returns true if $d is formatted correctly as inputted (it equals what was input by user)
-        // returns false if it is not able to be formatted into a usable date
+        // format() returns false if $d is not able to be formatted into a usable date, resulting in false overall
         return $d && $d->format($format) == $date;
     }
 
