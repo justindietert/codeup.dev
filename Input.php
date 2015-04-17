@@ -31,19 +31,31 @@ class Input
         return htmlentities(strip_tags($input));
     }
 
-    public static function getString($key) 
+    // Get string
+    public static function getString($key, $min = null, $max = null) 
     {
         $string = trim(self::get($key));
 
         if(!is_string($string) || empty($string)) {
 
-            throw new Exception('Input must be a string.'); 
+            throw new InvalidArgumentException('Input must be a string.'); 
         } 
+
+        if(!is_numeric($min)) {
+
+            throw new InvalidArgumentException('$min must be a number.');
+        }
+
+        if(!is_numeric($max)) {
+
+            throw new InvalidArgumentException('$max must be a number.');
+        }
 
         return $string;
     }
 
-    public static function getNumber($key)
+    // Get number
+    public static function getNumber($key, $min = null, $max = null)
     {
         $number = trim(self::get($key));
 
@@ -55,6 +67,7 @@ class Input
         return floatval($number);
     }
 
+    // Check if zero
     public static function notZero($key)
     {
         if ($key == 0) {
@@ -63,6 +76,25 @@ class Input
         }
 
         return $key;
+    }
+
+    // Get date
+    public static function getDate($key, $min = null, $max = null)
+    {
+        $userDate = trim(self::get($key));
+
+        if(self::validateDate($userDate, 'Y-m-d') == false) {
+            throw new Exception('Invalid date. Please format as: YYYY-MM-DD.');
+        }
+
+        return $userDate;
+    }
+
+    // Validate date
+    public static function validateDate($date, $format = 'Y-m-d')
+    {
+        $d = DateTime::createFromFormat($format, $date);
+        return $d && $d->format($format) == $date;
     }
 
     ///////////////////////////////////////////////////////////////////////////
