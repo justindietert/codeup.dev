@@ -50,19 +50,19 @@
     if (!empty($_POST)) {
 
         try {
-            $userInputs['name'] = Input::getString('name');
+            $userInputs['name'] = Input::getString('name', 1, 100);
         } catch (Exception $e) {
             $errors['name'] = $e->getMessage();
         }
 
         try {
-            $userInputs['location'] = Input::getString('location');
+            $userInputs['location'] = Input::getString('location', 1, 100);
         } catch (Exception $e) {
             $errors['location'] = $e->getMessage();
         }
 
         try {
-            $userInputs['date_established'] = date('Y-m-d', strtotime(Input::getString('date')));
+            $userInputs['date_established'] = Input::getDate('date');
         } catch (Exception $e) {
             $errors['date'] = $e->getMessage();
         }
@@ -74,7 +74,7 @@
         }
 
         try {
-            $userInputs['description'] = Input::getString('description');
+            $userInputs['description'] = Input::getString('description', 1, 400);
         } catch (Exception $e) {
             $errors['description'] = $e->getMessage();
         }
@@ -200,7 +200,7 @@
                     
 
                     <!-- <label for="date">Date Est.</label> -->
-                    <input type="text" name="date" id="date" placeholder="Date Established" value="<?php echo $saveValues['date']; ?>">
+                    <input type="text" name="date" id="date" placeholder="Date Est. (YYYY-MM-DD)" value="<?php echo $saveValues['date']; ?>">
                     <span class="error">* <?php if(array_key_exists('date', $errors)) { echo $errors['date']; } ?></span>
                     
 
@@ -227,7 +227,7 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script>
         $(document).ready(function(){
-            $("#date").datepicker();
+            $("#date").datepicker({ dateFormat: 'yy-mm-dd' });
         });
     </script>
 </body>
