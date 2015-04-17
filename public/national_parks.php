@@ -50,13 +50,13 @@
     if (!empty($_POST)) {
 
         try {
-            $userInputs['name'] = Input::getString('name', 1, 100);
+            $userInputs['name'] = Input::getString('name', 2, 100);
         } catch (Exception $e) {
             $errors['name'] = $e->getMessage();
         }
 
         try {
-            $userInputs['location'] = Input::getString('location', 1, 100);
+            $userInputs['location'] = Input::getString('location', 2, 100);
         } catch (Exception $e) {
             $errors['location'] = $e->getMessage();
         }
@@ -74,7 +74,7 @@
         }
 
         try {
-            $userInputs['description'] = Input::getString('description', 1, 400);
+            $userInputs['description'] = Input::getString('description', 50, 400);
         } catch (Exception $e) {
             $errors['description'] = $e->getMessage();
         }
