@@ -92,8 +92,12 @@ class Input
 
     // Validate date
     public static function validateDate($date, $format = 'Y-m-d')
-    {
+    {   
+        // Set $d to instance of DateTime class created from format and date passed in
         $d = DateTime::createFromFormat($format, $date);
+
+        // returns true if $d is formatted correctly as inputted (it equals what was input by user)
+        // returns false if it is not able to be formatted into a usable date
         return $d && $d->format($format) == $date;
     }
 
