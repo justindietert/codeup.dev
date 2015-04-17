@@ -41,7 +41,12 @@ class Input
     {
         $string = trim(self::get($key));
 
-        if(!is_string($string) || empty($string)) {
+        if (empty($string)) {
+
+            throw new OutOfRangeException('Input cannot be empty.');
+        }
+
+        if(!is_string($string)) {
 
             throw new InvalidArgumentException('Input must be a string.'); 
         } 
@@ -66,9 +71,14 @@ class Input
     {
         $number = trim(self::get($key));
 
+        if (empty($number)) {
+
+            throw new OutOfRangeException('Input cannot be empty.');
+        }
+
         if(!is_numeric($number)) {
 
-            throw new Exception('Input must be a number.');
+            throw new InvalidArgumentException('Input must be a number.');
         }
 
         return floatval($number);
@@ -94,8 +104,13 @@ class Input
     {
         $userDate = trim(self::get($key));
 
+        if (empty($userDate)) {
+
+            throw new OutOfRangeException('Input cannot be empty.');
+        }
+
         if(self::validateDate($userDate, 'Y-m-d') == false) {
-            throw new Exception('Invalid date. Please format as: YYYY-MM-DD.');
+            throw new InvalidArgumentException('Invalid date. Please format as: YYYY-MM-DD.');
         }
 
         return $userDate;
